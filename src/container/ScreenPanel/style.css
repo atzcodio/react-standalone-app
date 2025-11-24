@@ -1,0 +1,35 @@
+/* html {
+    overflow: hidden;
+} */
+.screen_panel {
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+}
+.panel_grid {
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px), /* Vertical grid lines */
+    linear-gradient(0deg, rgba(0,0,0,.05) 1px, transparent 1px),  /* Horizontal grid lines */
+    linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px), /* Vertical grid lines (stronger) */
+    linear-gradient(0deg, rgba(0,0,0,.1) 1px, transparent 1px),  /* Horizontal grid lines (stronger) */
+    #f2f2f2;  /* Background color for empty spaces */
+    
+    background-size:
+    calc(100% / 24) 10px, /* Grid columns - 24 equal columns */
+    100% 10px, /* Grid rows with 10px height */
+    calc(100% / 24) 10px, /* Stronger vertical grid lines */
+    100% 10px; /* Stronger horizontal grid lines */
+    background-position: top left, top left, top left, top left;
+}
+
+.ant-empty-image{
+    height: 2rem !important;
+    margin-bottom: 0 !important;
+}
+.ant-empty-description .ant-typography{
+    font-size: 0.75rem ;
+    color: #e1e1e1 !important;
+}
+
+/* .list > .react-draggable {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+} */

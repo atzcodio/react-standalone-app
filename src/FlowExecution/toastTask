@@ -1,0 +1,10 @@
+import toast from "react-hot-toast";
+
+const toastTask = async(apiData) => {
+  const { message, type } = apiData;
+  const notify = () => toast(message);
+  toast[type](message);
+  return 1;
+}
+
+export default toastTask;

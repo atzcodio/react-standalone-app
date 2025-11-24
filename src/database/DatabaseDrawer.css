@@ -1,0 +1,191 @@
+/* Enhanced Database Drawer Styles */
+
+.database-drawer .ant-drawer-body {
+  padding: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.database-drawer .ant-drawer-header {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Enhanced Menu Styling */
+.database-menu .ant-menu-item {
+  padding: 12px 16px !important;
+  margin: 4px 8px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  height: auto !important;
+  line-height: 1.4 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: transparent !important;
+}
+
+.database-menu .ant-menu-item:hover {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.database-menu .ant-menu-item-selected {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
+  color: #1e40af !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.15) !important;
+}
+
+.database-menu .ant-menu-item-selected::after {
+  display: none !important;
+}
+
+/* Form Input Enhancements */
+.database-drawer .ant-input:focus,
+.database-drawer .ant-select-focused .ant-select-selector {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+.database-drawer .ant-select-dropdown {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.database-drawer .ant-select-item {
+  border-radius: 6px !important;
+  margin: 2px 4px !important;
+}
+
+.database-drawer .ant-select-item-option-selected {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
+  font-weight: 500 !important;
+}
+
+/* Button Enhancements */
+.database-drawer .ant-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.database-drawer .ant-btn:hover {
+  transform: translateY(-1px) !important;
+}
+
+.database-drawer .ant-btn-primary {
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
+}
+
+.database-drawer .ant-btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Card Enhancements */
+.database-drawer .ant-card {
+  transition: all 0.2s ease !important;
+}
+
+.database-drawer .ant-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.database-drawer .ant-card-head {
+  border-bottom: 1px solid #f1f5f9 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%) !important;
+}
+
+/* Alert Enhancements */
+.database-drawer .ant-alert {
+  border: none !important;
+}
+
+.database-drawer .ant-alert-success {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+  border: 1px solid #bbf7d0 !important;
+}
+
+.database-drawer .ant-alert-error {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) !important;
+  border: 1px solid #fecaca !important;
+}
+
+/* Tag Enhancements */
+.database-drawer .ant-tag {
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Scrollbar Styling */
+.database-drawer .ant-layout-sider .ant-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.database-drawer .ant-layout-sider .ant-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.database-drawer .ant-layout-sider .ant-menu::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 2px;
+}
+
+.database-drawer .ant-layout-sider .ant-menu::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Loading States */
+.database-drawer .ant-spin-dot-item {
+  background-color: #3b82f6 !important;
+}
+
+/* Popconfirm Styling */
+.database-drawer .ant-popconfirm .ant-popconfirm-buttons .ant-btn {
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  height: 32px !important;
+}
+
+/* Form Styling */
+.database-drawer .ant-form-item-label > label {
+  font-weight: 500 !important;
+  color: #374151 !important;
+}
+
+.database-drawer .ant-form-item {
+  margin-bottom: 18px !important;
+}
+
+/* Enhanced hover effects for menu items */
+@keyframes slideIn {
+  from {
+    transform: translateX(-4px);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.database-menu .ant-menu-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive improvements */
+@media (max-width: 1200px) {
+  .database-drawer .ant-layout-sider {
+    width: 30% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .database-drawer .ant-layout-sider {
+    width: 100% !important;
+    position: relative !important;
+  }
+  
+  .database-drawer .ant-layout-content {
+    width: 100% !important;
+    margin-top: 16px;
+  }
+}

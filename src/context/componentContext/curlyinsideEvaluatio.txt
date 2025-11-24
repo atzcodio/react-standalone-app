@@ -1,0 +1,431 @@
+import { DragEndEvent } from "@dnd-kit/core";
+import React, { createContext, useContext, useState ,useEffect} from "react";
+import {getComponentDefaultProps} from './../../allComponents';
+import { throttle } from "lodash";
+import _ from 'lodash';
+
+//evaluation will start only inside {{}}
+// import moment from 'moment';
+
+
+import * as Y from "yjs";
+import { WebsocketProvider } from "y-websocket";
+import { KeyboardReturn } from "@mui/icons-material";
+const doc = new Y.Doc();
+const provider = new WebsocketProvider("wss://demos.yjs.dev", "collab-example", doc);
+const yScreens = doc.getArray<Screen>("screens"); 
+
+
+interface Component {
+  id: string;
+  type: string;
+  properties: any;
+  position?: { x: number; y: number };
+  size?: { width: number | string; height: number | string };
+  output?: string; // Add output property for formula evaluation
+  _name:string;
+}
+
+interface ProviderProps {
+  children: React.ReactNode;
+}
+
+interface Screen {
+  id: string;
+  body: Component[];
+}
+
+interface Context {
+  screens: Screen[];
+  selectedScreenIndex: number;
+  onDragEnd: (event: DragEndEvent) => void;
+  selectedComponent?: Component;
+  setSelectedComponent: (selected: Component) => void;
+  addComponent: (component: Component) => void;
+  deleteComponent: () => void;
+  updateProperties: (id: string, field: string, value: any) => void;
+  addScreen: () => void;
+  selectScreen: (index: number) => void;
+  updateComponent: (component: Component) => void;
+  evaluateFormula: (formula: string) => string; // Method to evaluate formulas
+  initScreens: (screens: Screen[]) => void; // Method to initialize screens
+  getComponentSuggestions: () => string[]; // Method to get component suggestions based on component types and properties
+}
+
+const Context = createContext<Context | null>(null);
+
+export const ComponentProvider = ({ children }: ProviderProps) => {
+  let isLocalUpdate = true;
+  const [screens, setScreens] = useState<Screen[]>([
+    { id: 'screen-1', body: [] }, // Initial screen
+  ]);
+  const initScreens = (screens: Screen[]) => {
+    isLocalUpdate = true;
+    setScreens(screens);
+  };
+  const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
+  const [selectedComponent, setSelectedComponent] = useState<Component | undefined>();
+
+  
+
+useEffect(() => {
+  const updateLocalScreens = throttle(() => {
+    if (isLocalUpdate) {
+      isLocalUpdate = false; // Reset the guard for local updates
+    } else {
+      const sharedScreens = yScreens.toArray();
+      if (sharedScreens && sharedScreens.length > 0) {
+        setScreens(prev => {
+          const isEqual = JSON.stringify(prev) === JSON.stringify(sharedScreens);
+          if (!isEqual) {
+            return sharedScreens;
+          }
+          return prev; // No changes
+        });
+
+        setSelectedScreenIndex(index =>
+          index < sharedScreens.length ? index : 0
+        );
+      }
+    }
+  }, 100); // Throttle to 100ms
+
+  //yScreens.observe(updateLocalScreens);
+  //updateLocalScreens();
+
+  // return () => {
+  //   yScreens.unobserve(updateLocalScreens);
+  //   updateLocalScreens.cancel(); // Clean up throttle
+  // };
+}, []);
+
+
+
+  const onDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    console.log("in drag end",screens);
+    if (over) {
+      const overRect = over.rect;
+      const activeTranslated = active.rect.current.translated || { left: 0, top: 0 };
+
+      const position = {
+        x: activeTranslated.left - overRect.left,
+        y: activeTranslated.top - overRect.top,
+      };
+
+      let cmp = active.data.current as Component; 
+
+      // SET ALL DEFAULT PROPERTIES TO properties key in component
+      let defaultProps = getComponentDefaultProps(cmp.type);
+      delete defaultProps["type"];
+
+      let width = defaultProps.width || "auto";
+      let height = defaultProps.height || "auto";
+
+      cmp._name = generateUniqueName(cmp.type); // Assigning unique name to the component
+      cmp = { ...cmp, position, size: { width: width, height: height }, properties: {
+        ...cmp.properties,
+        ...defaultProps,
+        _name: cmp._name // Assigning type as the name
+        } 
+      };
+
+      console.log("in drag end", cmp);
+
+      setScreens(prev => {
+        const updatedScreens = [...prev];
+        updatedScreens[selectedScreenIndex].body.push(cmp);
+
+        isLocalUpdate = true;
+        yScreens.delete(0, yScreens.length); // Clear and sync with updated screens
+        yScreens.push(updatedScreens);
+        isLocalUpdate =false;
+        return updatedScreens;
+      });
+
+     
+    }
+  };
+
+  const generateUniqueName = (type: string) => {
+    let name = type.toLowerCase();
+    const screen = screens[selectedScreenIndex];
+    let count = 0;
+    screens.forEach(screen => {
+        screen.body.forEach(cmp => {
+          if (cmp.type === type) {
+            count++;
+          }
+      });
+    })
+
+    if(count > 0) {
+      name = name + count;
+    }
+    return name;
+  }
+
+  const addComponent = (component: Component) => {
+    console.log("in addComponent", component);
+
+    setScreens(prev => {
+      const updatedScreens = [...prev];
+      updatedScreens[selectedScreenIndex].body.push(component);
+
+      isLocalUpdate = true;
+      yScreens.delete(0, yScreens.length); // Sync changes
+      yScreens.push(updatedScreens);
+
+      return updatedScreens;
+    });
+  };
+
+  const deleteComponent = () => {
+    if (selectedComponent) {
+      setScreens(prev => {
+        const updatedScreens = [...prev];
+        const updatedBody = updatedScreens[selectedScreenIndex].body.filter(
+          component => component.id !== selectedComponent.id
+        );
+        updatedScreens[selectedScreenIndex].body = updatedBody;
+
+        isLocalUpdate = true;
+        yScreens.delete(0, yScreens.length);
+        yScreens.push(updatedScreens);
+
+        return updatedScreens;
+      });
+      setSelectedComponent(undefined);
+    }
+  };
+
+  const updateComponent = (updatedComponent: Component) => {
+    console.log("componentContext",updatedComponent);
+    setScreens(prev => {
+      const updatedScreens = [...prev];
+      const currentScreen = updatedScreens[selectedScreenIndex];
+      const updatedBody = currentScreen.body.map(component => 
+        component.id === updatedComponent.id ? updatedComponent : component
+      );
+      currentScreen.body = updatedBody;
+
+      isLocalUpdate = true;
+      yScreens.delete(0, yScreens.length);
+      yScreens.push(updatedScreens);
+      isLocalUpdate =false;
+
+      return updatedScreens;
+    });
+  };
+
+  const updateProperties = (id: string, field: string, value: any) => {
+    setScreens(prev => {
+      const updatedScreens = [...prev];
+      const updatedBody = updatedScreens[selectedScreenIndex].body.map(component => {
+        if (component.id === id) {
+          const updatedComponent = {
+            ...component,
+            properties: {
+              ...component.properties,
+              [field]: value,
+            },
+          };
+          updateComponentOutput(updatedComponent); // Update output when properties change
+          return updatedComponent;
+        }
+        return component;
+      });
+      updatedScreens[selectedScreenIndex].body = updatedBody;
+
+      isLocalUpdate = true;
+      yScreens.delete(0, yScreens.length);
+      yScreens.push(updatedScreens);
+
+      return updatedScreens;
+    });
+  };
+
+  const updateComponentOutput = (component: Component) => {
+    // Define how to generate output based on properties
+    let output = '';
+    output = component.properties.value || '';
+    // if (component.type === 'Input') {
+    //   output = component.properties.value || ''; // Example output based on properties
+    // }
+    // Add more logic for different component types
+    updateComponent({ ...component, ...{output:output} });
+  };
+
+  const getComponentSuggestions = () => {
+    // TODO: Implement suggestions based on component types and properties
+    let suggestions:string [] = [];
+    screens.forEach(screen => {
+      screen.body.forEach(cmp => {
+        let name = cmp.properties._name
+        Object.keys(cmp.properties).forEach(prop => {
+          if(prop !== '_name') {
+            suggestions.push(name + '.' + prop);
+          }
+        })
+      })
+    })
+    return suggestions;
+  }
+
+  const evaluateFormula = (formula = '') => {
+    console.log("formula===",formula);
+
+    // Check if screens and selectedScreenIndex are defined and valid
+    if (!screens || !screens[selectedScreenIndex]) {
+      console.error('Invalid screen or selected screen index');
+      return formula; // Return original formula if no valid screen found
+    }
+  
+    // Function to get the exact component value, keeping its type intact
+    const getComponentValue = (pathOrExpression: string) => {
+      const screen = screens[selectedScreenIndex];
+      // const parts = path.split('.'); // Split path like "input.text" into ['input', 'text']
+      // const pathJoined =parts.join('.')
+      const componentName = pathOrExpression.split(/[\.\[]/)[0]; // Extract the first part before dot or bracket
+      const component = screen.body.find(c => c._name === componentName);
+      // const componentMap = screen.body.map(comp=>{
+      //   var obj={}
+      //   obj[comp._name]=comp.properties
+      //   return 
+      // }
+      // )
+      console.log("component==",component);
+      
+      if (pathOrExpression.includes('(') && pathOrExpression.includes(')')) {
+        // If it looks like a function call, evaluate it directly
+        const funcResult = new Function(`return ${pathOrExpression}`)();
+        console.log("funcResult",funcResult);
+        return typeof funcResult === 'object' && funcResult !== null
+          ? JSON.stringify(funcResult)
+          : funcResult;
+      } 
+  
+      if (component) {
+        // Clean up the path into an array of keys, supporting dot and bracket notation....path.match(/([^[\].]+)|\["([^"]+)"\]/g) this parts matches the string written with
+        //within dot and content inside bracket with the bracket part,secont part is removing the pracket parts
+        const parts = pathOrExpression.match(/([^[\].]+)|\["([^"]+)"\]/g)?.map(p => p.replace(/\["|"\]/g, "")) || [];
+
+        // Traverse nested properties based on the parts of the path
+        let value = component.properties;
+        // console.log("parts====",value[parts[1]].includes("["));
+        for (let i = 1; i < parts.length; i++) {
+
+           if (value[parts[i]] !== undefined) {
+            value = value[parts[i]]; // Traverse deeper
+          }
+          
+          else {
+            return null; // Return null if the path doesn't exist
+          }
+        }
+        return value; // Return the resolved value
+      }
+  
+      // Return null if the component isn't found
+      return null;
+    };
+  
+     // Regex to find all {{...}} placeholders and replace them with values or evaluate expressions
+  const replacedFormula = formula.replace(/{{([^}]+)}}/g, (match, p1) => {
+    const pathOrExpression = p1.trim();
+
+    console.log("p1",p1);
+    // Try to evaluate it as a function or variable
+    try {
+      // else {
+        // Otherwise, treat it as a path to a component value
+        let value = getComponentValue(pathOrExpression);
+
+        // Handle string and object values appropriately
+        if (typeof value === 'string') {
+          value = `"${value}"`; // Wrap string values in quotes for JS evaluation
+        } else if (typeof value === 'object' && value !== null) {
+          value = JSON.stringify(value);
+        }
+
+        return value !== null ? value : match; // Replace with value or return the placeholder
+      // }
+    } catch (e) {
+      console.error(`Error evaluating placeholder: ${p1}`, e);
+      return match; // Return the placeholder unchanged in case of error
+    }
+    
+  });
+
+    // Now normalize spacing around logical and comparison operators
+    let formattedFormula = replacedFormula
+      .replace(/\s*&&\s*/g, ' && ')   // Normalize spacing around `&&`
+      .replace(/\s*\|\|\s*/g, ' || ')  // Normalize spacing around `||`
+      .replace(/\s*(==|!=|>=|<=|>|<)\s*/g, ' $1 ')  // Normalize comparison operators
+      .replace(/\s*\+\s*/g, ' + ')    // Normalize spacing around `+` operator
+      .replace(/\s+/g, ' ');  // Remove extra spaces (e.g., multiple spaces between operands)
+  
+      // console.log("formattedFormula",formattedFormula)
+
+      return formattedFormula;
+
+    // Now evaluate the formula as a JavaScript expression
+    // try {
+
+    //   console.log("formattedFormula",formattedFormula)
+
+    //   // Use the Function constructor to evaluate the formula dynamically (executes as JS code)
+    //   return new Function('return ' + formattedFormula)(); // JavaScript evaluates the formula as it would natively
+    // } catch (e) {
+    //   console.error('Error evaluating formula:', e);
+    //   return replacedFormula;  // Return the formula as is in case of error
+    // }
+  };
+  
+  const addScreen = () => {
+    const newScreenId = `screen-${screens.length + 1}`;
+    setScreens([...screens, { id: newScreenId, body: [] }]);
+
+
+    // yScreens.delete(0, yScreens.length);
+    // yScreens.push(screens);
+
+    setSelectedScreenIndex(screens.length);
+  };
+
+  const selectScreen = (index: number) => {
+    setSelectedScreenIndex(index);
+  };
+
+  const value = {
+    screens,
+    setScreens,
+    initScreens,
+    selectedScreenIndex,
+    selectedComponent,
+    updateComponent,
+    onDragEnd,
+    setSelectedComponent,
+    addComponent,
+    deleteComponent,
+    updateProperties,
+    addScreen,
+    selectScreen,
+    evaluateFormula, // Add evaluateFormula to the context
+    getComponentSuggestions
+
+    
+  };
+
+  return <Context.Provider value={value}>{children}</Context.Provider>;
+};
+
+export const useComponentContext = () => {
+  const context = useContext(Context);
+  if (context) {
+    return context;
+  } else {
+    throw new Error("Context not supported");
+  }
+};

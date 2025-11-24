@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#root {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#root > div {
+    position: absolute;
+    width: 100%;
+    /* left: calc(calc(100% - 400px) / 2); */
+    height: 100%;
+}
+
+#componets {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100vh - 80px - 1rem);
+    overflow-y: auto;
+}
+.component {
+    background-color: white;
+    border: 1px solid #e2e2e2e2;
+    height: 85px;
+    width: calc(50% - 8px);
+    font-size: 10px;
+    margin: 4px;
+    border-radius: 5px;
+    color: #70788a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+.component.w-full {
+    width: 100%;
+}
+
+.grid-item {
+    font-size: 10px;
+    padding: 23px 12px;
+    color: #878e95;
+    border: 1px solid #e1e1e1;
+    border-right: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.grid-list-item {
+    font-size: 12px;
+    padding: 10px;
+    /* border-top: 1px solid #e1e1e1; */
+    /* border-radius: 2px; */
+    border-bottom: 1px solid #e1e1e1;
+    font-weight: 500;
+}
+.grid-list-item.screen-grid-item {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-list-item.selected {
+    background-color: #dde1e4;
+}
+.grid-item:not(:first-of-type) {
+    border-top:none;
+}
+
+.base-component {
+    height: 100%;
+}
+
+.left-side-panel {
+    position: relative;
+}
+.outer-drawer .ant-drawer-body {
+    padding: 0;
+}
+
+button.ant-btn.ant-btn-primary.ant-btn-color-primary.ant-btn-variant-solid {
+    background-color:#1677ff;
+}
+
+/* Enhanced Resize Handles */
+.react-resizable-handle {
+    position: absolute;
+    background-color: #4096ff;
+    border: 1px solid #1677ff;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.react-resizable-handle:hover {
+    opacity: 1;
+    background-color: #1677ff;
+    border-color: #0958d9;
+}
+
+/* Corner handles */
+.react-resizable-handle-se {
+    bottom: -3px;
+    right: -3px;
+    width: 8px;
+    height: 8px;
+    cursor: se-resize;
+    border-radius: 0 0 4px 0;
+}
+
+.react-resizable-handle-sw {
+    bottom: -3px;
+    left: -3px;
+    width: 8px;
+    height: 8px;
+    cursor: sw-resize;
+    border-radius: 0 0 0 4px;
+}
+
+.react-resizable-handle-ne {
+    top: -3px;
+    right: -3px;
+    width: 8px;
+    height: 8px;
+    cursor: ne-resize;
+    border-radius: 0 4px 0 0;
+}
+
+.react-resizable-handle-nw {
+    top: -3px;
+    left: -3px;
+    width: 8px;
+    height: 8px;
+    cursor: nw-resize;
+    border-radius: 4px 0 0 0;
+}
+
+/* Edge handles */
+.react-resizable-handle-n {
+    top: -3px;
+    left: 50%;
+    width: 20px;
+    height: 6px;
+    margin-left: -10px;
+    cursor: n-resize;
+    border-radius: 3px 3px 0 0;
+}
+
+.react-resizable-handle-s {
+    bottom: -3px;
+    left: 50%;
+    width: 20px;
+    height: 6px;
+    margin-left: -10px;
+    cursor: s-resize;
+    border-radius: 0 0 3px 3px;
+}
+
+.react-resizable-handle-e {
+    right: -3px;
+    top: 50%;
+    width: 6px;
+    height: 20px;
+    margin-top: -10px;
+    cursor: e-resize;
+    border-radius: 0 3px 3px 0;
+}
+
+.react-resizable-handle-w {
+    left: -3px;
+    top: 50%;
+    width: 6px;
+    height: 20px;
+    margin-top: -10px;
+    cursor: w-resize;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Selected component enhancement */
+.selected-component {
+    position: relative;
+}
+
+.selected-component::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 1px solid #4096ff;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Active resize state */
+.resizing .react-resizable-handle {
+    opacity: 1;
+    background-color: #1677ff;
+    box-shadow: 0 2px 8px rgba(22, 119, 255, 0.3);
+}
