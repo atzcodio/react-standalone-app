@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LowCode Rendering Test (JSX)</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./dist/button.umd.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        #root {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, createContext, useContext } = React;
+        const { createRoot } = ReactDOM;
+
+        // 1. Define ElementTypes (Mocking external definition)
+        const ElementTypes = {
+            GROUP: (name) => ({ type: "group", name }),
+            TEXT: (defaultValue) => ({ type: "text", defaultValue }),
+            COLOR: (defaultValue) => ({ type: "color", defaultValue }),
+            SELECT: (options, defaultValue) => ({ type: "select", options, defaultValue }),
+            NUMBER: (defaultValue) => ({ type: "number", defaultValue }),
+            TEXTALIGNMENT: (defaultValue) => ({ type: "textAlignment", defaultValue }),
+            BORDERRADIUS: (defaultValue) => ({ type: "borderRadius", defaultValue }),
+            SPACING: (defaultValue) => ({ type: "spacing", defaultValue }),
+            CHANGETHEME: (defaultValue) => ({ type: "changeTheme", defaultValue }),
+            EVENTBUTTON: (eventType, config) => ({ type: "eventButton", eventType, config })
+        };
+
+        // 2. Mock LowcodeComponent Registry
+        const LowcodeComponent = {
+            components: {},
+            register: function (component, editProperties) {
+                console.log("Registering component:", component.name);
+                console.log("With Edit Properties:", editProperties);
+                this.components[component.name] = {
+                    component: component,
+                    editProperties: editProperties
+                };
+            }
+        };
+
+        // 3. Register Button Component
+        // ButtonComponent is the global variable exposed by the UMD build
+        const Button = ButtonComponent.Button;
+        const getEditProperties = ButtonComponent.getEditProperties;
+
+        LowcodeComponent.register(Button, getEditProperties(ElementTypes));
+
+        // Mock Context
+        const ComponentContext = createContext({
+            updateProperties: () => console.log('updateProperties called'),
+            onFxChange: () => console.log('onFxChange called')
+        });
+
+        const useComponentContext = () => useContext(ComponentContext);
+
+        // Component Map
+        const ComponentMap = {
+            // Adapter for Button to handle 'properties' prop
+            button: (props) => {
+                //const { properties, ...rest } = props;
+                return <Button {...props} />;
+            }
+        };
+
+        // RenderComponent Logic
+        const RenderComponent = ({ component, _mode, _parentScreen }) => {
+            const { updateProperties, onFxChange } = useComponentContext();
+            const ComponentToRender = ComponentMap[component.type] || ComponentMap.button;
+
+            return (
+                <ComponentToRender
+                    properties={component.properties || {}}
+                    id={component.id}
+                    grid={component.grid}
+                    _mode={_mode}
+                    _parentScreen={_parentScreen}
+                    updateProperties={updateProperties}
+                    meta={component.meta || {}}
+                    onFxChange={onFxChange}
+                />
+            );
+        };
+
+        // Mock Screen Data
+        const GRIDCOUNT = 24;
+        const screenData = {
+            id: 'screen1',
+            body: [
+                {
+                    id: 'btn1',
+                    type: 'button',
+                    grid: {
+                        desktop: { x: 2, y: 2, width: 4, height: 4 },
+                        mobile: { x: 1, y: 1, width: 10, height: 4 }
+                    },
+                    properties: {
+                        text: 'Button 1',
+                        background_color: '#1890ff',
+                        color: '#fff'
+                    }
+                },
+                {
+                    id: 'btn2',
+                    type: 'button',
+                    grid: {
+                        desktop: { x: 8, y: 2, width: 6, height: 4 },
+                        mobile: { x: 1, y: 6, width: 10, height: 4 }
+                    },
+                    properties: {
+                        text: 'Button 2 (Red)',
+                        background_color: '#ff4d4f',
+                        color: '#fff',
+                        border_radius: ['20px', '20px', '20px', '20px']
+                    }
+                },
+                {
+                    id: 'btn3',
+                    type: 'button',
+                    grid: {
+                        desktop: { x: 2, y: 8, width: 12, height: 4 },
+                        mobile: { x: 1, y: 11, width: 10, height: 4 }
+                    },
+                    properties: {
+                        text: 'Wide Button',
+                        background_color: '#52c41a',
+                        color: '#fff',
+                        fontSize: '18px'
+                    }
+                }
+            ]
+        };
+
+        // App Component
+        const App = () => {
+            const [interfaceView, setInterfaceView] = useState('desktop');
+            const defaultGrid = { grid: { desktop: {}, mobile: {} } };
+
+            return (
+                <ComponentContext.Provider value={{ updateProperties: () => { }, onFxChange: () => { } }}>
+                    {/* View Switcher */}
+                    <div style={{ position: 'fixed', top: 10, right: 10, zIndex: 1000, background: 'white', padding: 10, border: '1px solid #ccc' }}>
+                        <label>
+                            <input
+                                type="radio"
+                                name="view"
+                                checked={interfaceView === 'desktop'}
+                                onChange={() => setInterfaceView('desktop')}
+                            /> Desktop
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="view"
+                                checked={interfaceView === 'mobile'}
+                                onChange={() => setInterfaceView('mobile')}
+                            /> Mobile
+                        </label>
+                    </div>
+
+                    {/* Render Components */}
+                    {screenData.body.filter((component) => !component.parentId).map((component) => {
+                        let grid = { ...defaultGrid.grid, ...component.grid };
+                        let currentGridSP = interfaceView === "mobile" ? grid.mobile : grid.desktop;
+
+                        return (
+                            <div
+                                key={component.id}
+                                style={{
+                                    position: 'absolute',
+                                    left: (currentGridSP?.x || 0) * (100 / GRIDCOUNT) + '%',
+                                    top: ((currentGridSP?.y || 0) * 10) + 'px',
+                                    width: ((currentGridSP?.width || 1) * (100 / GRIDCOUNT)) + '%',
+                                    height: ((currentGridSP?.height || 10) * 10) + 'px',
+                                    border: '1px dashed #ccc',
+                                    boxSizing: 'border-box'
+                                }}
+                            >
+                                <RenderComponent
+                                    component={component}
+                                    _mode="preview"
+                                    _parentScreen={screenData}
+                                />
+                            </div>
+                        );
+                    })}
+                </ComponentContext.Provider>
+            );
+        };
+
+        createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+
+</html>

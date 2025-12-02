@@ -7,26 +7,30 @@ import ErrorBoundary from '../../components/ErrorBoundary';
 
 interface Props {
   component: Component;
-  _mode?: "preview" | "edit",
+  _mode?: "preview" | "edit";
   _parentScreen?: Screen;
-  updateProperties: (id: string, field: string, value: any) => void;
+  updateProperties?: (id: string, field: string, value: any) => void;
+  onFxChange?: (id: string, field: string, value: any) => void;
 }
 
-const RenderComponent = ({ component, _mode, _parentScreen }: Props) => {
-  const { updateProperties, onFxChange } = useComponentContext();
-  const ComponentToRender = ComponentMap[component.type] || null;
+const RenderComponent = ({ component, _mode, _parentScreen, updateProperties, onFxChange }: Props) => {
+  const ComponentToRender = ComponentMap[component.type];
+  if (!ComponentToRender) return null;
 
-  return <ComponentToRender
-    properties={component.properties || {}}
-    id={component.id}
-    grid={component.grid}
-    _mode={_mode}
-    _parentScreen={_parentScreen}
-    updateProperties={updateProperties}
-    meta={component.meta || {}}
-    onFxChange={onFxChange}
-  />;
+  return (
+    <ComponentToRender
+      properties={component.properties || {}}
+      id={component.id}
+      grid={component.grid}
+      _mode={_mode}
+      _parentScreen={_parentScreen}
+      updateProperties={updateProperties}
+      meta={component.meta || {}}
+      onFxChange={onFxChange}
+    />
+  );
 };
+
 
 // Safe wrapper that catches component render errors
 const SafeRenderComponent = ({ component, _mode, _parentScreen }: Props) => {

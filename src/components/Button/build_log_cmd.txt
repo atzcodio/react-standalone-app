@@ -1,0 +1,12 @@
+
+> @your-scope/button@1.0.0 build
+> vite build
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+[31merror during build:
+[31mMultiple entry points are not supported when output formats include "umd" or "iife".[31m
+    at resolveBuildOutputs (file:///D:/Projects/LowCodePackage/SingleComponent/Button/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:65801:17)
+    at build (file:///D:/Projects/LowCodePackage/SingleComponent/Button/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:65649:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async CAC.<anonymous> (file:///D:/Projects/LowCodePackage/SingleComponent/Button/node_modules/vite/dist/node/cli.js:829:5)[39m
