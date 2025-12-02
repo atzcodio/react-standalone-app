@@ -18,7 +18,10 @@ import _ from "lodash";
 import { BaseConfiguration } from "../../baseComponent";
 import { match } from "assert";
 import FxStatesManager from "../../FormulaManager";
+
 import { is } from "@react-spring/shared";
+
+import { ComponentContext } from './context';
 
 export interface Component {
   id: string;
@@ -180,7 +183,7 @@ interface Context {
   setHeaderNavState: (sidebarNav: HeaderNavProps) => void;
 }
 
-const Context = createContext<Context | null>(null);
+// const Context = createContext<Context | null>(null);
 
 const DEVICES = {
   DESKTOP: "desktop",
@@ -1681,17 +1684,11 @@ export const ComponentProvider = ({ children, initialData }: ProviderProps) => {
   };
 
   return (
-    <Context.Provider value={contextValue}>
+    <ComponentContext.Provider value={contextValue}>
       {children}
-    </Context.Provider>
+    </ComponentContext.Provider>
   );
 };
 
-export const useComponentContext = () => {
-  const context = useContext(Context);
-  if (context) {
-    return context;
-  } else {
-    throw new Error("Context not supported");
-  }
-};
+// Re-export useComponentContext from hooks.ts
+export { useComponentContext } from './hooks';
