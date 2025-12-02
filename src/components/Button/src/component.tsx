@@ -150,13 +150,12 @@ export function getButtonManifest(ElementTypes: any) {
 
 
 export function createComponent(api: any) {
-    const { ElementTypes, executeFlow, React } = api;
+    const { ElementTypes } = api;
 
-    const { useComponentContext, useNavigate } = api.getPlatformHooks();
+    const { useExecuteFlow } = api.getPlatformHooks();
 
     const ButtonComponent = (props: ButtonProps) => {
-        const navigate = useNavigate?.() || null;
-        const context = useComponentContext();
+        const executeFlow = useExecuteFlow();
 
         if (!props) {
             return null;
@@ -182,40 +181,10 @@ export function createComponent(api: any) {
 
         const loading = typeof rawLoading === "string" ? Number(rawLoading) : rawLoading;
 
-        const {
-            setSidebar,
-            setPopup,
-            setHeader,
-            selectedSidebarId,
-            selectedPopupId,
-            selectedHeaderId,
-            screens,
-            setSelectedScreenIndex,
-            selectedScreenIndex,
-            initandOpenSidebar,
-            initandOpenPopup,
-            initandOpenHeader
-        } = context;
-
         const executeLogic = (event: any) => {
             console.log("Button Clicked for custom flow event", event);
             if (_mode === "preview" && executeFlow && properties.event && properties.event.nodes) {
-                let options = {
-                    setSidebar,
-                    setPopup,
-                    setHeader,
-                    screens,
-                    selectedSidebarId,
-                    selectedPopupId,
-                    selectedHeaderId,
-                    setSelectedScreenIndex,
-                    selectedScreenIndex,
-                    initandOpenSidebar,
-                    initandOpenPopup,
-                    initandOpenHeader,
-                    navigate
-                };
-                executeFlow(properties.event.nodes, properties.event.nodes[0].id, options);
+                executeFlow(properties.event.nodes, properties.event.nodes[0].id);
             }
         };
 

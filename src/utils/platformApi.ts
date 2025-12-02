@@ -22,10 +22,27 @@ export const platformApi = {
     getPlatformHooks: () => {
         //Import hooks dynamically to avoid circular dependency issues
         const { useComponentContext } = require('../context/componentContext/hooks');
+        const executeFlow = require('../FlowExecution').default;
+
+        const useExecuteFlow = () => {
+            const context = useComponentContext();
+            const navigate = useNavigate();
+
+            return (nodes: any[], nodeId?: string, extraOptions?: any) => {
+                const options = {
+                    ...context,
+                    navigate,
+                    ...extraOptions
+                };
+                return executeFlow(nodes, nodeId, options);
+            };
+        };
+
         return {
             useComponentContext,
             useNavigate,
-            useLocation
+            useLocation,
+            useExecuteFlow
         };
     }
     // Add other platform utilities as needed
