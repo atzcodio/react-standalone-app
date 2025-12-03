@@ -1,10 +1,52 @@
-// Import Button DI module
-import * as ButtonModule from "./components/Button/src/index";
+// src/allComponents.tsx
 import { BaseConfiguration } from "./baseComponent";
+import { LowcodePlatform } from "./utils/lowcodePlatform";
 import { platformApi } from "./utils/platformApi";
 
-// Import ProductInfo DI module
+// Import component modules (dev mode)
+import * as ButtonModule from "./components/Button/src/index";
 import * as ProductInfoModule from "./components/ProductInfo/src/index";
+
+/* -----------------------------------------------------------------
+   Global component registry used throughout the app.
+   LowcodePlatform will populate this object when components are
+   registered (both in dev and in production).
+----------------------------------------------------------------- */
+export const All: any = {};
+export const ComponentMap: { [key: string]: React.ComponentType<any> } = All;
+
+// -----------------------------------------------------------------
+// Register components (dev mode). In production you will call
+// LowcodePlatform.loadAndRegister(...) after the bundles are loaded.
+// -----------------------------------------------------------------
+LowcodePlatform.registerComponent("Button", ButtonModule);
+// LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
+
+/* -----------------------------------------------------------------
+   Helper functions that read metadata from the `All` map.
+----------------------------------------------------------------- */
+export function getPropsList(componentName: keyof Props): string[] | undefined {
+  const component = All[componentName];
+  return component?.PropsList;
+}
+
+export function getComponentDefaultProps(cmpType: keyof Props): any {
+  const component = All[cmpType];
+  console.log("component?.defaultProps", component);
+  return component?.defaultProps;
+}
+
+export function getDefaultConfiguration(cmpType: keyof Props): any {
+  const component = All[cmpType];
+  console.log("component allComp", component?.Configuration);
+  return component?.Configuration || BaseConfiguration;
+}
+
+console.log('📦 Available components:', Object.keys(ComponentMap));
+
+
+
+
 
 /* COMPONENTS REGISTRATION STEPS */
 
@@ -62,40 +104,3 @@ function initializeDIComponent(
   }
 }
 
-// Initialize all DI components
-const ProductInfoComponent = initializeDIComponent(ProductInfoModule, 'ProductInfo');
-const ButtonComponentDI = initializeDIComponent(ButtonModule, 'Button');
-
-// Component map
-const cmpMap: { [key: string]: React.ComponentType<any> } = {};
-
-// Add components to map if successfully initialized
-if (ButtonComponentDI) {
-  cmpMap.Button = ButtonComponentDI;
-}
-
-if (ProductInfoComponent) {
-  cmpMap.ProductInfo = ProductInfoComponent;
-}
-
-export const All: any = cmpMap;
-export const ComponentMap: { [key: string]: React.ComponentType<any> } = cmpMap;
-
-export function getPropsList(componentName: keyof Props): string[] | undefined {
-  const component = All[componentName];
-  return component?.PropsList;
-}
-
-export function getComponentDefaultProps(cmpType: keyof Props): any {
-  const component = All[cmpType];
-  console.log("component?.defaultProps", component);
-  return component?.defaultProps;
-}
-
-export function getDefaultConfiguration(cmpType: keyof Props): any {
-  const component = All[cmpType];
-  console.log("component allComp", component?.Configuration);
-  return component?.Configuration || BaseConfiguration;
-}
-
-console.log('📦 Available components:', Object.keys(ComponentMap));

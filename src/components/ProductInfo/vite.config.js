@@ -3,7 +3,11 @@ const path = require('path');
 const { defineConfig } = require('vite');
 
 module.exports = defineConfig({
-    plugins: [react()],
+    plugins: [
+        react({
+            jsxRuntime: 'automatic', // <-- this is important
+        })
+    ],
     define: {
         'process.env.NODE_ENV': '"production"'
     },
