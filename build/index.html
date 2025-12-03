@@ -10,24 +10,30 @@
     <link rel="apple-touch-icon" href="./logo192.png" />
     <link rel="manifest" href="./manifest.json" />
     <title>React App</title>
-    <script type="module" src="/static/js/components/button.es.js"></script>
-    <script type="module" src="/static/js/components/productinfo.es.js"></script>
-    <script defer="defer" src="./static/js/main.2f42f8dd.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+            "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/+esm",
+            "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/+esm"
+            }
+        }
+    </script>
     <script>
         window.addEventListener("lowcode-platform-ready", () => {
-            console.log("Lowcode platform ready");
-            window.LowcodePlatform.loadMany({
-                ProductInfo: "/static/js/components/productinfo.es.js"
-            });
+            console.log("Lowcode platform ready",window.ButtonCmp,window.ProductCmp);
         });
     </script>
+    <script defer="defer" src="./static/js/main.2f42f8dd.js"></script>
     <link href="./static/css/main.2ae5f329.css" rel="stylesheet">
 </head>
 
 <body>
     <script src="./moment.min.js"></script><noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-
+    <script type="module">
+        import * as ProductCmp from '/components/productinfo.es.js';
+        window.LowcodePlatform.registerComponent("ProductInfo", ProductCmp);
+    </script>
 </body>
 
-</html> 
+</html>

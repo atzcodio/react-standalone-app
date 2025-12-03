@@ -1,9 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path';
 
 export default defineConfig(({ mode: any }) => ({
-    plugins: [react()],
+    plugins: [react(),viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, 'src/components/testCmp.txt'),
+          dest: 'static/js/components',
+        },
+      ],
+    })],
     resolve: {
         alias: {
             // optional: make imports of component bundles resolve to the public folder in prod
