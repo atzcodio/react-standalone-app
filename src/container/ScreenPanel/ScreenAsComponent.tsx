@@ -8,7 +8,7 @@ import { AiOutlineHolder } from 'react-icons/ai';
 import { ElementTypes } from '../../elements_types';
 import { ChangeTrackerProvider } from '../../context/ChangeTracker/ChangeTrackerContext';
 import { useComponentContext, Query, Screen } from '../../context/componentContext';
-import appData from '../../appData';
+
 import ResizeIndicator from '../../components/ResizeIndicator';
 
 import { defaultProps, EditProperties, ScreenPanelProps } from './screenPanelProps';
@@ -17,8 +17,16 @@ import './style.css';
 import { Empty, Typography } from 'antd';
 import PreviewHeader from '../../Preview/PreviewHeader';
 
-const startJson = appData.screens as Screen[];
-const queriesData = appData.queries as Query[];
+import { IAppData } from '../../types';
+
+const getAppData = (props: any): IAppData  => {
+  if (props && props.appData) return props.appData;
+  if ((window as any).appData) return (window as any).appData;
+  return {};
+};
+
+const startJson = getAppData({}).screens || [];
+const queriesData = getAppData({}).queries || [];
 
 // Types for the component's props
 

@@ -5,7 +5,7 @@ import { useComponentContext, Query, Screen } from '../../context/componentConte
 import { ComponentMap, getDefaultConfiguration } from '../../allComponents';
 import { ChangeTrackerProvider } from '../../context/ChangeTracker/ChangeTrackerContext';
 import { SafeRenderComponent } from './renderComponent';
-import appData from '../../appData';
+const appData = (window as any).appData;
 import { AiOutlineHolder } from "react-icons/ai";
 import "./style.css"
 import ResizeIndicator from '../../components/ResizeIndicator';

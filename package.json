@@ -92,7 +92,7 @@
   "proxy": "http://localhost:3200",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node copyComponent.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "copy:components": "node copyComponent.js"
@@ -130,6 +130,7 @@
     "concurrently": "^9.2.1",
     "mark.js": "^8.11.1",
     "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.1.8",
+    "vite-plugin-html": "^3.2.2"
   }
 }

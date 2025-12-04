@@ -6,8 +6,13 @@ import { setGlobalContext } from './context/GlobalContext'
 import { ComponentProvider, useComponentContext } from './context/componentContext';
 import './App.css';
 import './index.css';
-import appData from './appData';
 import { MBridgeProvider } from "./context/MBridgeProvider";
+
+
+import { IAppData } from './types';
+type AppProps = {
+  appData: IAppData;
+};
 
 
 // APP_DATA_PLACEHOLDER - This will be replaced with actual data during export
@@ -30,7 +35,7 @@ function AppContent() {
   );
 }
 
-function App() {
+function App({ appData }: AppProps) {
   return (
     <AppProvider initialData={{ "screens": appData.screens, "queries": appData.queries }}>
       <ComponentProvider initialData={{ "screens": appData.screens as any, "queries": appData.queries as any }}>
