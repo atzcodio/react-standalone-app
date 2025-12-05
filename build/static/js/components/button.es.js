@@ -1,5 +1,5 @@
-import F from "react";
-var b = { exports: {} }, p = {};
+import B from "react";
+var f = { exports: {} }, p = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -9,24 +9,24 @@ var b = { exports: {} }, p = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var A = F, B = Symbol.for("react.element"), N = Symbol.for("react.fragment"), S = Object.prototype.hasOwnProperty, U = A.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, G = { key: !0, ref: !0, __self: !0, __source: !0 };
-function f(e, t, i) {
+var N = B, S = Symbol.for("react.element"), U = Symbol.for("react.fragment"), G = Object.prototype.hasOwnProperty, I = N.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, E = { key: !0, ref: !0, __self: !0, __source: !0 };
+function g(e, t, i) {
   var o, r = {}, l = null, n = null;
   i !== void 0 && (l = "" + i), t.key !== void 0 && (l = "" + t.key), t.ref !== void 0 && (n = t.ref);
-  for (o in t) S.call(t, o) && !G.hasOwnProperty(o) && (r[o] = t[o]);
+  for (o in t) G.call(t, o) && !E.hasOwnProperty(o) && (r[o] = t[o]);
   if (e && e.defaultProps) for (o in t = e.defaultProps, t) r[o] === void 0 && (r[o] = t[o]);
-  return { $$typeof: B, type: e, key: l, ref: n, props: r, _owner: U.current };
+  return { $$typeof: S, type: e, key: l, ref: n, props: r, _owner: I.current };
 }
-p.Fragment = N;
-p.jsx = f;
-p.jsxs = f;
-b.exports = p;
-var I = b.exports;
-const E = {
+p.Fragment = U;
+p.jsx = g;
+p.jsxs = g;
+f.exports = p;
+var M = f.exports;
+const T = {
   // All deps optional – components may override or platform may inject
   // Import what local depencies you need here
   loadIcon: null
-}, g = {
+}, h = {
   text: "Click",
   background_color: "#1890ff",
   color: "#fff",
@@ -41,11 +41,11 @@ const E = {
   loading: !1,
   theme: "basic",
   type: "button"
-}, M = {
+}, m = {
   background_color: "primary",
   color: "text",
   border: "border"
-}, T = {
+}, _ = {
   grid: {
     desktop: { width: 4, height: 4 },
     mobile: { width: 6, height: 4 }
@@ -227,73 +227,82 @@ function X(e) {
   return {
     name: "Button",
     EditProperties: D(e),
-    Configuration: T,
-    ThemeMapping: M,
-    defaultProps: g
+    Configuration: _,
+    ThemeMapping: m,
+    defaultProps: h
   };
 }
-function K(e) {
+function j(e) {
   const { ElementTypes: t } = e, i = e.getPlatformHooks(), o = {
-    ...E,
+    ...T,
     // internal deps
     ...i
     // platform injected deps
   }, { useExecuteFlow: r } = o;
   return {
     component: (n) => {
-      const h = r();
+      const x = r();
       if (!n)
         return null;
       const {
-        id: j,
-        _mode: m,
-        grid: z,
+        id: z,
+        _mode: y,
+        grid: W,
         properties: a,
-        meta: W,
-        updateProperties: H,
-        onFxChange: q,
-        ...J
-      } = n, _ = { ...g, ...a }, {
-        text: y,
-        background_color: L,
-        padding: x,
-        border: O,
-        border_radius: c,
-        color: R,
-        margin: w,
-        text_align: C,
-        fontSize: k,
-        fontWeight: v
-      } = _, P = ($) => {
-        console.log("Button Clicked for custom flow event", $), m === "preview" && h && a.event && a.event.nodes && h(a.event.nodes, a.event.nodes[0].id);
-      }, d = Array.isArray(w) ? w : ["0px", "0px", "0px", "0px"], s = Array.isArray(x) ? x : ["0px", "0px", "0px", "0px"], u = Array.isArray(c) ? c : ["0px", "0px", "0px", "0px"];
-      return /* @__PURE__ */ I.jsx(
+        meta: H,
+        updateProperties: q,
+        onFxChange: J,
+        ...V
+      } = n, L = { ...h, ...a }, {
+        text: O,
+        background_color: R,
+        padding: c,
+        border: C,
+        border_radius: w,
+        color: k,
+        margin: b,
+        text_align: v,
+        fontSize: P,
+        fontWeight: $
+      } = L, F = (A) => {
+        console.log("Button Clicked for custom flow event", A), y === "preview" && x && a.event && a.event.nodes && x(a.event.nodes, a.event.nodes[0].id);
+      }, d = Array.isArray(b) ? b : ["0px", "0px", "0px", "0px"], s = Array.isArray(c) ? c : ["0px", "0px", "0px", "0px"], u = Array.isArray(w) ? w : ["0px", "0px", "0px", "0px"];
+      return /* @__PURE__ */ M.jsx(
         "button",
         {
-          onClick: P,
+          onClick: F,
           style: {
-            backgroundColor: `var(--background-color, ${L})`,
-            border: O,
+            backgroundColor: `var(--background-color, ${R})`,
+            border: C,
             borderRadius: `${u[0]} ${u[1]} ${u[2]} ${u[3]}`,
             margin: `${d[0]} ${d[1]} ${d[2]} ${d[3]}`,
             padding: `${s[0]} ${s[1]} ${s[2]} ${s[3]}`,
-            color: `var(--text-color, ${R})`,
-            textAlign: C,
+            color: `var(--text-color, ${k})`,
+            textAlign: v,
             width: "100%",
             height: "100%",
-            fontSize: k,
-            fontWeight: v
+            fontSize: P,
+            fontWeight: $
           },
-          children: y
+          children: O
         }
       );
     },
     manifest: X(t)
   };
 }
+const Q = {
+  createComponent: j,
+  defaultProps: h,
+  Configuration: _,
+  ThemeMapping: m
+};
 export {
-  T as Configuration,
-  M as ThemeMapping,
-  K as createComponent,
-  g as defaultProps
+  _ as Configuration,
+  m as ThemeMapping,
+  j as createComponent,
+  Q as default,
+  h as defaultProps,
+  X as getButtonManifest,
+  D as getEditProperties
 };
