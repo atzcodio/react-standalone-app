@@ -2,7 +2,7 @@
 // export type { PlatformAPI } from './platformApi';
 export {
     createComponent,
-    defaultProps,
-    Configuration,
-    ThemeMapping
+    // defaultProps,
+    // Configuration,
+    // ThemeMapping
 } from './component';

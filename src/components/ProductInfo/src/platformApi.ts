@@ -14,6 +14,7 @@ export interface PlatformAPI {
     UI: {
         [key: string]: any;
     };
+    THEME: { [key: string]: string };
     BaseComponent?: any;
     ElementTypes: {
         GROUP: (name: string) => any;

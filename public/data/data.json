@@ -1,717 +1,495 @@
 {
     "screens": [
-        {
-            "id": "screen-5",
-            "type": "screen",
-            "body": [
-                {
-                    "type": "ProductInfo",
-                    "id": "cmi9a1evj0wte356q5ayomjgo",
-                    "properties": {
-                        "test_properties": "hello",
-                        "productImage": null,
-                        "productName": null,
-                        "description": "Experience crystal-clear audio with premium wireless headphones featuring 30-hour battery life.",
-                        "price": "",
-                        "originalPrice": "$249.99",
-                        "rating": "",
-                        "inStock": true,
-                        "buttonText": "Add to Cart",
-                        "backgroundColor": "#e6f4ff",
-                        "textColor": "#333333",
-                        "primaryColor": "#722ed1",
-                        "shadowColor": "#f9f0ff",
-                        "padding": [
-                            "20px",
-                            "20px",
-                            "20px",
-                            "20px"
-                        ],
-                        "margin": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "borderRadius": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "_name": "productinfo1",
-                        "editedOnDRS": true
-                    },
-                    "_name": "productinfo1",
-                    "position": {
-                        "x": 0,
-                        "y": 509.99998474121094
-                    },
-                    "grid": {
-                        "desktop": {
-                            "width": 3,
-                            "height": 6,
-                            "x": 1,
-                            "y": 53
-                        },
-                        "mobile": {
-                            "width": 24,
-                            "height": 53,
-                            "x": 0,
-                            "y": 51
-                        }
-                    },
-                    "meta": {
-                        "productImage": {
-                            "fx": "{{table4.selected_row.image}}",
-                            "deps": [
-                                "table4.selected_row.image"
-                            ],
-                            "isFx": true
-                        },
-                        "productName": {
-                            "fx": "{{table4.selected_row.title}}",
-                            "deps": [
-                                "table4.selected_row.title"
-                            ],
-                            "isFx": true
-                        },
-                        "price": {
-                            "fx": "",
-                            "deps": [],
-                            "isFx": false
-                        },
-                        "rating": {
-                            "fx": "",
-                            "deps": [],
-                            "isFx": false
-                        }
-                    },
-                    "output": ""
-                },
-                {
-                    "type": "Button",
-                    "id": "cmibd2j3100ij356qbta59yte",
-                    "properties": {
-                        "test_properties": "hello",
-                        "_name": "button",
-                        "text": "Take Photo",
-                        "text_align": "center",
-                        "color": "#EAEAEA",
-                        "fontSize": "12px",
-                        "fontWeight": "500",
-                        "theme": "dark",
-                        "background_color": "#0D7377",
-                        "border": "1px solid #404040",
-                        "border_radius": [
-                            "5px",
-                            "5px",
-                            "5px",
-                            "5px"
-                        ],
-                        "margin": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "padding": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "id": "",
-                        "char_limit": 0,
-                        "loading": 0,
-                        "event": {
-                            "nodes": [
-                                {
-                                    "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
-                                    "type": "start",
-                                    "name": "start",
-                                    "path": [
-                                        "0"
-                                    ]
-                                },
-                                {
-                                    "id": "js-fc753dd8-b05f-475d-a147-dc8a91726cf6",
-                                    "type": "js",
-                                    "name": "Javascript_1",
-                                    "path": [
-                                        "1"
-                                    ],
-                                    "data": {
-                                        "name": "Javascript_1",
-                                        "code": "const photo = await MBridge.camera.takePhoto({ quality: 80, saveToGallery: false });\nconsole.log(\"photo\", photo);\nreturn \"Hello word\";",
-                                        "params": {}
-                                    },
-                                    "inputs": [
-                                        {
-                                            "label": "Params",
-                                            "name": "params",
-                                            "type": "group",
-                                            "inputs": [
-                                                [
-                                                    {
-                                                        "label": "param",
-                                                        "name": "param",
-                                                        "type": "markCodeEditor",
-                                                        "defaultValue": "param",
-                                                        "grid_style": "row"
-                                                    },
-                                                    {
-                                                        "label": "value",
-                                                        "name": "value",
-                                                        "type": "markCodeEditor",
-                                                        "defaultValue": "value",
-                                                        "grid_style": "row"
-                                                    }
-                                                ]
-                                            ]
-                                        },
-                                        {
-                                            "label": "code",
-                                            "name": "code",
-                                            "type": "codeEditor",
-                                            "defaultValue": "// Write Your Code Here\n// let a=10;\n// let b=20;\n// return (a+b);\n",
-                                            "grid_style": "row"
-                                        }
-                                    ],
-                                    "configuring": true,
-                                    "validateStatusError": false,
-                                    "OUTPUT": null
-                                },
-                                {
-                                    "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
-                                    "type": "end",
-                                    "name": "end",
-                                    "path": [
-                                        "2"
-                                    ]
-                                }
-                            ],
-                            "edges": []
-                        },
-                        "editedOnDRS": true
-                    },
-                    "_name": "button",
-                    "meta": {
-                        "text": {
-                            "fx": "{{\"Take Photo\"}}",
-                            "deps": [],
-                            "isFx": true
-                        }
-                    },
-                    "position": {
-                        "x": 16.66668701171875,
-                        "y": 1069.9999389648438
-                    },
-                    "grid": {
-                        "desktop": {
-                            "width": 4,
-                            "height": 4,
-                            "x": 5,
-                            "y": 105
-                        },
-                        "mobile": {
-                            "width": 11,
-                            "height": 4,
-                            "x": 1,
-                            "y": 107
-                        }
-                    },
-                    "output": ""
-                },
-                {
-                    "type": "Button",
-                    "id": "cmic3qeqf01ln356q1q3yy5s8",
-                    "properties": {
-                        "test_properties": "hello",
-                        "_name": "button1",
-                        "text": "Next Page",
-                        "text_align": "center",
-                        "color": "#FFFFFF",
-                        "fontSize": "12px",
-                        "fontWeight": "500",
-                        "theme": "basic",
-                        "background_color": "#007BFF",
-                        "border": "1px solid #007BFF",
-                        "border_radius": [
-                            "5px",
-                            "5px",
-                            "5px",
-                            "5px"
-                        ],
-                        "margin": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "padding": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "id": "",
-                        "char_limit": 0,
-                        "loading": 0,
-                        "event": {
-                            "nodes": [
-                                {
-                                    "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
-                                    "type": "start",
-                                    "name": "start",
-                                    "path": [
-                                        "0"
-                                    ]
-                                },
-                                {
-                                    "id": "navigateToScreen-fb00ba59-d22a-4d73-be4b-55710bd6e0e2",
-                                    "type": "navigateToScreen",
-                                    "name": "NavigateToScreen_1",
-                                    "path": [
-                                        "1"
-                                    ],
-                                    "data": {
-                                        "name": "NavigateToScreen_1",
-                                        "screenId": "screen"
-                                    },
-                                    "inputs": [
-                                        {
-                                            "label": "Select Screen",
-                                            "name": "screenId",
-                                            "type": "select",
-                                            "options": [
-                                                {
-                                                    "label": "screen-5",
-                                                    "value": "screen-5"
-                                                },
-                                                {
-                                                    "label": "screen",
-                                                    "value": "screen"
-                                                }
-                                            ],
-                                            "defaultValue": "Select Screen"
-                                        },
-                                        {
-                                            "label": "heightOrWidth",
-                                            "name": "heightOrWidth",
-                                            "type": "text",
-                                            "defaultValue": "400px"
-                                        },
-                                        {
-                                            "label": "Select Positon",
-                                            "name": "position",
-                                            "type": "select",
-                                            "options": [
-                                                {
-                                                    "label": "left",
-                                                    "value": "left"
-                                                },
-                                                {
-                                                    "label": "right",
-                                                    "value": "right"
-                                                },
-                                                {
-                                                    "label": "top",
-                                                    "value": "top"
-                                                },
-                                                {
-                                                    "label": "bottom",
-                                                    "value": "bottom"
-                                                }
-                                            ],
-                                            "defaultValue": "Select Positon"
-                                        },
-                                        {
-                                            "label": "height",
-                                            "name": "height",
-                                            "type": "text",
-                                            "defaultValue": "600px"
-                                        },
-                                        {
-                                            "label": "width",
-                                            "name": "width",
-                                            "type": "text",
-                                            "defaultValue": "400px"
-                                        }
-                                    ],
-                                    "configuring": true,
-                                    "OUTPUT": {
-                                        "success": true,
-                                        "screenId": "screen",
-                                        "screenType": "screen"
-                                    }
-                                },
-                                {
-                                    "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
-                                    "type": "end",
-                                    "name": "end",
-                                    "path": [
-                                        "2"
-                                    ]
-                                }
-                            ],
-                            "edges": []
-                        },
-                        "editedOnDRS": true
-                    },
-                    "_name": "button1",
-                    "meta": {
-                        "text": {
-                            "fx": "{{\"Next Page\"}}",
-                            "deps": [],
-                            "isFx": true
-                        }
-                    },
-                    "position": {
-                        "x": 216.66668701171875,
-                        "y": 1069.9999389648438
-                    },
-                    "grid": {
-                        "desktop": {
-                            "width": 4,
-                            "height": 4,
-                            "x": 10,
-                            "y": 105
-                        },
-                        "mobile": {
-                            "width": 10,
-                            "height": 4,
-                            "x": 13,
-                            "y": 107
-                        }
-                    },
-                    "output": ""
-                }
-            ],
-            "chosen": false,
-            "selected": false
+  {
+    "id": "screen-5",
+    "type": "screen",
+    "body": [
+      {
+        "type": "ProductInfo",
+        "id": "cmi9a1evj0wte356q5ayomjgo",
+        "properties": {
+          "test_properties": "hello",
+          "productImage": "https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817602.jpg",
+          "productName": "Nano Banana",
+          "description": "Experience crystal-clear audio with premium wireless headphones featuring 30-hour battery life.",
+          "price": "",
+          "originalPrice": "$249.99",
+          "rating": "",
+          "inStock": true,
+          "buttonText": "Add to Cart",
+          "backgroundColor": "#e6f4ff",
+          "textColor": "#333333",
+          "primaryColor": "#fadb14",
+          "shadowColor": "#f9f0ff",
+          "padding": ["20px", "20px", "20px", "20px"],
+          "margin": ["0px", "0px", "0px", "0px"],
+          "borderRadius": ["0px", "0px", "0px", "0px"],
+          "_name": "productinfo1",
+          "editedOnDRS": true
         },
-        {
-            "id": "screen",
-            "type": "screen",
-            "body": [
-                {
-                    "type": "ProductInfo",
-                    "id": "cmic3uswb010a356qbae0vvvo",
-                    "properties": {
-                        "test_properties": "hello",
-                        "productImage": null,
-                        "productName": "Premium Wireless Headphones",
-                        "description": "Experience crystal-clear audio with premium wireless headphones featuring 30-hour battery life.",
-                        "price": "$199.99",
-                        "originalPrice": "$249.99",
-                        "rating": "4.5",
-                        "inStock": true,
-                        "buttonText": "Add to Cart",
-                        "backgroundColor": "#ffffff",
-                        "textColor": "#333333",
-                        "primaryColor": "#007bff",
-                        "shadowColor": "rgba(0,0,0,0.1)",
-                        "padding": [
-                            "20px",
-                            "20px",
-                            "20px",
-                            "20px"
-                        ],
-                        "margin": [
-                            "10px",
-                            "10px",
-                            "10px",
-                            "10px"
-                        ],
-                        "borderRadius": [
-                            "16px",
-                            "16px",
-                            "16px",
-                            "16px"
-                        ],
-                        "_name": "productinfo",
-                        "editedOnDRS": true
-                    },
-                    "_name": "productinfo",
-                    "position": {
-                        "x": 0,
-                        "y": 449.9999542236328
-                    },
-                    "grid": {
-                        "desktop": {
-                            "width": 24,
-                            "height": 40,
-                            "x": 3,
-                            "y": 47
-                        },
-                        "mobile": {
-                            "width": 24,
-                            "height": 53,
-                            "x": 0,
-                            "y": 45
-                        }
-                    },
-                    "meta": {
-                        "productImage": {
-                            "fx": "{{table.selected_row.image}}",
-                            "deps": [
-                                "table.selected_row.image"
-                            ],
-                            "isFx": true
-                        }
-                    },
-                    "output": ""
+        "_name": "productinfo1",
+        "position": { "x": 0, "y": 10 },
+        "grid": {
+          "desktop": { "width": 3, "height": 6, "x": 1, "y": 53 },
+          "mobile": { "width": 24, "height": 45, "x": 0, "y": 1 }
+        },
+        "meta": {
+          "productImage": {
+            "fx": "https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817602.jpg",
+            "deps": [],
+            "isFx": true
+          },
+          "productName": { "fx": "Nano Banana", "deps": [], "isFx": true },
+          "price": { "fx": "", "deps": [], "isFx": false },
+          "rating": { "fx": "", "deps": [], "isFx": false }
+        },
+        "output": ""
+      },
+      {
+        "type": "Button",
+        "id": "cmibd2j3100ij356qbta59yte",
+        "properties": {
+          "test_properties": "hello",
+          "_name": "button",
+          "text": "Take Photo",
+          "text_align": "center",
+          "color": "#EAEAEA",
+          "fontSize": "12px",
+          "fontWeight": "500",
+          "theme": "dark",
+          "background_color": "#0D7377",
+          "border": "1px solid #404040",
+          "border_radius": ["5px", "5px", "5px", "5px"],
+          "margin": ["0px", "0px", "0px", "0px"],
+          "padding": ["0px", "0px", "0px", "0px"],
+          "id": "",
+          "char_limit": 0,
+          "loading": 0,
+          "event": {
+            "nodes": [
+              {
+                "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
+                "type": "start",
+                "name": "start",
+                "path": ["0"]
+              },
+              {
+                "id": "js-fc753dd8-b05f-475d-a147-dc8a91726cf6",
+                "type": "js",
+                "name": "Javascript_1",
+                "path": ["1"],
+                "data": {
+                  "name": "Javascript_1",
+                  "code": "const photo = await MBridge.camera.takePhoto({ quality: 80, saveToGallery: false });\nconsole.log(\"photo\", photo);\nreturn \"Hello word\";",
+                  "params": {}
                 },
-                {
-                    "type": "Button",
-                    "id": "cmic3w6bs016g356q4xob50fu",
-                    "properties": {
-                        "test_properties": "hello",
-                        "_name": "button2",
-                        "text": "Capacture Image",
-                        "text_align": "center",
-                        "color": "#ffffff",
-                        "fontSize": "12px",
-                        "fontWeight": "500",
-                        "theme": "dark",
-                        "background_color": "#ff0000",
-                        "border": "1px solid #e1e1e1",
-                        "border_radius": [
-                            "5px",
-                            "5px",
-                            "5px",
-                            "5px"
-                        ],
-                        "margin": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "padding": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "id": "",
-                        "char_limit": 0,
-                        "loading": 0,
-                        "event": {
-                            "nodes": [
-                                {
-                                    "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
-                                    "type": "start",
-                                    "name": "start",
-                                    "path": [
-                                        "0"
-                                    ]
-                                },
-                                {
-                                    "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
-                                    "type": "end",
-                                    "name": "end",
-                                    "path": [
-                                        "2"
-                                    ]
-                                }
-                            ],
-                            "edges": "remove-node"
+                "inputs": [
+                  {
+                    "label": "Params",
+                    "name": "params",
+                    "type": "group",
+                    "inputs": [
+                      [
+                        {
+                          "label": "param",
+                          "name": "param",
+                          "type": "markCodeEditor",
+                          "defaultValue": "param",
+                          "grid_style": "row"
                         },
-                        "editedOnDRS": true
-                    },
-                    "_name": "button2",
-                    "meta": {
-                        "text": {
-                            "fx": "{{\"Capacture Image\"}}",
-                            "deps": [],
-                            "isFx": true
+                        {
+                          "label": "value",
+                          "name": "value",
+                          "type": "markCodeEditor",
+                          "defaultValue": "value",
+                          "grid_style": "row"
                         }
-                    },
-                    "position": {
-                        "x": 16.66668701171875,
-                        "y": 989.9999389648438
-                    },
-                    "grid": {
-                        "desktop": {
-                            "width": 4,
-                            "height": 4,
-                            "x": 2,
-                            "y": 109
-                        },
-                        "mobile": {
-                            "width": 11,
-                            "height": 4,
-                            "x": 1,
-                            "y": 99
-                        }
-                    },
-                    "output": ""
-                },
-                {
-                    "type": "Button",
-                    "id": "cmic44ws401cu356q3zeda3pf",
-                    "properties": {
-                        "test_properties": "hello",
-                        "_name": "button3",
-                        "text": "Go Back",
-                        "text_align": "center",
-                        "color": "#ffffff",
-                        "fontSize": "12px",
-                        "fontWeight": "500",
-                        "theme": "dark",
-                        "background_color": "#ff0000",
-                        "border": "1px solid #e1e1e1",
-                        "border_radius": [
-                            "5px",
-                            "5px",
-                            "5px",
-                            "5px"
-                        ],
-                        "margin": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "padding": [
-                            "0px",
-                            "0px",
-                            "0px",
-                            "0px"
-                        ],
-                        "id": "",
-                        "char_limit": 0,
-                        "loading": 0,
-                        "event": {
-                            "nodes": [
-                                {
-                                    "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
-                                    "type": "start",
-                                    "name": "start",
-                                    "path": [
-                                        "0"
-                                    ]
-                                },
-                                {
-                                    "id": "navigateToScreen-44f7539a-64f8-428d-a96f-5b76e8fdf693",
-                                    "type": "navigateToScreen",
-                                    "name": "NavigateToScreen_1",
-                                    "path": [
-                                        "1"
-                                    ],
-                                    "data": {
-                                        "name": "NavigateToScreen_1",
-                                        "screenId": "screen-5"
-                                    },
-                                    "inputs": [
-                                        {
-                                            "label": "Select Screen",
-                                            "name": "screenId",
-                                            "type": "select",
-                                            "options": [
-                                                {
-                                                    "label": "screen-5",
-                                                    "value": "screen-5"
-                                                },
-                                                {
-                                                    "label": "screen",
-                                                    "value": "screen"
-                                                }
-                                            ],
-                                            "defaultValue": "Select Screen"
-                                        },
-                                        {
-                                            "label": "heightOrWidth",
-                                            "name": "heightOrWidth",
-                                            "type": "text",
-                                            "defaultValue": "400px"
-                                        },
-                                        {
-                                            "label": "Select Positon",
-                                            "name": "position",
-                                            "type": "select",
-                                            "options": [
-                                                {
-                                                    "label": "left",
-                                                    "value": "left"
-                                                },
-                                                {
-                                                    "label": "right",
-                                                    "value": "right"
-                                                },
-                                                {
-                                                    "label": "top",
-                                                    "value": "top"
-                                                },
-                                                {
-                                                    "label": "bottom",
-                                                    "value": "bottom"
-                                                }
-                                            ],
-                                            "defaultValue": "Select Positon"
-                                        },
-                                        {
-                                            "label": "height",
-                                            "name": "height",
-                                            "type": "text",
-                                            "defaultValue": "600px"
-                                        },
-                                        {
-                                            "label": "width",
-                                            "name": "width",
-                                            "type": "text",
-                                            "defaultValue": "400px"
-                                        }
-                                    ],
-                                    "configuring": true
-                                },
-                                {
-                                    "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
-                                    "type": "end",
-                                    "name": "end",
-                                    "path": [
-                                        "2"
-                                    ]
-                                }
-                            ],
-                            "edges": []
-                        },
-                        "editedOnDRS": true
-                    },
-                    "_name": "button3",
-                    "meta": {
-                        "text": {
-                            "fx": "{{\"Go Back\"}}",
-                            "deps": [],
-                            "isFx": true
-                        }
-                    },
-                    "position": {
-                        "x": 216.66668701171875,
-                        "y": 990.0000915527344
-                    },
-                    "grid": {
-                        "desktop": {
-                            "width": 4,
-                            "height": 4,
-                            "x": 10,
-                            "y": 99
-                        },
-                        "mobile": {
-                            "width": 10,
-                            "height": 4,
-                            "x": 13,
-                            "y": 99
-                        }
-                    },
-                    "output": ""
-                }
+                      ]
+                    ]
+                  },
+                  {
+                    "label": "code",
+                    "name": "code",
+                    "type": "codeEditor",
+                    "defaultValue": "// Write Your Code Here\n// let a=10;\n// let b=20;\n// return (a+b);\n",
+                    "grid_style": "row"
+                  }
+                ],
+                "configuring": true,
+                "validateStatusError": false,
+                "OUTPUT": null
+              },
+              {
+                "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
+                "type": "end",
+                "name": "end",
+                "path": ["2"]
+              }
             ],
-            "chosen": false
-        }
+            "edges": []
+          },
+          "editedOnDRS": true
+        },
+        "_name": "button",
+        "meta": {
+          "text": { "fx": "{{\"Take Photo\"}}", "deps": [], "isFx": true }
+        },
+        "position": { "x": 16.66668701171874, "y": 939.9999389648438 },
+        "grid": {
+          "desktop": { "width": 4, "height": 4, "x": 5, "y": 105 },
+          "mobile": { "width": 11, "height": 4, "x": 1, "y": 94 }
+        },
+        "output": ""
+      },
+      {
+        "type": "Button",
+        "id": "cmic3qeqf01ln356q1q3yy5s8",
+        "properties": {
+          "test_properties": "hello",
+          "_name": "button1",
+          "text": "Next Page",
+          "text_align": "center",
+          "color": "#efdbff",
+          "fontSize": "12px",
+          "fontWeight": "500",
+          "theme": "grayscale",
+          "background_color": "#E0E0E0",
+          "border": "1px solid #BDBDBD",
+          "border_radius": ["5px", "5px", "5px", "5px"],
+          "margin": ["0px", "0px", "0px", "0px"],
+          "padding": ["0px", "0px", "0px", "0px"],
+          "id": "",
+          "char_limit": 0,
+          "loading": 0,
+          "event": {
+            "nodes": [
+              {
+                "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
+                "type": "start",
+                "name": "start",
+                "path": ["0"]
+              },
+              {
+                "id": "navigateToScreen-fb00ba59-d22a-4d73-be4b-55710bd6e0e2",
+                "type": "navigateToScreen",
+                "name": "NavigateToScreen_1",
+                "path": ["1"],
+                "data": { "name": "NavigateToScreen_1", "screenId": "screen" },
+                "inputs": [
+                  {
+                    "label": "Select Screen",
+                    "name": "screenId",
+                    "type": "select",
+                    "options": [
+                      { "label": "screen-5", "value": "screen-5" },
+                      { "label": "screen", "value": "screen" }
+                    ],
+                    "defaultValue": "Select Screen"
+                  },
+                  {
+                    "label": "heightOrWidth",
+                    "name": "heightOrWidth",
+                    "type": "text",
+                    "defaultValue": "400px"
+                  },
+                  {
+                    "label": "Select Positon",
+                    "name": "position",
+                    "type": "select",
+                    "options": [
+                      { "label": "left", "value": "left" },
+                      { "label": "right", "value": "right" },
+                      { "label": "top", "value": "top" },
+                      { "label": "bottom", "value": "bottom" }
+                    ],
+                    "defaultValue": "Select Positon"
+                  },
+                  {
+                    "label": "height",
+                    "name": "height",
+                    "type": "text",
+                    "defaultValue": "600px"
+                  },
+                  {
+                    "label": "width",
+                    "name": "width",
+                    "type": "text",
+                    "defaultValue": "400px"
+                  }
+                ],
+                "configuring": true,
+                "OUTPUT": {
+                  "success": true,
+                  "screenId": "screen",
+                  "screenType": "screen"
+                }
+              },
+              {
+                "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
+                "type": "end",
+                "name": "end",
+                "path": ["2"]
+              }
+            ],
+            "edges": []
+          },
+          "editedOnDRS": true
+        },
+        "_name": "button1",
+        "meta": {
+          "text": { "fx": "{{\"Next Page\"}}", "deps": [], "isFx": true }
+        },
+        "position": { "x": 216.66668701171875, "y": 939.9999694824219 },
+        "grid": {
+          "desktop": { "width": 4, "height": 4, "x": 10, "y": 105 },
+          "mobile": { "width": 10, "height": 4, "x": 13, "y": 94 }
+        },
+        "output": ""
+      },
+      {
+        "type": "ProductInfo",
+        "id": "oxoqz0je1",
+        "properties": {
+          "test_properties": "hello",
+          "productImage": "https://www.shutterstock.com/image-photo/very-awesome-woman-talented-fashion-600w-2204263471.jpg",
+          "productName": "Nano Banana",
+          "description": "Experience crystal-clear audio with premium wireless headphones featuring 30-hour battery life.",
+          "price": "",
+          "originalPrice": "$249.99",
+          "rating": "",
+          "inStock": true,
+          "buttonText": "Add to Cart",
+          "backgroundColor": "#e6f4ff",
+          "textColor": "#333333",
+          "primaryColor": "#722ed1",
+          "shadowColor": "#f9f0ff",
+          "padding": ["20px", "20px", "20px", "20px"],
+          "margin": ["0px", "0px", "0px", "0px"],
+          "borderRadius": ["0px", "0px", "0px", "0px"],
+          "_name": "productinfo2",
+          "editedOnDRS": true
+        },
+        "_name": "productinfo2",
+        "position": { "x": 0, "y": 459.99996185302734 },
+        "grid": {
+          "desktop": { "x": 1, "y": 59, "width": 3, "height": 6 },
+          "mobile": { "x": 0, "y": 46, "width": 24, "height": 45 }
+        },
+        "meta": {
+          "productImage": {
+            "fx": "https://www.shutterstock.com/image-photo/very-awesome-woman-talented-fashion-600w-2204263471.jpg",
+            "deps": [],
+            "isFx": true
+          },
+          "productName": { "fx": "Nano Banana", "deps": [], "isFx": true },
+          "price": { "fx": "", "deps": [], "isFx": false },
+          "rating": { "fx": "", "deps": [], "isFx": false }
+        },
+        "output": ""
+      }
     ],
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "screen",
+    "type": "screen",
+    "body": [
+      {
+        "type": "ProductInfo",
+        "id": "cmic3uswb010a356qbae0vvvo",
+        "properties": {
+          "test_properties": "hello",
+          "productImage": "https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817602.jpg",
+          "productName": "Premium Wireless Headphones",
+          "description": "Experience crystal-clear audio with premium wireless headphones featuring 30-hour battery life.",
+          "price": "$199.99",
+          "originalPrice": "$249.99",
+          "rating": "4.5",
+          "inStock": true,
+          "buttonText": "Add to Cart",
+          "backgroundColor": "#ffffff",
+          "textColor": "#333333",
+          "primaryColor": "#007bff",
+          "shadowColor": "rgba(0,0,0,0.1)",
+          "padding": ["20px", "20px", "20px", "20px"],
+          "margin": ["10px", "10px", "10px", "10px"],
+          "borderRadius": ["16px", "16px", "16px", "16px"],
+          "_name": "productinfo",
+          "editedOnDRS": true
+        },
+        "_name": "productinfo",
+        "position": { "x": 0, "y": 0 },
+        "grid": {
+          "desktop": { "width": 24, "height": 40, "x": 3, "y": 47 },
+          "mobile": { "width": 24, "height": 46, "x": 0, "y": 0 }
+        },
+        "meta": {
+          "productImage": {
+            "fx": "https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817602.jpg",
+            "deps": [],
+            "isFx": true
+          }
+        },
+        "output": ""
+      },
+      {
+        "type": "Button",
+        "id": "cmic3w6bs016g356q4xob50fu",
+        "properties": {
+          "test_properties": "hello",
+          "_name": "button2",
+          "text": "Capacture Image",
+          "text_align": "center",
+          "color": "#ffffff",
+          "fontSize": "12px",
+          "fontWeight": "500",
+          "theme": "vibrant",
+          "background_color": "#ff0000",
+          "border": "1px solid #e1e1e1",
+          "border_radius": ["5px", "5px", "5px", "5px"],
+          "margin": ["0px", "0px", "0px", "0px"],
+          "padding": ["0px", "0px", "0px", "0px"],
+          "id": "",
+          "char_limit": 0,
+          "loading": 0,
+          "event": {
+            "nodes": [
+              {
+                "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
+                "type": "start",
+                "name": "start",
+                "path": ["0"]
+              },
+              {
+                "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
+                "type": "end",
+                "name": "end",
+                "path": ["2"]
+              }
+            ],
+            "edges": "remove-node"
+          },
+          "editedOnDRS": true
+        },
+        "_name": "button2",
+        "meta": {
+          "text": { "fx": "{{\"Capacture Image\"}}", "deps": [], "isFx": true }
+        },
+        "position": { "x": 33.33335367838542, "y": 499.99997913837433 },
+        "grid": {
+          "desktop": { "width": 4, "height": 4, "x": 2, "y": 109 },
+          "mobile": { "width": 11, "height": 4, "x": 2, "y": 50 }
+        },
+        "output": ""
+      },
+      {
+        "type": "Button",
+        "id": "cmic44ws401cu356q3zeda3pf",
+        "properties": {
+          "test_properties": "hello",
+          "_name": "button3",
+          "text": "Go Back",
+          "text_align": "center",
+          "color": "#ffffff",
+          "fontSize": "12px",
+          "fontWeight": "500",
+          "theme": "dark",
+          "background_color": "#ff0000",
+          "border": "1px solid #e1e1e1",
+          "border_radius": ["5px", "5px", "5px", "5px"],
+          "margin": ["0px", "0px", "0px", "0px"],
+          "padding": ["0px", "0px", "0px", "0px"],
+          "id": "",
+          "char_limit": 0,
+          "loading": 0,
+          "event": {
+            "nodes": [
+              {
+                "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
+                "type": "start",
+                "name": "start",
+                "path": ["0"]
+              },
+              {
+                "id": "navigateToScreen-44f7539a-64f8-428d-a96f-5b76e8fdf693",
+                "type": "navigateToScreen",
+                "name": "NavigateToScreen_1",
+                "path": ["1"],
+                "data": {
+                  "name": "NavigateToScreen_1",
+                  "screenId": "screen-5"
+                },
+                "inputs": [
+                  {
+                    "label": "Select Screen",
+                    "name": "screenId",
+                    "type": "select",
+                    "options": [
+                      { "label": "screen-5", "value": "screen-5" },
+                      { "label": "screen", "value": "screen" }
+                    ],
+                    "defaultValue": "Select Screen"
+                  },
+                  {
+                    "label": "heightOrWidth",
+                    "name": "heightOrWidth",
+                    "type": "text",
+                    "defaultValue": "400px"
+                  },
+                  {
+                    "label": "Select Positon",
+                    "name": "position",
+                    "type": "select",
+                    "options": [
+                      { "label": "left", "value": "left" },
+                      { "label": "right", "value": "right" },
+                      { "label": "top", "value": "top" },
+                      { "label": "bottom", "value": "bottom" }
+                    ],
+                    "defaultValue": "Select Positon"
+                  },
+                  {
+                    "label": "height",
+                    "name": "height",
+                    "type": "text",
+                    "defaultValue": "600px"
+                  },
+                  {
+                    "label": "width",
+                    "name": "width",
+                    "type": "text",
+                    "defaultValue": "400px"
+                  }
+                ],
+                "configuring": true
+              },
+              {
+                "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
+                "type": "end",
+                "name": "end",
+                "path": ["2"]
+              }
+            ],
+            "edges": []
+          },
+          "editedOnDRS": true
+        },
+        "_name": "button3",
+        "meta": {
+          "text": { "fx": "{{\"Go Back\"}}", "deps": [], "isFx": true }
+        },
+        "position": { "x": 216.66668701171875, "y": 499.9999486207962 },
+        "grid": {
+          "desktop": { "width": 4, "height": 4, "x": 10, "y": 99 },
+          "mobile": { "width": 10, "height": 4, "x": 13, "y": 50 }
+        },
+        "output": ""
+      }
+    ],
+    "chosen": false
+  }
+],
     "queries": [
         {
             "id": "api_call-56eb387f-764f-4b7d-8623-4b4f641267ac",

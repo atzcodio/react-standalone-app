@@ -66,12 +66,11 @@ export const defaultProps: Partial<ButtonProps> = {
 // ----------------------
 // Theme Mapping
 // ----------------------
-export const ThemeMapping = {
+export const getThemeMapping = (THEME: any) => ({
   background_color: "primary",
   color: "text",
   border: "border",
-};
-
+});
 // ----------------------
 // Configuration
 // ----------------------
@@ -262,12 +261,12 @@ export const getEditProperties = (ElementTypes: any) => [
 // ----------------------
 // Manifest
 // ----------------------
-export function getButtonManifest(ElementTypes: any) {
+export function getButtonManifest(ElementTypes: any,THEME:any) {
   return {
     name: "Button",
     EditProperties: getEditProperties(ElementTypes),
     Configuration,
-    ThemeMapping,
+    getThemeMapping: getThemeMapping(THEME),
     defaultProps,
   };
 }
@@ -277,7 +276,7 @@ export function getButtonManifest(ElementTypes: any) {
 // ----------------------
 
 export function createComponent(api: any) {
-  const { ElementTypes } = api;
+  const { ElementTypes, THEME } = api;
 
   const platformDeps = api.getPlatformHooks();
   const deps = {
@@ -373,14 +372,14 @@ export function createComponent(api: any) {
 
   return {
     component: ButtonComponent,
-    manifest: getButtonManifest(ElementTypes),
+    manifest: getButtonManifest(ElementTypes,THEME),
   };
 }
 
 
 export default {
   createComponent,
-  defaultProps,
-  Configuration,
-  ThemeMapping,
+  // defaultProps,
+  // Configuration,
+  // ThemeMapping,
 };

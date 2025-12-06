@@ -48,11 +48,11 @@ export const defaultProps: Partial<ProductInfoProps> = {
 };
 
 // Theme mapping configuration
-export const ThemeMapping = {
-    textColor: "text",
-    primaryColor: "primary",
-    backgroundColor: "background"
-};
+export const getThemeMapping = (THEME: any) => ({
+    textColor: THEME.textColor,
+    primaryColor: THEME.primaryColor,
+    backgroundColor: THEME.backgroundColor
+});
 
 // Component configuration
 export const Configuration = {
@@ -194,12 +194,12 @@ export function getEditProperties(ElementTypes: any) {
 }
 
 // Export manifest factory function
-export function getManifest(ElementTypes: any) {
+export function getManifest(ElementTypes: any, THEME: any) {
     return {
         name: "ProductInfo",
         EditProperties: getEditProperties(ElementTypes),
         Configuration,
-        ThemeMapping,
+        ThemeMapping: getThemeMapping(THEME),
         defaultProps
     };
 }
@@ -209,7 +209,7 @@ export function getManifest(ElementTypes: any) {
 // ============================================================================
 
 export function createComponent(api: any) {
-    const { React } = api;
+    const { React, THEME } = api;
 
     function ProductInfoComponent(props: ProductInfoProps) {
         // ✅ Call platform hooks inside component body
@@ -348,7 +348,7 @@ export function createComponent(api: any) {
         return React.createElement("div", null, content);
     }
 
-    const manifest = getManifest(api.ElementTypes);
+    const manifest = getManifest(api.ElementTypes, api.THEME);
 
     return { component: ProductInfoComponent, manifest };
 }

@@ -3,6 +3,7 @@ import { ElementTypes } from '../elements_types';
 import { BaseComponent } from '../baseComponent';
 import executeFlow from '../FlowExecution';
 import { useNavigate, useLocation } from 'react-router-dom';
+import {THEME} from '../props';
 
 // Platform API that will be injected into components
 export const platformApi = {
@@ -17,6 +18,7 @@ export const platformApi = {
     BaseComponent,
     ElementTypes,
     UI: {},
+    THEME: THEME,
     executeFlow: executeFlow,
     // Provide a function to get hooks instead of the hooks themselves
     getPlatformHooks: () => {

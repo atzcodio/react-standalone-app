@@ -1,5 +1,5 @@
-import B from "react";
-var f = { exports: {} }, p = {};
+import A from "react";
+var f = { exports: {} }, s = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -9,24 +9,24 @@ var f = { exports: {} }, p = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var N = B, S = Symbol.for("react.element"), U = Symbol.for("react.fragment"), G = Object.prototype.hasOwnProperty, I = N.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, E = { key: !0, ref: !0, __self: !0, __source: !0 };
-function g(e, t, i) {
-  var o, r = {}, l = null, n = null;
-  i !== void 0 && (l = "" + i), t.key !== void 0 && (l = "" + t.key), t.ref !== void 0 && (n = t.ref);
-  for (o in t) G.call(t, o) && !E.hasOwnProperty(o) && (r[o] = t[o]);
+var B = A, E = Symbol.for("react.element"), N = Symbol.for("react.fragment"), S = Object.prototype.hasOwnProperty, M = B.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, T = { key: !0, ref: !0, __self: !0, __source: !0 };
+function g(e, t, p) {
+  var o, r = {}, n = null, u = null;
+  p !== void 0 && (n = "" + p), t.key !== void 0 && (n = "" + t.key), t.ref !== void 0 && (u = t.ref);
+  for (o in t) S.call(t, o) && !T.hasOwnProperty(o) && (r[o] = t[o]);
   if (e && e.defaultProps) for (o in t = e.defaultProps, t) r[o] === void 0 && (r[o] = t[o]);
-  return { $$typeof: S, type: e, key: l, ref: n, props: r, _owner: I.current };
+  return { $$typeof: E, type: e, key: n, ref: u, props: r, _owner: M.current };
 }
-p.Fragment = U;
-p.jsx = g;
-p.jsxs = g;
-f.exports = p;
-var M = f.exports;
-const T = {
+s.Fragment = N;
+s.jsx = g;
+s.jsxs = g;
+f.exports = s;
+var U = f.exports;
+const G = {
   // All deps optional – components may override or platform may inject
   // Import what local depencies you need here
   loadIcon: null
-}, h = {
+}, m = {
   text: "Click",
   background_color: "#1890ff",
   color: "#fff",
@@ -41,17 +41,17 @@ const T = {
   loading: !1,
   theme: "basic",
   type: "button"
-}, m = {
+}, I = (e) => ({
   background_color: "primary",
   color: "text",
   border: "border"
-}, _ = {
+}), D = {
   grid: {
     desktop: { width: 4, height: 4 },
     mobile: { width: 6, height: 4 }
   },
   resizable: { width: !0, height: !0 }
-}, D = (e) => [
+}, X = (e) => [
   {
     type: e.GROUP("basic"),
     width: 24,
@@ -223,86 +223,86 @@ const T = {
     ]
   }
 ];
-function X(e) {
+function j(e, t) {
   return {
     name: "Button",
-    EditProperties: D(e),
-    Configuration: _,
-    ThemeMapping: m,
-    defaultProps: h
+    EditProperties: X(e),
+    Configuration: D,
+    getThemeMapping: I(),
+    defaultProps: m
   };
 }
-function j(e) {
-  const { ElementTypes: t } = e, i = e.getPlatformHooks(), o = {
-    ...T,
+function H(e) {
+  const { ElementTypes: t, THEME: p } = e, o = e.getPlatformHooks(), r = {
+    ...G,
     // internal deps
-    ...i
+    ...o
     // platform injected deps
-  }, { useExecuteFlow: r } = o;
+  }, { useExecuteFlow: n } = r;
   return {
-    component: (n) => {
-      const x = r();
-      if (!n)
+    component: (h) => {
+      const x = n();
+      if (!h)
         return null;
       const {
         id: z,
-        _mode: y,
+        _mode: _,
         grid: W,
         properties: a,
-        meta: H,
-        updateProperties: q,
-        onFxChange: J,
-        ...V
-      } = n, L = { ...h, ...a }, {
-        text: O,
-        background_color: R,
+        meta: q,
+        updateProperties: J,
+        onFxChange: V,
+        ...Y
+      } = h, y = { ...m, ...a }, {
+        text: L,
+        background_color: O,
         padding: c,
-        border: C,
+        border: R,
         border_radius: w,
-        color: k,
+        color: C,
         margin: b,
-        text_align: v,
-        fontSize: P,
-        fontWeight: $
-      } = L, F = (A) => {
-        console.log("Button Clicked for custom flow event", A), y === "preview" && x && a.event && a.event.nodes && x(a.event.nodes, a.event.nodes[0].id);
-      }, d = Array.isArray(b) ? b : ["0px", "0px", "0px", "0px"], s = Array.isArray(c) ? c : ["0px", "0px", "0px", "0px"], u = Array.isArray(w) ? w : ["0px", "0px", "0px", "0px"];
-      return /* @__PURE__ */ M.jsx(
+        text_align: k,
+        fontSize: v,
+        fontWeight: P
+      } = y, $ = (F) => {
+        console.log("Button Clicked for custom flow event", F), _ === "preview" && x && a.event && a.event.nodes && x(a.event.nodes, a.event.nodes[0].id);
+      }, i = Array.isArray(b) ? b : ["0px", "0px", "0px", "0px"], l = Array.isArray(c) ? c : ["0px", "0px", "0px", "0px"], d = Array.isArray(w) ? w : ["0px", "0px", "0px", "0px"];
+      return /* @__PURE__ */ U.jsx(
         "button",
         {
-          onClick: F,
+          onClick: $,
           style: {
-            backgroundColor: `var(--background-color, ${R})`,
-            border: C,
-            borderRadius: `${u[0]} ${u[1]} ${u[2]} ${u[3]}`,
-            margin: `${d[0]} ${d[1]} ${d[2]} ${d[3]}`,
-            padding: `${s[0]} ${s[1]} ${s[2]} ${s[3]}`,
-            color: `var(--text-color, ${k})`,
-            textAlign: v,
+            backgroundColor: `var(--background-color, ${O})`,
+            border: R,
+            borderRadius: `${d[0]} ${d[1]} ${d[2]} ${d[3]}`,
+            margin: `${i[0]} ${i[1]} ${i[2]} ${i[3]}`,
+            padding: `${l[0]} ${l[1]} ${l[2]} ${l[3]}`,
+            color: `var(--text-color, ${C})`,
+            textAlign: k,
             width: "100%",
             height: "100%",
-            fontSize: P,
-            fontWeight: $
+            fontSize: v,
+            fontWeight: P
           },
-          children: O
+          children: L
         }
       );
     },
-    manifest: X(t)
+    manifest: j(t)
   };
 }
-const Q = {
-  createComponent: j,
-  defaultProps: h,
-  Configuration: _,
-  ThemeMapping: m
+const Z = {
+  createComponent: H
+  // defaultProps,
+  // Configuration,
+  // ThemeMapping,
 };
 export {
-  _ as Configuration,
-  m as ThemeMapping,
-  j as createComponent,
-  Q as default,
-  h as defaultProps,
-  X as getButtonManifest,
-  D as getEditProperties
+  D as Configuration,
+  H as createComponent,
+  Z as default,
+  m as defaultProps,
+  j as getButtonManifest,
+  X as getEditProperties,
+  I as getThemeMapping
 };

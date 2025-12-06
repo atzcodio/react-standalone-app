@@ -20,7 +20,7 @@ export const ComponentMap: { [key: string]: React.ComponentType<any> } = All;
 // LowcodePlatform.loadAndRegister(...) after the bundles are loaded.
 // -----------------------------------------------------------------
 LowcodePlatform.registerComponent("Button", ButtonModule);
-// LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
+LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
 
 /* -----------------------------------------------------------------
    Helper functions that read metadata from the `All` map.

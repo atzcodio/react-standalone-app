@@ -14,11 +14,11 @@ const R = {
   textColor: "#333333",
   primaryColor: "#007bff",
   buttonText: "Add to Cart"
-}, A = {
-  textColor: "text",
-  primaryColor: "primary",
-  backgroundColor: "background"
-}, D = {
+}, A = (e) => ({
+  textColor: e.textColor,
+  primaryColor: e.primaryColor,
+  backgroundColor: e.backgroundColor
+}), D = {
   grid: {
     desktop: { width: 24, height: 40 },
     mobile: { width: 24, height: 40 }
@@ -153,17 +153,17 @@ function N(e) {
     }
   ];
 }
-function T(e) {
+function T(e, o) {
   return {
     name: "ProductInfo",
     EditProperties: N(e),
     Configuration: D,
-    ThemeMapping: A,
+    ThemeMapping: A(o),
     defaultProps: R
   };
 }
-function W(e) {
-  const { React: o } = e;
+function j(e) {
+  const { React: o, THEME: W } = e;
   function P(E) {
     const { useComponentContext: d } = e;
     d == null || d();
@@ -181,18 +181,18 @@ function W(e) {
       margin: s = ["0", "0", "0", "0"],
       shadowColor: g = "rgba(0,0,0,0.1)",
       textColor: m = "#000",
-      primaryColor: c = "#007bff",
+      primaryColor: p = "#007bff",
       buttonText: F = "Add to Cart"
     } = k, C = typeof h == "string" ? parseFloat(h) : h, I = isNaN(C) ? 0 : C, S = () => {
-      const t = (b) => parseFloat(b.replace(/[$,]/g, "")) || 0, r = t(x), f = t(u), p = r > 0 ? Math.round((r - f) / r * 100) : 0;
-      return p > 0 ? `${p}% OFF` : null;
+      const t = (b) => parseFloat(b.replace(/[$,]/g, "")) || 0, r = t(x), f = t(u), c = r > 0 ? Math.round((r - f) / r * 100) : 0;
+      return c > 0 ? `${c}% OFF` : null;
     }, v = (t) => {
-      const r = [], f = Math.floor(t), p = t % 1 !== 0;
+      const r = [], f = Math.floor(t), c = t % 1 !== 0;
       for (let n = 0; n < f; n++)
         r.push(
           o.createElement("span", { key: n, style: { color: "#ffd700", fontSize: "16px" } }, "★")
         );
-      p && r.push(
+      c && r.push(
         o.createElement("span", { key: "half", style: { color: "#ffd700", fontSize: "16px" } }, "☆")
       );
       const b = 5 - Math.ceil(t);
@@ -263,7 +263,7 @@ function W(e) {
       o.createElement(
         "div",
         { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" } },
-        o.createElement("span", { style: { fontSize: "28px", fontWeight: "bold", color: c } }, u),
+        o.createElement("span", { style: { fontSize: "28px", fontWeight: "bold", color: p } }, u),
         x !== u && o.createElement("span", { style: { fontSize: "16px", color: "#999", textDecoration: "line-through" } }, x)
       ),
       // Button
@@ -274,26 +274,23 @@ function W(e) {
           fontSize: "16px",
           fontWeight: "600",
           color: "#fff",
-          backgroundColor: a ? c : "#ccc",
+          backgroundColor: a ? p : "#ccc",
           border: "none",
           borderRadius: "10px",
           cursor: a ? "pointer" : "not-allowed",
           transition: "all 0.2s ease",
-          boxShadow: a ? `0 4px 12px ${c}40` : "none"
+          boxShadow: a ? `0 4px 12px ${p}40` : "none"
         },
         onMouseEnter: (t) => a && (t.currentTarget.style.backgroundColor = "#0056b3", t.currentTarget.style.transform = "scale(1.02)"),
-        onMouseLeave: (t) => a && (t.currentTarget.style.backgroundColor = c, t.currentTarget.style.transform = "scale(1)"),
+        onMouseLeave: (t) => a && (t.currentTarget.style.backgroundColor = p, t.currentTarget.style.transform = "scale(1)"),
         disabled: !a
       }, a ? F : "Out of Stock")
     );
     return o.createElement("div", null, z);
   }
-  const $ = T(e.ElementTypes);
+  const $ = T(e.ElementTypes, e.THEME);
   return { component: P, manifest: $ };
 }
 export {
-  D as Configuration,
-  A as ThemeMapping,
-  W as createComponent,
-  R as defaultProps
+  j as createComponent
 };
