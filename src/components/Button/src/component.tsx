@@ -1,9 +1,9 @@
-import { runtimeDeps, BaseProps } from "./runtime";
+// import { runtimeDeps, BaseProps } from "./runtime";
 
 // ----------------------
 // Types
 // ----------------------
-interface ButtonProps extends BaseProps {
+interface ButtonProps {
   type?: string;
   text?: string;
   background_color?: string;
@@ -261,7 +261,7 @@ export const getEditProperties = (ElementTypes: any) => [
 // ----------------------
 // Manifest
 // ----------------------
-export function getButtonManifest(ElementTypes: any,THEME:any) {
+export function getButtonManifest(ElementTypes: any, THEME: any) {
   return {
     name: "Button",
     EditProperties: getEditProperties(ElementTypes),
@@ -280,7 +280,6 @@ export function createComponent(api: any) {
 
   const platformDeps = api.getPlatformHooks();
   const deps = {
-    ...runtimeDeps, // internal deps
     ...platformDeps, // platform injected deps
   };
 
@@ -372,10 +371,9 @@ export function createComponent(api: any) {
 
   return {
     component: ButtonComponent,
-    manifest: getButtonManifest(ElementTypes,THEME),
+    manifest: getButtonManifest(ElementTypes, THEME),
   };
 }
-
 
 export default {
   createComponent,

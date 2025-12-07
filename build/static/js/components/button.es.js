@@ -1,5 +1,5 @@
 import A from "react";
-var f = { exports: {} }, s = {};
+var f = { exports: {} }, p = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -10,23 +10,19 @@ var f = { exports: {} }, s = {};
  * LICENSE file in the root directory of this source tree.
  */
 var B = A, E = Symbol.for("react.element"), N = Symbol.for("react.fragment"), S = Object.prototype.hasOwnProperty, M = B.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, T = { key: !0, ref: !0, __self: !0, __source: !0 };
-function g(e, t, p) {
+function g(e, t, s) {
   var o, r = {}, n = null, u = null;
-  p !== void 0 && (n = "" + p), t.key !== void 0 && (n = "" + t.key), t.ref !== void 0 && (u = t.ref);
+  s !== void 0 && (n = "" + s), t.key !== void 0 && (n = "" + t.key), t.ref !== void 0 && (u = t.ref);
   for (o in t) S.call(t, o) && !T.hasOwnProperty(o) && (r[o] = t[o]);
   if (e && e.defaultProps) for (o in t = e.defaultProps, t) r[o] === void 0 && (r[o] = t[o]);
   return { $$typeof: E, type: e, key: n, ref: u, props: r, _owner: M.current };
 }
-s.Fragment = N;
-s.jsx = g;
-s.jsxs = g;
-f.exports = s;
+p.Fragment = N;
+p.jsx = g;
+p.jsxs = g;
+f.exports = p;
 var U = f.exports;
-const G = {
-  // All deps optional – components may override or platform may inject
-  // Import what local depencies you need here
-  loadIcon: null
-}, m = {
+const m = {
   text: "Click",
   background_color: "#1890ff",
   color: "#fff",
@@ -41,17 +37,17 @@ const G = {
   loading: !1,
   theme: "basic",
   type: "button"
-}, I = (e) => ({
+}, G = (e) => ({
   background_color: "primary",
   color: "text",
   border: "border"
-}), D = {
+}), I = {
   grid: {
     desktop: { width: 4, height: 4 },
     mobile: { width: 6, height: 4 }
   },
   resizable: { width: !0, height: !0 }
-}, X = (e) => [
+}, D = (e) => [
   {
     type: e.GROUP("basic"),
     width: 24,
@@ -223,20 +219,18 @@ const G = {
     ]
   }
 ];
-function j(e, t) {
+function X(e, t) {
   return {
     name: "Button",
-    EditProperties: X(e),
-    Configuration: D,
-    getThemeMapping: I(),
+    EditProperties: D(e),
+    Configuration: I,
+    getThemeMapping: G(),
     defaultProps: m
   };
 }
-function H(e) {
-  const { ElementTypes: t, THEME: p } = e, o = e.getPlatformHooks(), r = {
-    ...G,
-    // internal deps
-    ...o
+function K(e) {
+  const { ElementTypes: t, THEME: s } = e, r = {
+    ...e.getPlatformHooks()
     // platform injected deps
   }, { useExecuteFlow: n } = r;
   return {
@@ -245,14 +239,14 @@ function H(e) {
       if (!h)
         return null;
       const {
-        id: z,
+        id: j,
         _mode: _,
-        grid: W,
+        grid: H,
         properties: a,
-        meta: q,
-        updateProperties: J,
-        onFxChange: V,
-        ...Y
+        meta: z,
+        updateProperties: W,
+        onFxChange: q,
+        ...J
       } = h, y = { ...m, ...a }, {
         text: L,
         background_color: O,
@@ -288,21 +282,9 @@ function H(e) {
         }
       );
     },
-    manifest: j(t)
+    manifest: X(t)
   };
 }
-const Z = {
-  createComponent: H
-  // defaultProps,
-  // Configuration,
-  // ThemeMapping,
-};
 export {
-  D as Configuration,
-  H as createComponent,
-  Z as default,
-  m as defaultProps,
-  j as getButtonManifest,
-  X as getEditProperties,
-  I as getThemeMapping
+  K as createComponent
 };

@@ -3,9 +3,9 @@ import { BaseConfiguration } from "./baseComponent";
 import { LowcodePlatform } from "./utils/lowcodePlatform";
 import { platformApi } from "./utils/platformApi";
 
-// Import component modules (dev mode)
 import * as ButtonModule from "./components/Button/src/index";
 import * as ProductInfoModule from "./components/ProductInfo/src/index";
+
 
 /* -----------------------------------------------------------------
    Global component registry used throughout the app.
@@ -19,8 +19,14 @@ export const ComponentMap: { [key: string]: React.ComponentType<any> } = All;
 // Register components (dev mode). In production you will call
 // LowcodePlatform.loadAndRegister(...) after the bundles are loaded.
 // -----------------------------------------------------------------
-LowcodePlatform.registerComponent("Button", ButtonModule);
-LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
+
+
+// Import component modules (dev mode)
+if (process.env.NODE_ENV !== "production") {
+  console.log("Registering components in dev mode",process.env.NODE_ENV);
+  LowcodePlatform.registerComponent("Button", ButtonModule);
+  LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
+}
 
 /* -----------------------------------------------------------------
    Helper functions that read metadata from the `All` map.
