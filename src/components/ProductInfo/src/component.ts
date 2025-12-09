@@ -283,7 +283,7 @@ export function createComponent(api: any) {
             boxShadow: `0 8px 24px ${shadowColor}`,
             color: textColor,
             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-            maxWidth: "400px",
+            // maxWidth: "400px",
             overflow: "hidden",
             transition: "all 0.3s ease",
             cursor: "pointer"

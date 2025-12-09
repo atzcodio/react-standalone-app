@@ -1,28 +1,4 @@
-import A from "react";
-var f = { exports: {} }, p = {};
-/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var B = A, E = Symbol.for("react.element"), N = Symbol.for("react.fragment"), S = Object.prototype.hasOwnProperty, M = B.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, T = { key: !0, ref: !0, __self: !0, __source: !0 };
-function g(e, t, s) {
-  var o, r = {}, n = null, u = null;
-  s !== void 0 && (n = "" + s), t.key !== void 0 && (n = "" + t.key), t.ref !== void 0 && (u = t.ref);
-  for (o in t) S.call(t, o) && !T.hasOwnProperty(o) && (r[o] = t[o]);
-  if (e && e.defaultProps) for (o in t = e.defaultProps, t) r[o] === void 0 && (r[o] = t[o]);
-  return { $$typeof: E, type: e, key: n, ref: u, props: r, _owner: M.current };
-}
-p.Fragment = N;
-p.jsx = g;
-p.jsxs = g;
-f.exports = p;
-var U = f.exports;
-const m = {
+const s = {
   text: "Click",
   background_color: "#1890ff",
   color: "#fff",
@@ -37,17 +13,17 @@ const m = {
   loading: !1,
   theme: "basic",
   type: "button"
-}, G = (e) => ({
+}, P = (e) => ({
   background_color: "primary",
   color: "text",
   border: "border"
-}), I = {
+}), k = {
   grid: {
     desktop: { width: 4, height: 4 },
     mobile: { width: 6, height: 4 }
   },
   resizable: { width: !0, height: !0 }
-}, D = (e) => [
+}, F = (e) => [
   {
     type: e.GROUP("basic"),
     width: 24,
@@ -219,72 +195,72 @@ const m = {
     ]
   }
 ];
-function X(e, t) {
+function $(e, n) {
   return {
     name: "Button",
-    EditProperties: D(e),
-    Configuration: I,
-    getThemeMapping: G(),
-    defaultProps: m
+    EditProperties: F(e),
+    Configuration: k,
+    getThemeMapping: P(),
+    defaultProps: s
   };
 }
-function K(e) {
-  const { ElementTypes: t, THEME: s } = e, r = {
+function X(e) {
+  const { ElementTypes: n, THEME: A, React: B } = e, u = {
     ...e.getPlatformHooks()
     // platform injected deps
-  }, { useExecuteFlow: n } = r;
+  }, { useExecuteFlow: c } = u;
   return {
-    component: (h) => {
-      const x = n();
-      if (!h)
+    component: (i) => {
+      const l = c();
+      if (!i)
         return null;
       const {
-        id: j,
-        _mode: _,
-        grid: H,
-        properties: a,
-        meta: z,
-        updateProperties: W,
-        onFxChange: q,
-        ...J
-      } = h, y = { ...m, ...a }, {
-        text: L,
-        background_color: O,
-        padding: c,
-        border: R,
-        border_radius: w,
-        color: C,
-        margin: b,
-        text_align: k,
-        fontSize: v,
-        fontWeight: P
-      } = y, $ = (F) => {
-        console.log("Button Clicked for custom flow event", F), _ === "preview" && x && a.event && a.event.nodes && x(a.event.nodes, a.event.nodes[0].id);
-      }, i = Array.isArray(b) ? b : ["0px", "0px", "0px", "0px"], l = Array.isArray(c) ? c : ["0px", "0px", "0px", "0px"], d = Array.isArray(w) ? w : ["0px", "0px", "0px", "0px"];
-      return /* @__PURE__ */ U.jsx(
+        id: v,
+        _mode: x,
+        grid: G,
+        properties: t,
+        meta: N,
+        updateProperties: U,
+        onFxChange: T,
+        ...E
+      } = i, w = { ...s, ...t }, {
+        text: b,
+        background_color: g,
+        padding: d,
+        border: f,
+        border_radius: h,
+        color: m,
+        margin: p,
+        text_align: L,
+        fontSize: C,
+        fontWeight: R
+      } = w, y = (O) => {
+        console.log("Button Clicked for custom flow event", O), x === "preview" && l && t.event && t.event.nodes && l(t.event.nodes, t.event.nodes[0].id);
+      }, o = Array.isArray(p) ? p : ["0px", "0px", "0px", "0px"], r = Array.isArray(d) ? d : ["0px", "0px", "0px", "0px"], a = Array.isArray(h) ? h : ["0px", "0px", "0px", "0px"];
+      return /* @__PURE__ */ e.React.createElement(
         "button",
         {
-          onClick: $,
+          onClick: y,
           style: {
-            backgroundColor: `var(--background-color, ${O})`,
-            border: R,
-            borderRadius: `${d[0]} ${d[1]} ${d[2]} ${d[3]}`,
-            margin: `${i[0]} ${i[1]} ${i[2]} ${i[3]}`,
-            padding: `${l[0]} ${l[1]} ${l[2]} ${l[3]}`,
-            color: `var(--text-color, ${C})`,
-            textAlign: k,
+            backgroundColor: `var(--background-color, ${g})`,
+            border: f,
+            borderRadius: `${a[0]} ${a[1]} ${a[2]} ${a[3]}`,
+            margin: `${o[0]} ${o[1]} ${o[2]} ${o[3]}`,
+            padding: `${r[0]} ${r[1]} ${r[2]} ${r[3]}`,
+            color: `var(--text-color, ${m})`,
+            textAlign: L,
             width: "100%",
             height: "100%",
-            fontSize: v,
-            fontWeight: P
-          },
-          children: L
-        }
+            fontSize: C,
+            fontWeight: R
+          }
+        },
+        b
       );
     },
-    manifest: X(t)
+    manifest: $(n)
   };
 }
 export {
-  K as createComponent
+  X as createComponent
 };

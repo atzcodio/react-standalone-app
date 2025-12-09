@@ -22,7 +22,7 @@ const defaultGrid = {
 }
 
 
-const PreviewScreenPanel = ({ screen, sidebar }) => {
+const PreviewScreenPanel = ({ screen, sidebar, screenWidth }) => {
   const { interfaceView, screens } = useComponentContext();
   //   const currentScreen = screens[selectedScreenIndex];
   const GRIDCOUNT = 24;
@@ -33,7 +33,6 @@ const PreviewScreenPanel = ({ screen, sidebar }) => {
   let { margin, padding, backgroundColor, borderRadius, header } = { ...defaultProps, ...screen.properties };
   console.log("background color in preview changes", backgroundColor);
 
-  let screenWidth = interfaceView == "mobile" ? "400px" : "100%";
   let headerScreen = null;
   if (header) {
     headerScreen = screens.find((scr) => scr.id === header)
@@ -54,8 +53,8 @@ const PreviewScreenPanel = ({ screen, sidebar }) => {
     screenPanelStyle["justifyContent"] = "center";
     screenPanelStyle["alignItems"] = "center";
     screenPanelStyle["flexDirection"] = "column";
-    screenPanelStyle["width"] = interfaceView == "mobile" && screen.type == "screen" ? "400px" : "100%";
-    screenPanelStyle["marginLeft"] = interfaceView == "mobile" && screen.type == "screen" ? "calc(calc((100% - 400px) / 2))" : "0"
+    screenPanelStyle["width"] = "100%";
+    screenPanelStyle["marginLeft"] = "0px";//"calc(calc((100% - 400px) / 2))";
   }
 
   const listStyle = {
@@ -87,17 +86,17 @@ const PreviewScreenPanel = ({ screen, sidebar }) => {
 
   const { screenId } = useParams();
   console.log("🔍 PreviewScreenPanel Debug:", {
-    screenId: screenId, 
+    screenId: screenId,
     screen: screen,
     screenBody: screen?.body,
     componentsCount: screen?.body?.length,
     headerScreen: headerScreen,
     interfaceView: interfaceView
   });
-  
+
   const takePhoto = async () => {
     try {
-      const photo = await MBridge.camera.takePhoto({ quality: 80, saveToGallery: false });  
+      const photo = await MBridge.camera.takePhoto({ quality: 80, saveToGallery: false });
       console.log("Photo taken:", photo);
     } catch (error) {
       console.error("Error taking photo:", error);
@@ -123,7 +122,7 @@ const PreviewScreenPanel = ({ screen, sidebar }) => {
         {screen.body.filter((component) => !component.parentId).map((component) => {
           let grid = { ...defaultGrid.grid, ...component.grid };
           let currentGridSP = interfaceView === "mobile" ? grid.mobile : grid.desktop;
-          
+
           console.log("🔍 Rendering component:", {
             componentId: component.id,
             componentType: component.type,
@@ -131,7 +130,7 @@ const PreviewScreenPanel = ({ screen, sidebar }) => {
             grid: currentGridSP,
             hasParentId: !!component.parentId
           });
-          
+
           return (
             <div
               key={component.id}
@@ -145,7 +144,7 @@ const PreviewScreenPanel = ({ screen, sidebar }) => {
             >
               <RenderComponent component={component} _mode="preview" _parentScreen={screen} />
             </div>
-            
+
           )
         })}
         {/* <button style={{ padding: "20px",backgroundColor:"red", "marginTop": "40px" }} onClick={takePhoto}>Take Photo</button> */}

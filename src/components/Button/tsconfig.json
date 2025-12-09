@@ -12,7 +12,8 @@
             "react",
             "react-dom"
         ],
-        "jsx": "react-jsx",
+        "jsx": "react",
+        "jsxFactory": "api.React.createElement",
         "declaration": true,
         "declarationDir": "./dist",
         "outDir": "./dist"

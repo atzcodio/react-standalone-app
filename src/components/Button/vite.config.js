@@ -5,11 +5,15 @@ const { defineConfig } = require('vite');
 module.exports = defineConfig({
     plugins: [
         react({
-            jsxRuntime: 'automatic', // <-- this is important
+            jsxRuntime: 'classic',
         })
     ],
     define: {
         'process.env.NODE_ENV': '"production"'
+    },
+    esbuild: {
+        jsxFactory: 'api.React.createElement',
+        jsxFragment: 'api.React.Fragment',
     },
     build: {
         lib: {

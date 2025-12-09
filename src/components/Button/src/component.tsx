@@ -1,4 +1,4 @@
-// import { runtimeDeps, BaseProps } from "./runtime";
+// React import will be bundled by Rollup, do not import explicitly for full bundle
 
 // ----------------------
 // Types
@@ -19,25 +19,25 @@ interface ButtonProps {
   textAlign?: string;
   display?: string;
   text_align?:
-    | "start"
-    | "end"
-    | "left"
-    | "right"
-    | "center"
-    | "justify"
-    | "match-parent";
+  | "start"
+  | "end"
+  | "left"
+  | "right"
+  | "center"
+  | "justify"
+  | "match-parent";
   event?: any;
   icon?: string;
   fontWeight?:
-    | "100"
-    | "200"
-    | "300"
-    | "400"
-    | "500"
-    | "600"
-    | "700"
-    | "800"
-    | "900";
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900";
   loading?: boolean | number;
   theme?: "basic" | "vivid" | "dark" | "light";
   [key: string]: any;
@@ -276,7 +276,7 @@ export function getButtonManifest(ElementTypes: any, THEME: any) {
 // ----------------------
 
 export function createComponent(api: any) {
-  const { ElementTypes, THEME } = api;
+  const { ElementTypes, THEME, React } = api;
 
   const platformDeps = api.getPlatformHooks();
   const deps = {

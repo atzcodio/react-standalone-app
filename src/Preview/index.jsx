@@ -7,9 +7,10 @@ import PreviewPopup from "./PreviewPopup";
 import PreviewSidebar from "./PreviewSidebar";
 import PreviewHeader from "./PreviewHeader";
 import { useTransition, animated } from 'react-spring';
+import useWindowDimensions from "../utils/windowDimention";
 
 function PreviewApp() {
-  const {screens, setPopup, setSidebar, setHeader, selectedPopupId, selectedSidebarId, selectedHeaderId, selectedScreenIndex, sidebarNavState, popupNavState, headerNavState, interfaceView } = useComponentContext();
+  const { screens, setPopup, setSidebar, setHeader, selectedPopupId, selectedSidebarId, selectedHeaderId, selectedScreenIndex, sidebarNavState, popupNavState, headerNavState, interfaceView } = useComponentContext();
 
   console.log("🔍 Preview App Debug:", {
     screens: screens,
@@ -82,72 +83,75 @@ function PreviewApp() {
     easing: [0.25, 0.1, 0.25, 1]
   });
 
-  const screenWidth = interfaceView == "mobile" ? "400px" : "100%";
-  const mobileViewMarginLeft = interfaceView == "mobile" ? "calc(calc(100% - 400px) / 2)" : "0px";
+  const { height, windowWidth } = useWindowDimensions();
+
+  const screenWidth = interfaceView == "mobile" ? windowWidth + "px" : "100%";
+  const mobileViewMarginLeft = "0px";
 
   return (
     <>
-        {/* Wrapping transitions with animated.div for route animation */}
-        {transitions((style, item) => (
+      {/* Wrapping transitions with animated.div for route animation */}
+      {transitions((style, item) => (
 
-          <animated.div key={item.pathname} style={{...style,width:screenWidth,marginLeft:mobileViewMarginLeft}}>
-            <Routes location={item}>
-              {/* Redirect from `/preview` to the selected screen's path if available */}
+        <animated.div key={item.pathname} style={{ ...style, width: screenWidth, marginLeft: mobileViewMarginLeft }}>
+          <Routes location={item}>
+            {/* Redirect from `/preview` to the selected screen's path if available */}
+            <Route
+              path="/"
+              element={screens.length > 0 ? <Navigate to={`/preview/${screens[selectedScreenIndex]?.id || screens[0].id}`} replace /> : <div>Loading...</div>}
+            />
+            <Route
+              path="/preview"
+              element={screens.length > 0 ? <Navigate to={`/preview/${screens[selectedScreenIndex]?.id || screens[0].id}`} replace /> : <div>Loading...</div>}
+            />
+
+            {/* Define nested routes for each screen */}
+            {screens.map((screen) => (
               <Route
-                path="/"
-                element={screens.length > 0 ? <Navigate to={`/preview/${screens[selectedScreenIndex]?.id || screens[0].id}`} replace /> : <div>Loading...</div>}
-              />
-              <Route
-                path="/preview"
-                element={screens.length > 0 ? <Navigate to={`/preview/${screens[selectedScreenIndex]?.id || screens[0].id}`} replace /> : <div>Loading...</div>}
-              />
+                key={screen.id}
+                path={`/preview/${screen.id}`}
+                element={
+                  <>
 
-              {/* Define nested routes for each screen */}
-              {screens.map((screen) => (
-                <Route
-                  key={screen.id}
-                  path={`/preview/${screen.id}`}
-                  element={
-                    <>
-                      
-                        <PreviewScreenPanel
-                          screen={screen}
-                          sidebar={
-                            selectedSidebarId && sidebarScreen ? (
-                              <PreviewSidebar
-                                screen={sidebarScreen}
-                                isVisible={sidebarScreen !== null}
-                                onClose={handleSidebarClose}
-                                sidebarNavState={sidebarNavState}
-                              />
-                            ) : null
-                          }
-                          header={
-                            selectedHeaderId && headerScreen ? (
-                              <PreviewHeader
-                                screen={headerScreen}
-                                isVisible={headerScreen !== null}
-                              />
-                            ) : null
-                          }
-                        />
+                    <PreviewScreenPanel
+                      screen={screen}
+                      sidebar={
+                        selectedSidebarId && sidebarScreen ? (
+                          <PreviewSidebar
+                            screen={sidebarScreen}
+                            isVisible={sidebarScreen !== null}
+                            onClose={handleSidebarClose}
+                            sidebarNavState={sidebarNavState}
+                          />
+                        ) : null
+                      }
+                      header={
+                        selectedHeaderId && headerScreen ? (
+                          <PreviewHeader
+                            screen={headerScreen}
+                            isVisible={headerScreen !== null}
+                          />
+                        ) : null
+                      }
+                      screenWidth={screenWidth}
+                    />
 
-                      {/* Display popup if there's a selected popup */}
-                      {selectedPopupId && popScreen && (
-                        <PreviewPopup
-                          screen={popScreen}
-                          isVisible={popScreen !== null}
-                          onClose={handlePopupClose}
-                          popupNavState={popupNavState}
-                        />
-                      )}
-                    </>
-                  }
-                />
-              ))}
-            </Routes>
-          </animated.div>
-        ))}
+                    {/* Display popup if there's a selected popup */}
+                    {selectedPopupId && popScreen && (
+                      <PreviewPopup
+                        screen={popScreen}
+                        isVisible={popScreen !== null}
+                        onClose={handlePopupClose}
+                        popupNavState={popupNavState}
+                      />
+                    )}
+                  </>
+                }
+              />
+            ))}
+          </Routes>
+        </animated.div>
+      ))}
     </>
   );
 }
