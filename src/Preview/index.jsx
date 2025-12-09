@@ -9,6 +9,7 @@ import PreviewHeader from "./PreviewHeader";
 import { useTransition, animated } from 'react-spring';
 import useWindowDimensions from "../utils/windowDimention";
 
+
 function PreviewApp() {
   const { screens, setPopup, setSidebar, setHeader, selectedPopupId, selectedSidebarId, selectedHeaderId, selectedScreenIndex, sidebarNavState, popupNavState, headerNavState, interfaceView } = useComponentContext();
 
@@ -75,6 +76,29 @@ function PreviewApp() {
     exit: { opacity: 0, x: -100 },
   };
 
+  const androidAnimation = {
+    initial: {
+      x: 40,
+      opacity: 0
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.25,
+        ease: [0.2, 0.0, 0, 1.0] // Android easeOut
+      }
+    },
+    exit: {
+      x: -30,
+      opacity: 0,
+      transition: {
+        duration: 0.18,
+        ease: [0.4, 0.0, 1, 1] // Android easeIn
+      }
+    }
+  };
+
   // Set up the transition logic for route changes
   const transitions = useTransition(location, {
     from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
@@ -91,10 +115,17 @@ function PreviewApp() {
   return (
     <>
       {/* Wrapping transitions with animated.div for route animation */}
-      {transitions((style, item) => (
-
-        <animated.div key={item.pathname} style={{ ...style, width: screenWidth, marginLeft: mobileViewMarginLeft }}>
-          <Routes location={item}>
+      {/* {transitions((style, item) => ( */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          variants={androidAnimation}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          style={{ width: screenWidth, marginLeft: mobileViewMarginLeft }}
+        >
+          <Routes location={location}>
             {/* Redirect from `/preview` to the selected screen's path if available */}
             <Route
               path="/"
@@ -150,8 +181,9 @@ function PreviewApp() {
               />
             ))}
           </Routes>
-        </animated.div>
-      ))}
+        </motion.div>
+      </AnimatePresence>
+      {/* ))} */}
     </>
   );
 }

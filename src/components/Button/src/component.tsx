@@ -1,3 +1,4 @@
+/// <reference types="react" />
 // React import will be bundled by Rollup, do not import explicitly for full bundle
 
 // ----------------------
