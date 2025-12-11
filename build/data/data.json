@@ -131,63 +131,15 @@
                                     ]
                                 },
                                 {
-                                    "id": "js-fc753dd8-b05f-475d-a147-dc8a91726cf6",
-                                    "type": "js",
-                                    "name": "Javascript_1",
-                                    "path": [
-                                        "1"
-                                    ],
-                                    "data": {
-                                        "name": "Javascript_1",
-                                        "code": "const photo = await MBridge.camera.takePhoto({ quality: 80, saveToGallery: false });\nconsole.log(\"photo\", photo);\nreturn \"Hello word\";",
-                                        "params": {}
-                                    },
-                                    "inputs": [
-                                        {
-                                            "label": "Params",
-                                            "name": "params",
-                                            "type": "group",
-                                            "inputs": [
-                                                [
-                                                    {
-                                                        "label": "param",
-                                                        "name": "param",
-                                                        "type": "markCodeEditor",
-                                                        "defaultValue": "param",
-                                                        "grid_style": "row"
-                                                    },
-                                                    {
-                                                        "label": "value",
-                                                        "name": "value",
-                                                        "type": "markCodeEditor",
-                                                        "defaultValue": "value",
-                                                        "grid_style": "row"
-                                                    }
-                                                ]
-                                            ]
-                                        },
-                                        {
-                                            "label": "code",
-                                            "name": "code",
-                                            "type": "codeEditor",
-                                            "defaultValue": "// Write Your Code Here\n// let a=10;\n// let b=20;\n// return (a+b);\n",
-                                            "grid_style": "row"
-                                        }
-                                    ],
-                                    "configuring": true,
-                                    "validateStatusError": false,
-                                    "OUTPUT": null
-                                },
-                                {
                                     "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
                                     "type": "end",
                                     "name": "end",
                                     "path": [
-                                        "2"
+                                        "1"
                                     ]
                                 }
                             ],
-                            "edges": []
+                            "edges": "remove-node"
                         },
                         "editedOnDRS": true
                     },
@@ -200,8 +152,8 @@
                         }
                     },
                     "position": {
-                        "x": 16.66668701171875,
-                        "y": 1090.0000305175781
+                        "x": 66.66664632161459,
+                        "y": 2379.9998168945312
                     },
                     "grid": {
                         "desktop": {
@@ -211,10 +163,10 @@
                             "y": 105
                         },
                         "mobile": {
-                            "width": 11,
+                            "width": 7,
                             "height": 4,
-                            "x": 1,
-                            "y": 109
+                            "x": 4,
+                            "y": 238
                         }
                     },
                     "output": ""
@@ -257,101 +209,23 @@
                         "event": {
                             "nodes": [
                                 {
-                                    "id": "node-0d9d4733-e48c-41fd-a41f-d93cc4718d97",
+                                    "id": "start-50d6274c-3ce2-4d34-af70-de2810726410",
                                     "type": "start",
-                                    "name": "start",
+                                    "name": "Start",
                                     "path": [
                                         "0"
                                     ]
                                 },
                                 {
-                                    "id": "navigateToScreen-fb00ba59-d22a-4d73-be4b-55710bd6e0e2",
-                                    "type": "navigateToScreen",
-                                    "name": "NavigateToScreen_1",
+                                    "id": "end-7020cf02-19b8-45e1-86fa-1ad81f1278de",
+                                    "type": "end",
+                                    "name": "End",
                                     "path": [
                                         "1"
-                                    ],
-                                    "data": {
-                                        "name": "NavigateToScreen_1",
-                                        "screenId": "screen"
-                                    },
-                                    "inputs": [
-                                        {
-                                            "label": "Select Screen",
-                                            "name": "screenId",
-                                            "type": "select",
-                                            "options": [
-                                                {
-                                                    "label": "screen-5",
-                                                    "value": "screen-5"
-                                                },
-                                                {
-                                                    "label": "screen",
-                                                    "value": "screen"
-                                                }
-                                            ],
-                                            "defaultValue": "Select Screen"
-                                        },
-                                        {
-                                            "label": "heightOrWidth",
-                                            "name": "heightOrWidth",
-                                            "type": "text",
-                                            "defaultValue": "400px"
-                                        },
-                                        {
-                                            "label": "Select Positon",
-                                            "name": "position",
-                                            "type": "select",
-                                            "options": [
-                                                {
-                                                    "label": "left",
-                                                    "value": "left"
-                                                },
-                                                {
-                                                    "label": "right",
-                                                    "value": "right"
-                                                },
-                                                {
-                                                    "label": "top",
-                                                    "value": "top"
-                                                },
-                                                {
-                                                    "label": "bottom",
-                                                    "value": "bottom"
-                                                }
-                                            ],
-                                            "defaultValue": "Select Positon"
-                                        },
-                                        {
-                                            "label": "height",
-                                            "name": "height",
-                                            "type": "text",
-                                            "defaultValue": "600px"
-                                        },
-                                        {
-                                            "label": "width",
-                                            "name": "width",
-                                            "type": "text",
-                                            "defaultValue": "400px"
-                                        }
-                                    ],
-                                    "configuring": true,
-                                    "OUTPUT": {
-                                        "success": true,
-                                        "screenId": "screen",
-                                        "screenType": "screen"
-                                    }
-                                },
-                                {
-                                    "id": "node-b106675a-5148-4a2e-aa86-8e06abd692d1",
-                                    "type": "end",
-                                    "name": "end",
-                                    "path": [
-                                        "2"
                                     ]
                                 }
                             ],
-                            "edges": []
+                            "edges": "init-builder"
                         },
                         "editedOnDRS": true
                     },
@@ -364,8 +238,8 @@
                         }
                     },
                     "position": {
-                        "x": 200,
-                        "y": 1089.9999694824219
+                        "x": 183.33335367838544,
+                        "y": 2379.9998168945312
                     },
                     "grid": {
                         "desktop": {
@@ -375,10 +249,10 @@
                             "y": 105
                         },
                         "mobile": {
-                            "width": 10,
+                            "width": 6,
                             "height": 4,
-                            "x": 12,
-                            "y": 109
+                            "x": 11,
+                            "y": 238
                         }
                     },
                     "output": ""
@@ -463,6 +337,324 @@
                         }
                     },
                     "output": ""
+                },
+                {
+                    "type": "Image",
+                    "id": "cmizi01h900cp356r095fis4q",
+                    "properties": {
+                        "test_properties": "hello",
+                        "url": "https://images.unsplash.com/photo-1713996240147-7a2f77d2871b?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "border": "1px solid #e1e1e1",
+                        "borderRadius": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "margin": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "padding": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "style": "",
+                        "_name": "image",
+                        "editedOnDRS": true
+                    },
+                    "_name": "image",
+                    "position": {
+                        "x": 16.66668701171875,
+                        "y": 1139.9999694824219
+                    },
+                    "grid": {
+                        "desktop": {
+                            "width": 7,
+                            "height": 30,
+                            "x": 8,
+                            "y": 99
+                        },
+                        "mobile": {
+                            "width": 22,
+                            "height": 30,
+                            "x": 1,
+                            "y": 114
+                        }
+                    }
+                },
+                {
+                    "type": "Button",
+                    "id": "cmj02kzlc00gs356rz2ekdioj",
+                    "properties": {
+                        "test_properties": "hello",
+                        "text": "Click Camera OUTPUT",
+                        "background_color": "#FFC816",
+                        "color": "#4A2800",
+                        "fontSize": "14px",
+                        "fontWeight": "400",
+                        "fontFamily": "inherit",
+                        "padding": "8px 16px",
+                        "margin": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "border_radius": [
+                            "4px",
+                            "4px",
+                            "4px",
+                            "4px"
+                        ],
+                        "border": "1px solid #FFC816",
+                        "text_align": "center",
+                        "loading": false,
+                        "theme": "sunset",
+                        "_name": "button4",
+                        "editedOnDRS": true,
+                        "event": {
+                            "nodes": [
+                                {
+                                    "id": "start-9fc6f985-29cb-428c-b129-6eb80073d7cc",
+                                    "type": "start",
+                                    "name": "Start",
+                                    "path": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "id": "camera-8e1414c4-ef6a-4442-8d06-15f6a8a30078",
+                                    "type": "camera",
+                                    "name": "Camera_1",
+                                    "path": [
+                                        "1"
+                                    ],
+                                    "data": {
+                                        "name": "Camera_1",
+                                        "allowGalary": false
+                                    },
+                                    "inputs": [
+                                        {
+                                            "label": "Allow Galary",
+                                            "name": "allowGalary",
+                                            "type": "checkbox",
+                                            "defaultValue": false
+                                        }
+                                    ],
+                                    "configuring": false,
+                                    "validateStatusError": false
+                                },
+                                {
+                                    "id": "toast-b2d71804-fec5-4cf3-98dc-d303fbbe43ae",
+                                    "type": "toast",
+                                    "name": "Toast_1",
+                                    "path": [
+                                        "2"
+                                    ],
+                                    "data": {
+                                        "name": "Toast_1",
+                                        "message": "{{Camera_1.OUTPUT}}",
+                                        "type": "success"
+                                    },
+                                    "inputs": [
+                                        {
+                                            "label": "message",
+                                            "name": "message",
+                                            "type": "markCodeEditor",
+                                            "defaultValue": "Done successfully"
+                                        },
+                                        {
+                                            "label": "type",
+                                            "name": "type",
+                                            "type": "select",
+                                            "options": [
+                                                {
+                                                    "label": "success",
+                                                    "value": "success"
+                                                },
+                                                {
+                                                    "label": "error",
+                                                    "value": "error"
+                                                },
+                                                {
+                                                    "label": "loading",
+                                                    "value": "loading"
+                                                }
+                                            ],
+                                            "defaultValue": "success"
+                                        }
+                                    ],
+                                    "configuring": true,
+                                    "validateStatusError": false,
+                                    "OUTPUT": {
+                                        "success": true,
+                                        "message": null,
+                                        "type": "success",
+                                        "duration": 3,
+                                        "timestamp": "2025-12-10T15:52:01.184Z"
+                                    }
+                                },
+                                {
+                                    "id": "end-290b6f52-f857-43af-9610-47fe0251c496",
+                                    "type": "end",
+                                    "name": "End",
+                                    "path": [
+                                        "3"
+                                    ]
+                                }
+                            ],
+                            "edges": []
+                        }
+                    },
+                    "_name": "button4",
+                    "position": {
+                        "x": 66.66668701171875,
+                        "y": 2429.9999389648438
+                    },
+                    "grid": {
+                        "desktop": {
+                            "width": 4,
+                            "height": 4,
+                            "x": 7,
+                            "y": 152
+                        },
+                        "mobile": {
+                            "width": 13,
+                            "height": 4,
+                            "x": 4,
+                            "y": 243
+                        }
+                    },
+                    "meta": {
+                        "text": {
+                            "fx": "{{\"Click Camera OUTPUT\"}}",
+                            "deps": [],
+                            "isFx": true
+                        }
+                    },
+                    "output": ""
+                },
+                {
+                    "type": "ProductInfo",
+                    "id": "cmj02n45k00zz356rbkexutl2",
+                    "properties": {
+                        "test_properties": "hello",
+                        "productImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+                        "productName": "Premium Wireless Headphones",
+                        "price": "null",
+                        "originalPrice": "$249.99",
+                        "rating": 4.5,
+                        "description": "Experience crystal-clear audio with premium wireless headphones featuring 30-hour battery life.",
+                        "inStock": true,
+                        "backgroundColor": "#ffffff",
+                        "borderRadius": [
+                            "16px",
+                            "16px",
+                            "16px",
+                            "16px"
+                        ],
+                        "padding": [
+                            "20px",
+                            "20px",
+                            "20px",
+                            "20px"
+                        ],
+                        "margin": [
+                            "10px",
+                            "10px",
+                            "10px",
+                            "10px"
+                        ],
+                        "shadowColor": "rgba(0,0,0,0.1)",
+                        "textColor": "#333333",
+                        "primaryColor": "#007bff",
+                        "buttonText": "Add to Cart",
+                        "_name": "productinfo3",
+                        "editedOnDRS": true
+                    },
+                    "_name": "productinfo3",
+                    "position": {
+                        "x": 0,
+                        "y": 1450.0000228881836
+                    },
+                    "grid": {
+                        "desktop": {
+                            "width": 24,
+                            "height": 40,
+                            "x": 5,
+                            "y": 153
+                        },
+                        "mobile": {
+                            "width": 24,
+                            "height": 71,
+                            "x": 0,
+                            "y": 145
+                        }
+                    },
+                    "meta": {
+                        "price": {
+                            "fx": "{{var8}}",
+                            "deps": [
+                                "var8"
+                            ],
+                            "isFx": true
+                        }
+                    },
+                    "output": ""
+                },
+                {
+                    "type": "Image",
+                    "id": "cmj064qoh017h356r1corlnzs",
+                    "properties": {
+                        "test_properties": "hello",
+                        "_name": "image1",
+                        "url": "https://images.unsplash.com/photo-1713996240147-7a2f77d2871b?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                        "style": "",
+                        "border": "1px solid #e1e1e1",
+                        "borderRadius": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "margin": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "padding": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "editedOnDRS": true
+                    },
+                    "_name": "image1",
+                    "position": {
+                        "x": 0,
+                        "y": 2029.9999694824219
+                    },
+                    "grid": {
+                        "desktop": {
+                            "width": 7,
+                            "height": 30,
+                            "x": 5,
+                            "y": 195
+                        },
+                        "mobile": {
+                            "width": 22,
+                            "height": 33,
+                            "x": 0,
+                            "y": 203
+                        }
+                    }
                 }
             ],
             "chosen": false,
@@ -784,7 +976,8 @@
                     "output": ""
                 }
             ],
-            "chosen": false
+            "chosen": false,
+            "selected": false
         }
     ],
     "queries": [
@@ -2330,6 +2523,25 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "4c21348ia0ozrpi96x2aonc3o5edsozellbi6dd",
+            "type": "variable",
+            "name": "var8",
+            "inputs": [
+                {
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text",
+                    "defaultValue": null
+                }
+            ],
+            "configuring": false,
+            "data": {
+                "name": "var8",
+                "value": "10"
+            },
+            "value": "null"
         }
     ],
     "connectors": [

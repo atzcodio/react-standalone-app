@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast';
 // import ApiTask from './apiTask';
 // import toastTask from './toastTask';
+import MBridge from '../MBridge';
 import globalContext from './../context/GlobalContext';
 
 
@@ -15,17 +16,17 @@ import globalContext from './../context/GlobalContext';
 const ToastTask = async (apiData) => {
   try {
     const { message, type = 'success', duration = 3 } = apiData;
-    
+
     // Evaluate formulas
     const evaluatedMessage = globalContext.evaluateFormula(message, OUTPUTSTORE);
     const evaluatedType = type;
     const evaluatedDuration = duration * 1000; // Convert to milliseconds
-    
+
     // Display toast based on type
     const toastOptions = {
       duration: evaluatedDuration
     };
-    
+
     switch (evaluatedType) {
       case 'success':
         toast.success(evaluatedMessage, toastOptions);
@@ -47,7 +48,7 @@ const ToastTask = async (apiData) => {
         });
         break;
     }
-    
+
     return {
       OUTPUT: {
         success: true,
@@ -98,7 +99,7 @@ const JSTask = async (apiData) => {
   var OUTPUTSTORE = {};
   console.log("JSTask executing with async support")
   const { params, code } = apiData;
-  
+
   console.log("JS apidata", apiData, params)
   let newParams = Object.keys(params).reduce((accumulator, key) => {
     let result = globalContext.evaluateFormula(params[key], OUTPUTSTORE);
@@ -109,11 +110,11 @@ const JSTask = async (apiData) => {
   try {
     // Check if code contains async/await keywords
     const isAsync = /\b(async|await)\b/.test(code);
-    
+
     if (isAsync) {
       // Create async function for async code
       const asyncExecutionFunction = new Function(
-        Object.keys(newParams).join(','), 
+        Object.keys(newParams).join(','),
         `return (async () => {\n${code}\n})()`
       );
       let Output = await asyncExecutionFunction(...Object.values(newParams));
@@ -130,6 +131,19 @@ const JSTask = async (apiData) => {
     console.error("JS execution error:", error);
     return { "ERROR": error.message, "OUTPUT": null };
   }
+}
+
+/*
+  @CameraTask function to display toast messages
+  @param {Object} opts - Options for the camera task
+  @param {Boolean} opts.allowGalary - Whether to allow gallery access
+*/
+
+const CameraTask = async (opts) => {
+  const { allowGalary } = opts;
+  let response = await MBridge.camera.takePhoto();
+  console.log("Camera response:", response);
+  return { "OUTPUT": response };
 }
 
 
@@ -152,14 +166,14 @@ const NavigateToScreen = async (apiData, curNode, nodes, options) => {
   try {
     const { screenId, position, heightOrWidth, height, width } = apiData;
     const { setPopup, setSidebar, setHeader, selectedSidebarId, selectedPopupId, selectedHeaderId, screens, setSelectedScreenIndex, initandOpenSidebar, initandOpenPopup, initandOpenHeader, navigate } = options;
-    
+
     // Evaluate formulas in the parameters
     const evaluatedScreenId = globalContext.evaluateFormula(screenId, OUTPUTSTORE);
     const evaluatedPosition = position ? globalContext.evaluateFormula(position, OUTPUTSTORE) : position;
     const evaluatedHeightOrWidth = heightOrWidth ? globalContext.evaluateFormula(heightOrWidth, OUTPUTSTORE) : heightOrWidth;
     const evaluatedHeight = height ? globalContext.evaluateFormula(height, OUTPUTSTORE) : height;
     const evaluatedWidth = width ? globalContext.evaluateFormula(width, OUTPUTSTORE) : width;
-    
+
     console.log('NavigateToScreen: Evaluated parameters', {
       screenId: evaluatedScreenId,
       position: evaluatedPosition,
@@ -167,7 +181,7 @@ const NavigateToScreen = async (apiData, curNode, nodes, options) => {
       height: evaluatedHeight,
       width: evaluatedWidth
     });
-    
+
     for (var i = 0; i < screens.length; i++) {
       if (screens[i]["id"] == evaluatedScreenId) {
         if (screens[i]["type"] == "popup") {
@@ -175,16 +189,16 @@ const NavigateToScreen = async (apiData, curNode, nodes, options) => {
             setPopup(null);
           }
           // Ensure width and height have proper units
-          const popupHeight = evaluatedHeight && !evaluatedHeight.includes('px') && !evaluatedHeight.includes('%') 
-            ? evaluatedHeight + 'px' 
+          const popupHeight = evaluatedHeight && !evaluatedHeight.includes('px') && !evaluatedHeight.includes('%')
+            ? evaluatedHeight + 'px'
             : evaluatedHeight || '400px';
           const popupWidth = evaluatedWidth && !evaluatedWidth.includes('px') && !evaluatedWidth.includes('%')
             ? evaluatedWidth + 'px'
             : evaluatedWidth || '400px';
-          
+
           console.log('Opening popup with dimensions:', { height: popupHeight, width: popupWidth });
           initandOpenPopup(evaluatedScreenId, popupHeight, popupWidth);
-          
+
           toast.success(`Opened popup: ${screens[i].properties?.title || evaluatedScreenId}`);
           break;
         }
@@ -215,13 +229,13 @@ const NavigateToScreen = async (apiData, curNode, nodes, options) => {
         }
       }
     }
-    
-    return { 
-      OUTPUT: { 
+
+    return {
+      OUTPUT: {
         success: true,
         screenId: evaluatedScreenId,
         screenType: screens.find(s => s.id === evaluatedScreenId)?.type || 'unknown'
-      } 
+      }
     };
   } catch (error) {
     console.error('NavigateToScreen error:', error);
@@ -234,9 +248,9 @@ const NavigateToScreen = async (apiData, curNode, nodes, options) => {
 const NavigateToNextScreen = async (apiData, curNode, nodes, options) => {
   try {
     const { screens, navigate } = options;
-    
+
     console.log('NavigateToNextScreen: Starting navigation logic', { screens });
-    
+
     // Filter screens to only get 'screen' type
     const screenList = screens.filter((screen) => screen.type === 'screen');
     console.log('NavigateToNextScreen: Available screens', screenList);
@@ -250,7 +264,7 @@ const NavigateToNextScreen = async (apiData, curNode, nodes, options) => {
     // Get the current screen ID from the URL
     const currentScreenId = new URL(window.location.href).pathname.split('/').pop();
     console.log('NavigateToNextScreen: Current screen ID', currentScreenId);
-    
+
     // Find current screen index
     const currentScreenIndex = screenList.findIndex((screen) => screen.id === currentScreenId);
     console.log('NavigateToNextScreen: Current screen index', currentScreenIndex);
@@ -264,10 +278,10 @@ const NavigateToNextScreen = async (apiData, curNode, nodes, options) => {
     // Get next screen
     const nextScreenIndex = currentScreenIndex + 1;
     const nextScreen = screenList[nextScreenIndex];
-    
+
     if (nextScreen) {
       console.log(`NavigateToNextScreen: Navigating to ${nextScreen.id}`);
-      
+
       // Use navigate function if available
       if (navigate && typeof navigate === 'function') {
         navigate(`/preview/${nextScreen.id}`);
@@ -277,37 +291,37 @@ const NavigateToNextScreen = async (apiData, curNode, nodes, options) => {
         window.location.href = `/preview/${nextScreen.id}`;
         toast.success(`Navigating to ${nextScreen.properties?.title || nextScreen.id}`);
       }
-      
-      return { 
-        OUTPUT: { 
+
+      return {
+        OUTPUT: {
           success: true,
           fromScreen: currentScreenId,
           toScreen: nextScreen.id,
           screenTitle: nextScreen.properties?.title || nextScreen.id
-        } 
+        }
       };
     } else {
       console.log('NavigateToNextScreen: No more screens to navigate to');
       toast.info('You are on the last screen');
-      
-      return { 
-        OUTPUT: { 
-          success: false, 
+
+      return {
+        OUTPUT: {
+          success: false,
           message: 'Already on the last screen',
           currentScreen: currentScreenId,
           totalScreens: screenList.length
-        } 
+        }
       };
     }
   } catch (error) {
     console.error('NavigateToNextScreen: Error during navigation', error);
     toast.error(`Navigation error: ${error.message}`);
-    
-    return { 
-      OUTPUT: { 
-        success: false, 
-        error: error.message 
-      } 
+
+    return {
+      OUTPUT: {
+        success: false,
+        error: error.message
+      }
     };
   }
 };
@@ -378,7 +392,7 @@ const FxExecuteQueryTask = async (data) => {
 const FxTask = async (apiData) => {
   const { fx_data } = apiData;
   let result = globalContext.evaluateFormula(fx_data, OUTPUTSTORE);
-  console.log("fxresult",result)
+  console.log("fxresult", result)
   return { "OUTPUT": result };
 }
 
@@ -481,11 +495,11 @@ const ApiTask = async (apiData) => {
 
   // console.log("apiData---?",apiData);
   let evaluatedApiData = evaluateApiData(apiData);
-  
-  const { endpoint, method, headers, params, timeout, body, data, cookies,contentType } = evaluatedApiData;
 
-  headers['contentType'] = contentType ;
-  console.log("contentType in flowExecution",contentType,headers)
+  const { endpoint, method, headers, params, timeout, body, data, cookies, contentType } = evaluatedApiData;
+
+  headers['contentType'] = contentType;
+  console.log("contentType in flowExecution", contentType, headers)
   console.log("apiData---? evaluatedApiData", evaluatedApiData)
 
   let url = endpoint;
@@ -679,25 +693,25 @@ const EndTask = async () => {
 const EmailSendTask = async (emailData) => {
   try {
     const { to, subject, message, cc } = emailData;
-    
+
     // Evaluate formulas in email data
     const evaluatedTo = globalContext.evaluateFormula(to, OUTPUTSTORE);
     const evaluatedSubject = globalContext.evaluateFormula(subject, OUTPUTSTORE);
     const evaluatedMessage = globalContext.evaluateFormula(message, OUTPUTSTORE);
     const evaluatedCC = cc ? globalContext.evaluateFormula(cc, OUTPUTSTORE) : '';
-    
+
     console.log('Sending email:', {
       to: evaluatedTo,
       subject: evaluatedSubject,
       message: evaluatedMessage,
       cc: evaluatedCC
     });
-    
+
     // Simulate email sending (in production, integrate with email service)
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     toast.success(`Email sent to ${evaluatedTo}`);
-    
+
     return {
       OUTPUT: {
         success: true,
@@ -722,10 +736,10 @@ const EmailSendTask = async (emailData) => {
 const ConsoleLogTask = async (logData) => {
   try {
     const { message, level = 'info' } = logData;
-    
+
     // Evaluate formula in message
     const evaluatedMessage = globalContext.evaluateFormula(message, OUTPUTSTORE);
-    
+
     // Log based on level
     switch (level) {
       case 'error':
@@ -745,7 +759,7 @@ const ConsoleLogTask = async (logData) => {
         console.info('[Flow]', evaluatedMessage);
         break;
     }
-    
+
     return {
       OUTPUT: {
         message: evaluatedMessage,
@@ -768,13 +782,13 @@ const ConsoleLogTask = async (logData) => {
 const FileDownloadTask = async (downloadData) => {
   try {
     const { fileUrl, fileName } = downloadData;
-    
+
     // Evaluate formulas
     const evaluatedUrl = globalContext.evaluateFormula(fileUrl, OUTPUTSTORE);
     const evaluatedFileName = globalContext.evaluateFormula(fileName, OUTPUTSTORE);
-    
+
     console.log('Downloading file:', evaluatedUrl, 'as', evaluatedFileName);
-    
+
     // Create download link and trigger download
     const link = document.createElement('a');
     link.href = evaluatedUrl;
@@ -782,9 +796,9 @@ const FileDownloadTask = async (downloadData) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     toast.success(`File download started: ${evaluatedFileName}`);
-    
+
     return {
       OUTPUT: {
         success: true,
@@ -810,18 +824,18 @@ const FileDownloadTask = async (downloadData) => {
 const FileUploadTask = async (uploadData) => {
   try {
     const { acceptTypes = '*/*', multiple = false, maxSize = 10 } = uploadData;
-    
+
     return new Promise((resolve) => {
       // Create file input element
       const input = document.createElement('input');
       input.type = 'file';
       input.accept = acceptTypes;
       input.multiple = multiple;
-      
+
       input.onchange = (event) => {
         const files = Array.from(event.target.files);
         const maxSizeBytes = maxSize * 1024 * 1024;
-        
+
         // Check file sizes
         const oversizedFiles = files.filter(file => file.size > maxSizeBytes);
         if (oversizedFiles.length > 0) {
@@ -829,16 +843,16 @@ const FileUploadTask = async (uploadData) => {
           resolve({ OUTPUT: { success: false, error: 'File size exceeded' } });
           return;
         }
-        
+
         const fileInfo = files.map(file => ({
           name: file.name,
           size: file.size,
           type: file.type,
           lastModified: file.lastModified
         }));
-        
+
         toast.success(`${files.length} file(s) selected`);
-        
+
         resolve({
           OUTPUT: {
             success: true,
@@ -848,11 +862,11 @@ const FileUploadTask = async (uploadData) => {
           }
         });
       };
-      
+
       input.oncancel = () => {
         resolve({ OUTPUT: { success: false, cancelled: true } });
       };
-      
+
       // Trigger file selection dialog
       input.click();
     });
@@ -873,20 +887,20 @@ const FileUploadTask = async (uploadData) => {
 const LocalStorageTask = async (storageData) => {
   try {
     const { action, key, value } = storageData;
-    
+
     // Evaluate formulas
     const evaluatedKey = globalContext.evaluateFormula(key, OUTPUTSTORE);
     const evaluatedValue = value ? globalContext.evaluateFormula(value, OUTPUTSTORE) : null;
-    
+
     let result;
-    
+
     switch (action) {
       case 'set':
         localStorage.setItem(evaluatedKey, evaluatedValue);
         result = { action: 'set', key: evaluatedKey, value: evaluatedValue };
         toast.success(`Stored ${evaluatedKey} in localStorage`);
         break;
-        
+
       case 'get':
         const retrievedValue = localStorage.getItem(evaluatedKey);
         result = { action: 'get', key: evaluatedKey, value: retrievedValue };
@@ -896,23 +910,23 @@ const LocalStorageTask = async (storageData) => {
           toast.info(`Key ${evaluatedKey} not found in localStorage`);
         }
         break;
-        
+
       case 'remove':
         localStorage.removeItem(evaluatedKey);
         result = { action: 'remove', key: evaluatedKey };
         toast.success(`Removed ${evaluatedKey} from localStorage`);
         break;
-        
+
       case 'clear':
         localStorage.clear();
         result = { action: 'clear' };
         toast.success('Cleared all localStorage data');
         break;
-        
+
       default:
         throw new Error(`Invalid localStorage action: ${action}`);
     }
-    
+
     return {
       OUTPUT: {
         success: true,
@@ -930,11 +944,11 @@ const LocalStorageTask = async (storageData) => {
 const VariableSetTask = async (varData) => {
   try {
     const { variableName, value, type = 'string' } = varData;
-    
+
     // Evaluate formulas
     const varName = globalContext.evaluateFormula(variableName, OUTPUTSTORE);
     let evalValue = globalContext.evaluateFormula(value, OUTPUTSTORE);
-    
+
     // Convert value based on type
     switch (type) {
       case 'number':
@@ -961,12 +975,12 @@ const VariableSetTask = async (varData) => {
         evalValue = String(evalValue);
         break;
     }
-    
+
     // Set variable in output store
     OUTPUTSTORE[varName] = { OUTPUT: evalValue };
-    
+
     toast.success(`Variable ${varName} set to ${type}`);
-    
+
     return {
       OUTPUT: {
         success: true,
@@ -985,11 +999,11 @@ const VariableSetTask = async (varData) => {
 
 const DBConnectorTask = async (dbData) => {
   try {
-    const { 
-      connectionName, 
-      query, 
-      queryType, 
-      queryParams = '{}' 
+    const {
+      connectionName,
+      query,
+      queryType,
+      queryParams = '{}'
     } = dbData;
 
     // Get the stored database connection
@@ -1025,7 +1039,7 @@ const DBConnectorTask = async (dbData) => {
 
     // Simulate database operation based on query type
     let result;
-    
+
     if (queryType === 'SELECT') {
       // Simulate SELECT query result
       result = {
@@ -1074,10 +1088,10 @@ const DBConnectorTask = async (dbData) => {
     }
 
     console.log('DB Query Result:', result);
-    
+
     // Display success toast
     toast.success(`${connection.dbType} query executed on "${connectionName}" successfully`);
-    
+
     return {
       OUTPUT: result,
       connection: {
@@ -1093,10 +1107,10 @@ const DBConnectorTask = async (dbData) => {
 
   } catch (error) {
     console.error('Database execution error:', error);
-    
+
     // Display error toast
     toast.error(`Database error: ${error.message}`);
-    
+
     return {
       OUTPUT: null,
       error: error.message || 'Database operation failed',
@@ -1127,6 +1141,7 @@ const TaskMap = {
   "fileUpload": FileUploadTask,
   "localStorage": LocalStorageTask,
   "variableSet": VariableSetTask,
+  "camera": CameraTask,
   "end": EndTask
 };
 

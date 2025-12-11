@@ -1,9 +1,9 @@
 import React from 'react';
 import { ElementTypes } from '../elements_types';
-import { BaseComponent } from '../baseComponent';
+import { BaseComponent, getDefaultProps } from '../baseComponent';
 import executeFlow from '../FlowExecution';
 import { useNavigate, useLocation } from 'react-router-dom';
-import {THEME} from '../props';
+import { THEME } from '../props';
 
 // Platform API that will be injected into components
 export const platformApi = {
@@ -16,6 +16,7 @@ export const platformApi = {
         useLocation
     },
     BaseComponent,
+    getDefaultProps,
     ElementTypes,
     UI: {},
     THEME: THEME,

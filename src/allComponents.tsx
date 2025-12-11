@@ -2,9 +2,11 @@
 import { BaseConfiguration } from "./baseComponent";
 import { LowcodePlatform } from "./utils/lowcodePlatform";
 import { platformApi } from "./utils/platformApi";
+import { ComponentRegistry } from "./utils/componentRegistry";
 
 import * as ButtonModule from "./components/Button/src/index";
 import * as ProductInfoModule from "./components/ProductInfo/src/index";
+import * as ImageModule from "./components/Image/src/index";
 
 
 /* -----------------------------------------------------------------
@@ -23,9 +25,10 @@ export const ComponentMap: { [key: string]: React.ComponentType<any> } = All;
 
 // Import component modules (dev mode)
 if (process.env.NODE_ENV !== "production") {
-  console.log("Registering components in dev mode",process.env.NODE_ENV);
+  console.log("Registering components in dev mode", process.env.NODE_ENV);
   LowcodePlatform.registerComponent("Button", ButtonModule);
   LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
+  LowcodePlatform.registerComponent("Image", ImageModule);
 }
 
 /* -----------------------------------------------------------------
@@ -36,15 +39,23 @@ export function getPropsList(componentName: keyof Props): string[] | undefined {
   return component?.PropsList;
 }
 
-export function getComponentDefaultProps(cmpType: keyof Props): any {
+export function getComponentDefaultProps(cmpType: string): any {
   const component = All[cmpType];
-  console.log("component?.defaultProps", component);
+  if (ComponentRegistry.getManifest(cmpType)) {
+    console.log("component manifest", ComponentRegistry.getManifest(cmpType))
+    return ComponentRegistry.getManifest(cmpType)?.defaultProps;
+  }
+  console.log("component?.defaultProps", component)
   return component?.defaultProps;
 }
 
-export function getDefaultConfiguration(cmpType: keyof Props): any {
+export function getDefaultConfiguration(cmpType: string): any {
   const component = All[cmpType];
-  console.log("component allComp", component?.Configuration);
+  if (ComponentRegistry.getManifest(cmpType)) {
+    console.log("component manifest", ComponentRegistry.getManifest(cmpType))
+    return ComponentRegistry.getManifest(cmpType)?.Configuration;
+  }
+  console.log("component allComp", component?.Configuration)
   return component?.Configuration || BaseConfiguration;
 }
 

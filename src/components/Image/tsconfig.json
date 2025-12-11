@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "types": [
+            "node",
+            "react",
+            "react-dom"
+        ],
+        "jsx": "react",
+        "jsxFactory": "api.React.createElement",
+        "declaration": true,
+        "declarationDir": "./dist",
+        "outDir": "./dist"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
