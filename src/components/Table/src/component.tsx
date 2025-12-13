@@ -1110,9 +1110,6 @@ const createDependentComponents = (api: any) => {
 
 export function createComponent(api: any) {
     const { ElementTypes, THEME, BaseComponent, BaseConfiguration, getDefaultProps, useComponentContext } = api;
-    if (registerRuntimeDeps) {
-        registerRuntimeDeps(api);
-    }
     const platformDeps = api.getPlatformHooks();
 
     const deps = {
@@ -1138,11 +1135,6 @@ export function createComponent(api: any) {
     const defaultProps = manifest.defaultProps;
 
     const Table: any = (props: any) => {
-        const [isRuntimeReady, setRuntimeReady] = useState(false);
-        useEffect(() => {
-            loadRuntimeDeps(() => api).then(() => setRuntimeReady(true));
-        }, []);
-
         const { id, grid, properties, meta, updateProperties, onFxChange, ...rest } = props;
         let { selectionBg, checkboxBorderColor, data = [], margin, border, header_bg, header_font_color, body_bg, body_font_color, checkbox_accent_col, onRowSelect, selected_row, selection_type, columns, primary_key, border_radius, defaultSelected, defaultSelectedFilter } = { ...defaultProps, ...properties } as Required<TableProps>;
 
@@ -1403,7 +1395,6 @@ export function createComponent(api: any) {
 
 
         const renderHeader = useMemo(() => {
-            if (!isRuntimeReady) return null;
             console.log("render 123= header")
             return (
                 <tr style={{ backgroundColor: header_bg, color: header_font_color }}>
@@ -1469,7 +1460,7 @@ export function createComponent(api: any) {
                     ))}
                 </tr>
             )
-        }, [tableData, selectedRows, selection_type, isRuntimeReady]);//selectedRow
+        }, [tableData, selectedRows, selection_type]);//selectedRow
 
         const formatCellValue = useCallback((value: any, columnType: any) => {
 
@@ -1723,7 +1714,6 @@ export function createComponent(api: any) {
 
 
         const renderBody = useMemo(() => {
-            if (!isRuntimeReady) return null;
             if (!Array.isArray(tableData) || tableData.length === 0) {
                 return (
                     <tr style={{ maxHeight: '50px' }}>
@@ -1748,7 +1738,7 @@ export function createComponent(api: any) {
                     )}
                 </AutoSizer>
             );
-        }, [tableData, selectedRow, selectedRows, selection_type, columns, checkboxBorderColor, checkbox_accent_col, selectionBg, isRuntimeReady]);
+        }, [tableData, selectedRow, selectedRows, selection_type, columns, checkboxBorderColor, checkbox_accent_col, selectionBg]);
 
         const baseCmpProps = {
             id,
@@ -1902,7 +1892,6 @@ export function createComponent(api: any) {
 
         let isFilterApplied = tableData && originalData && Array.isArray(tableData) && Array.isArray(originalData) && tableData.length !== originalData.length;
 
-        if (!isRuntimeReady) return null;
         return (
             <BaseComponent
                 {...baseCmpProps}

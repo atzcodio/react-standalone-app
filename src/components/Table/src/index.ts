@@ -1,4 +1,4 @@
 import { createComponent } from './component';
-import { runtimeDeps } from './runtime';
+import { runtimeDeps, registerRuntimeDeps, loadRuntimeDeps } from './runtime';
 
-export { createComponent, runtimeDeps };
+export { createComponent, runtimeDeps, registerRuntimeDeps, loadRuntimeDeps };

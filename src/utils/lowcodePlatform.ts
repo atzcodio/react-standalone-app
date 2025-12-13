@@ -8,11 +8,27 @@ export const LowcodePlatform = {
     _readyCallbacks: [] as Array<() => void>,
 
     /** Register a component factory (module must export `createComponent`). */
-    registerComponent(name: string, module: any) {
+    async registerComponent(name: string, module: any) {
         if (!module?.createComponent) {
             console.warn(`[LowcodePlatform] Module for ${name} does not export createComponent`);
             return;
         }
+
+        // Handle runtime dependencies if the module exports them
+        if (module.registerRuntimeDeps && typeof module.registerRuntimeDeps === 'function') {
+            console.log(`[LowcodePlatform] Registering runtime dependencies for ${name}`);
+            module.registerRuntimeDeps(platformApi);
+        }
+
+        if (module.loadRuntimeDeps && typeof module.loadRuntimeDeps === 'function') {
+            console.log(`[LowcodePlatform] Loading runtime dependencies for ${name}`);
+            try {
+                await module.loadRuntimeDeps(() => platformApi);
+            } catch (err) {
+                console.error(`[LowcodePlatform] Failed to load runtime dependencies for ${name}:`, err);
+            }
+        }
+
         // Register factory with the internal ComponentRegistry
         ComponentRegistry.register(name, module.createComponent, { name });
         // Initialise the component using the platform API (DI)

@@ -17,7 +17,7 @@
                         "rating": "",
                         "inStock": true,
                         "buttonText": "Add to Cart",
-                        "backgroundColor": "#e6f4ff",
+                        "backgroundColor": "#d3adf7",
                         "textColor": "#333333",
                         "primaryColor": "#fadb14",
                         "shadowColor": "#f9f0ff",
@@ -45,7 +45,7 @@
                     "_name": "productinfo1",
                     "position": {
                         "x": 0,
-                        "y": 9.999999165534973
+                        "y": 10
                     },
                     "grid": {
                         "desktop": {
@@ -347,7 +347,7 @@
                         "rating": "",
                         "inStock": true,
                         "buttonText": "Add to Cart",
-                        "backgroundColor": "#e6f4ff",
+                        "backgroundColor": "#fffb8f",
                         "textColor": "#333333",
                         "primaryColor": "#722ed1",
                         "shadowColor": "#f9f0ff",
@@ -375,7 +375,7 @@
                     "_name": "productinfo2",
                     "position": {
                         "x": 0,
-                        "y": 530.0000152587891
+                        "y": 530.0000076293945
                     },
                     "grid": {
                         "desktop": {
@@ -388,7 +388,7 @@
                             "x": 0,
                             "y": 53,
                             "width": 24,
-                            "height": 45
+                            "height": 57
                         }
                     },
                     "meta": {
@@ -1360,64 +1360,224 @@
                         "_name": "table",
                         "data": [
                             {
-                                "actor_id": 1,
-                                "first_name": "PENELOPE",
-                                "last_name": "GUINESS",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 1,
+                                "name": "Wireless Bluetooth Headphones",
+                                "description": "Over-ear noise-cancelling headphones with 30 hours battery life.",
+                                "price": 4999,
+                                "currency": "INR",
+                                "category": "Electronics",
+                                "rating": 4.5,
+                                "stock": 120,
+                                "imageUrl": "https://picsum.photos/seed/headphones/400/400"
                             },
                             {
-                                "actor_id": 2,
-                                "first_name": "NICK",
-                                "last_name": "WAHLBERG",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 2,
+                                "name": "Smart Fitness Watch",
+                                "description": "Track heart rate, sleep, steps, and workouts.",
+                                "price": 6999,
+                                "currency": "INR",
+                                "category": "Wearables",
+                                "rating": 4.3,
+                                "stock": 80,
+                                "imageUrl": "https://picsum.photos/seed/watch/400/400"
                             },
                             {
-                                "actor_id": 3,
-                                "first_name": "ED",
-                                "last_name": "CHASE",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 3,
+                                "name": "Mechanical Keyboard",
+                                "description": "RGB backlit mechanical keyboard with blue switches.",
+                                "price": 5499,
+                                "currency": "INR",
+                                "category": "Computer Accessories",
+                                "rating": 4.6,
+                                "stock": 45,
+                                "imageUrl": "https://picsum.photos/seed/keyboard/400/400"
                             },
                             {
-                                "actor_id": 4,
-                                "first_name": "JENNIFER",
-                                "last_name": "DAVIS",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 4,
+                                "name": "Wireless Mouse",
+                                "description": "Ergonomic wireless mouse with adjustable DPI.",
+                                "price": 1499,
+                                "currency": "INR",
+                                "category": "Computer Accessories",
+                                "rating": 4.2,
+                                "stock": 200,
+                                "imageUrl": "https://picsum.photos/seed/mouse/400/400"
                             },
                             {
-                                "actor_id": 5,
-                                "first_name": "JOHNNY",
-                                "last_name": "LOLLOBRIGIDA",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 5,
+                                "name": "Laptop Backpack",
+                                "description": "Water-resistant backpack with 15.6-inch laptop compartment.",
+                                "price": 2499,
+                                "currency": "INR",
+                                "category": "Bags",
+                                "rating": 4.4,
+                                "stock": 150,
+                                "imageUrl": "https://picsum.photos/seed/backpack/400/400"
                             },
                             {
-                                "actor_id": 6,
-                                "first_name": "BETTE",
-                                "last_name": "NICHOLSON",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 6,
+                                "name": "USB-C Hub",
+                                "description": "6-in-1 USB-C hub with HDMI and USB 3.0 ports.",
+                                "price": 3299,
+                                "currency": "INR",
+                                "category": "Electronics",
+                                "rating": 4.1,
+                                "stock": 70,
+                                "imageUrl": "https://picsum.photos/seed/usbhub/400/400"
                             },
                             {
-                                "actor_id": 7,
-                                "first_name": "GRACE",
-                                "last_name": "MOSTEL",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 7,
+                                "name": "Portable SSD 1TB",
+                                "description": "High-speed portable SSD with USB-C support.",
+                                "price": 8999,
+                                "currency": "INR",
+                                "category": "Storage",
+                                "rating": 4.7,
+                                "stock": 40,
+                                "imageUrl": "https://picsum.photos/seed/ssd/400/400"
                             },
                             {
-                                "actor_id": 8,
-                                "first_name": "MATTHEW",
-                                "last_name": "JOHANSSON",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 8,
+                                "name": "Smart LED Bulb",
+                                "description": "WiFi-enabled RGB smart bulb with voice control.",
+                                "price": 899,
+                                "currency": "INR",
+                                "category": "Home Automation",
+                                "rating": 4,
+                                "stock": 300,
+                                "imageUrl": "https://picsum.photos/seed/bulb/400/400"
                             },
                             {
-                                "actor_id": 9,
-                                "first_name": "JOE",
-                                "last_name": "SWANK",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 9,
+                                "name": "Noise Cancelling Earbuds",
+                                "description": "True wireless earbuds with active noise cancellation.",
+                                "price": 5999,
+                                "currency": "INR",
+                                "category": "Audio",
+                                "rating": 4.4,
+                                "stock": 95,
+                                "imageUrl": "https://picsum.photos/seed/earbuds/400/400"
                             },
                             {
-                                "actor_id": 10,
-                                "first_name": "CHRISTIAN",
-                                "last_name": "GABLE",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 10,
+                                "name": "1080p Web Camera",
+                                "description": "Full HD webcam with built-in microphone.",
+                                "price": 2799,
+                                "currency": "INR",
+                                "category": "Computer Accessories",
+                                "rating": 4.2,
+                                "stock": 60,
+                                "imageUrl": "https://picsum.photos/seed/webcam/400/400"
+                            },
+                            {
+                                "id": 11,
+                                "name": "Office Chair",
+                                "description": "Ergonomic office chair with lumbar support.",
+                                "price": 12999,
+                                "currency": "INR",
+                                "category": "Furniture",
+                                "rating": 4.3,
+                                "stock": 25,
+                                "imageUrl": "https://picsum.photos/seed/chair/400/400"
+                            },
+                            {
+                                "id": 12,
+                                "name": "Standing Desk",
+                                "description": "Height adjustable standing desk for home office.",
+                                "price": 21999,
+                                "currency": "INR",
+                                "category": "Furniture",
+                                "rating": 4.6,
+                                "stock": 15,
+                                "imageUrl": "https://picsum.photos/seed/desk/400/400"
+                            },
+                            {
+                                "id": 13,
+                                "name": "Smartphone Tripod",
+                                "description": "Flexible tripod for smartphones and cameras.",
+                                "price": 999,
+                                "currency": "INR",
+                                "category": "Photography",
+                                "rating": 4.1,
+                                "stock": 180,
+                                "imageUrl": "https://picsum.photos/seed/tripod/400/400"
+                            },
+                            {
+                                "id": 14,
+                                "name": "Power Bank 20000mAh",
+                                "description": "Fast charging power bank with dual output.",
+                                "price": 2499,
+                                "currency": "INR",
+                                "category": "Electronics",
+                                "rating": 4.5,
+                                "stock": 110,
+                                "imageUrl": "https://picsum.photos/seed/powerbank/400/400"
+                            },
+                            {
+                                "id": 15,
+                                "name": "Bluetooth Speaker",
+                                "description": "Portable waterproof Bluetooth speaker.",
+                                "price": 3999,
+                                "currency": "INR",
+                                "category": "Audio",
+                                "rating": 4.4,
+                                "stock": 90,
+                                "imageUrl": "https://picsum.photos/seed/speaker/400/400"
+                            },
+                            {
+                                "id": 16,
+                                "name": "Graphic Drawing Tablet",
+                                "description": "Digital drawing tablet for designers and artists.",
+                                "price": 6499,
+                                "currency": "INR",
+                                "category": "Design Tools",
+                                "rating": 4.6,
+                                "stock": 35,
+                                "imageUrl": "https://picsum.photos/seed/tablet/400/400"
+                            },
+                            {
+                                "id": 17,
+                                "name": "Wireless Charger",
+                                "description": "Fast wireless charging pad for smartphones.",
+                                "price": 1799,
+                                "currency": "INR",
+                                "category": "Accessories",
+                                "rating": 4,
+                                "stock": 140,
+                                "imageUrl": "https://picsum.photos/seed/charger/400/400"
+                            },
+                            {
+                                "id": 18,
+                                "name": "Gaming Controller",
+                                "description": "Wireless gaming controller for PC and consoles.",
+                                "price": 3599,
+                                "currency": "INR",
+                                "category": "Gaming",
+                                "rating": 4.3,
+                                "stock": 65,
+                                "imageUrl": "https://picsum.photos/seed/controller/400/400"
+                            },
+                            {
+                                "id": 19,
+                                "name": "LED Desk Lamp",
+                                "description": "Adjustable LED desk lamp with touch control.",
+                                "price": 1999,
+                                "currency": "INR",
+                                "category": "Lighting",
+                                "rating": 4.2,
+                                "stock": 100,
+                                "imageUrl": "https://picsum.photos/seed/desk-lamp/400/400"
+                            },
+                            {
+                                "id": 20,
+                                "name": "External Hard Drive 2TB",
+                                "description": "Portable external hard drive with USB 3.0.",
+                                "price": 6999,
+                                "currency": "INR",
+                                "category": "Storage",
+                                "rating": 4.5,
+                                "stock": 50,
+                                "imageUrl": "https://picsum.photos/seed/harddrive/400/400"
                             }
                         ],
                         "defaultSelected": "none",
@@ -1426,20 +1586,40 @@
                         "primary_key": "",
                         "columns": [
                             {
-                                "columnName": "actor_id",
+                                "columnName": "id",
                                 "columnType": "Number"
                             },
                             {
-                                "columnName": "first_name",
+                                "columnName": "name",
                                 "columnType": "Text"
                             },
                             {
-                                "columnName": "last_name",
+                                "columnName": "description",
                                 "columnType": "Text"
                             },
                             {
-                                "columnName": "last_update",
-                                "columnType": "Date"
+                                "columnName": "price",
+                                "columnType": "Number"
+                            },
+                            {
+                                "columnName": "currency",
+                                "columnType": "Text"
+                            },
+                            {
+                                "columnName": "category",
+                                "columnType": "Text"
+                            },
+                            {
+                                "columnName": "rating",
+                                "columnType": "Number"
+                            },
+                            {
+                                "columnName": "stock",
+                                "columnType": "Number"
+                            },
+                            {
+                                "columnName": "imageUrl",
+                                "columnType": "Url"
                             }
                         ],
                         "header_bg": "#f7f7f7",
@@ -1465,72 +1645,237 @@
                         "editedOnDRS": true,
                         "value": [
                             {
-                                "actor_id": 1,
-                                "first_name": "PENELOPE",
-                                "last_name": "GUINESS",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 1,
+                                "name": "Wireless Bluetooth Headphones",
+                                "description": "Over-ear noise-cancelling headphones with 30 hours battery life.",
+                                "price": 4999,
+                                "currency": "INR",
+                                "category": "Electronics",
+                                "rating": 4.5,
+                                "stock": 120,
+                                "imageUrl": "https://picsum.photos/seed/headphones/400/400"
                             },
                             {
-                                "actor_id": 2,
-                                "first_name": "NICK",
-                                "last_name": "WAHLBERG",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 2,
+                                "name": "Smart Fitness Watch",
+                                "description": "Track heart rate, sleep, steps, and workouts.",
+                                "price": 6999,
+                                "currency": "INR",
+                                "category": "Wearables",
+                                "rating": 4.3,
+                                "stock": 80,
+                                "imageUrl": "https://picsum.photos/seed/watch/400/400"
                             },
                             {
-                                "actor_id": 3,
-                                "first_name": "ED",
-                                "last_name": "CHASE",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 3,
+                                "name": "Mechanical Keyboard",
+                                "description": "RGB backlit mechanical keyboard with blue switches.",
+                                "price": 5499,
+                                "currency": "INR",
+                                "category": "Computer Accessories",
+                                "rating": 4.6,
+                                "stock": 45,
+                                "imageUrl": "https://picsum.photos/seed/keyboard/400/400"
                             },
                             {
-                                "actor_id": 4,
-                                "first_name": "JENNIFER",
-                                "last_name": "DAVIS",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 4,
+                                "name": "Wireless Mouse",
+                                "description": "Ergonomic wireless mouse with adjustable DPI.",
+                                "price": 1499,
+                                "currency": "INR",
+                                "category": "Computer Accessories",
+                                "rating": 4.2,
+                                "stock": 200,
+                                "imageUrl": "https://picsum.photos/seed/mouse/400/400"
                             },
                             {
-                                "actor_id": 5,
-                                "first_name": "JOHNNY",
-                                "last_name": "LOLLOBRIGIDA",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 5,
+                                "name": "Laptop Backpack",
+                                "description": "Water-resistant backpack with 15.6-inch laptop compartment.",
+                                "price": 2499,
+                                "currency": "INR",
+                                "category": "Bags",
+                                "rating": 4.4,
+                                "stock": 150,
+                                "imageUrl": "https://picsum.photos/seed/backpack/400/400"
                             },
                             {
-                                "actor_id": 6,
-                                "first_name": "BETTE",
-                                "last_name": "NICHOLSON",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 6,
+                                "name": "USB-C Hub",
+                                "description": "6-in-1 USB-C hub with HDMI and USB 3.0 ports.",
+                                "price": 3299,
+                                "currency": "INR",
+                                "category": "Electronics",
+                                "rating": 4.1,
+                                "stock": 70,
+                                "imageUrl": "https://picsum.photos/seed/usbhub/400/400"
                             },
                             {
-                                "actor_id": 7,
-                                "first_name": "GRACE",
-                                "last_name": "MOSTEL",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 7,
+                                "name": "Portable SSD 1TB",
+                                "description": "High-speed portable SSD with USB-C support.",
+                                "price": 8999,
+                                "currency": "INR",
+                                "category": "Storage",
+                                "rating": 4.7,
+                                "stock": 40,
+                                "imageUrl": "https://picsum.photos/seed/ssd/400/400"
                             },
                             {
-                                "actor_id": 8,
-                                "first_name": "MATTHEW",
-                                "last_name": "JOHANSSON",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 8,
+                                "name": "Smart LED Bulb",
+                                "description": "WiFi-enabled RGB smart bulb with voice control.",
+                                "price": 899,
+                                "currency": "INR",
+                                "category": "Home Automation",
+                                "rating": 4,
+                                "stock": 300,
+                                "imageUrl": "https://picsum.photos/seed/bulb/400/400"
                             },
                             {
-                                "actor_id": 9,
-                                "first_name": "JOE",
-                                "last_name": "SWANK",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 9,
+                                "name": "Noise Cancelling Earbuds",
+                                "description": "True wireless earbuds with active noise cancellation.",
+                                "price": 5999,
+                                "currency": "INR",
+                                "category": "Audio",
+                                "rating": 4.4,
+                                "stock": 95,
+                                "imageUrl": "https://picsum.photos/seed/earbuds/400/400"
                             },
                             {
-                                "actor_id": 10,
-                                "first_name": "CHRISTIAN",
-                                "last_name": "GABLE",
-                                "last_update": "2006-02-14T23:04:33.000Z"
+                                "id": 10,
+                                "name": "1080p Web Camera",
+                                "description": "Full HD webcam with built-in microphone.",
+                                "price": 2799,
+                                "currency": "INR",
+                                "category": "Computer Accessories",
+                                "rating": 4.2,
+                                "stock": 60,
+                                "imageUrl": "https://picsum.photos/seed/webcam/400/400"
+                            },
+                            {
+                                "id": 11,
+                                "name": "Office Chair",
+                                "description": "Ergonomic office chair with lumbar support.",
+                                "price": 12999,
+                                "currency": "INR",
+                                "category": "Furniture",
+                                "rating": 4.3,
+                                "stock": 25,
+                                "imageUrl": "https://picsum.photos/seed/chair/400/400"
+                            },
+                            {
+                                "id": 12,
+                                "name": "Standing Desk",
+                                "description": "Height adjustable standing desk for home office.",
+                                "price": 21999,
+                                "currency": "INR",
+                                "category": "Furniture",
+                                "rating": 4.6,
+                                "stock": 15,
+                                "imageUrl": "https://picsum.photos/seed/desk/400/400"
+                            },
+                            {
+                                "id": 13,
+                                "name": "Smartphone Tripod",
+                                "description": "Flexible tripod for smartphones and cameras.",
+                                "price": 999,
+                                "currency": "INR",
+                                "category": "Photography",
+                                "rating": 4.1,
+                                "stock": 180,
+                                "imageUrl": "https://picsum.photos/seed/tripod/400/400"
+                            },
+                            {
+                                "id": 14,
+                                "name": "Power Bank 20000mAh",
+                                "description": "Fast charging power bank with dual output.",
+                                "price": 2499,
+                                "currency": "INR",
+                                "category": "Electronics",
+                                "rating": 4.5,
+                                "stock": 110,
+                                "imageUrl": "https://picsum.photos/seed/powerbank/400/400"
+                            },
+                            {
+                                "id": 15,
+                                "name": "Bluetooth Speaker",
+                                "description": "Portable waterproof Bluetooth speaker.",
+                                "price": 3999,
+                                "currency": "INR",
+                                "category": "Audio",
+                                "rating": 4.4,
+                                "stock": 90,
+                                "imageUrl": "https://picsum.photos/seed/speaker/400/400"
+                            },
+                            {
+                                "id": 16,
+                                "name": "Graphic Drawing Tablet",
+                                "description": "Digital drawing tablet for designers and artists.",
+                                "price": 6499,
+                                "currency": "INR",
+                                "category": "Design Tools",
+                                "rating": 4.6,
+                                "stock": 35,
+                                "imageUrl": "https://picsum.photos/seed/tablet/400/400"
+                            },
+                            {
+                                "id": 17,
+                                "name": "Wireless Charger",
+                                "description": "Fast wireless charging pad for smartphones.",
+                                "price": 1799,
+                                "currency": "INR",
+                                "category": "Accessories",
+                                "rating": 4,
+                                "stock": 140,
+                                "imageUrl": "https://picsum.photos/seed/charger/400/400"
+                            },
+                            {
+                                "id": 18,
+                                "name": "Gaming Controller",
+                                "description": "Wireless gaming controller for PC and consoles.",
+                                "price": 3599,
+                                "currency": "INR",
+                                "category": "Gaming",
+                                "rating": 4.3,
+                                "stock": 65,
+                                "imageUrl": "https://picsum.photos/seed/controller/400/400"
+                            },
+                            {
+                                "id": 19,
+                                "name": "LED Desk Lamp",
+                                "description": "Adjustable LED desk lamp with touch control.",
+                                "price": 1999,
+                                "currency": "INR",
+                                "category": "Lighting",
+                                "rating": 4.2,
+                                "stock": 100,
+                                "imageUrl": "https://picsum.photos/seed/desk-lamp/400/400"
+                            },
+                            {
+                                "id": 20,
+                                "name": "External Hard Drive 2TB",
+                                "description": "Portable external hard drive with USB 3.0.",
+                                "price": 6999,
+                                "currency": "INR",
+                                "category": "Storage",
+                                "rating": 4.5,
+                                "stock": 50,
+                                "imageUrl": "https://picsum.photos/seed/harddrive/400/400"
                             }
                         ],
                         "selected_row": {
-                            "actor_id": 3,
-                            "first_name": "ED",
-                            "last_name": "CHASE",
-                            "last_update": "2006-02-14T23:04:33.000Z",
-                            "key": 3
+                            "id": 16,
+                            "name": "Graphic Drawing Tablet",
+                            "description": "Digital drawing tablet for designers and artists.",
+                            "price": 6499,
+                            "currency": "INR",
+                            "category": "Design Tools",
+                            "rating": 4.6,
+                            "stock": 35,
+                            "imageUrl": "https://picsum.photos/seed/tablet/400/400",
+                            "key": 16
                         }
                     },
                     "_name": "table",
@@ -1547,78 +1892,238 @@
                         },
                         "mobile": {
                             "width": 24,
-                            "height": 28,
+                            "height": 67,
                             "x": 0,
                             "y": 0
                         }
                     },
                     "meta": {
                         "data": {
-                            "fx": "[\n    {\n      \"actor_id\": 1,\n      \"first_name\": \"PENELOPE\",\n      \"last_name\": \"GUINESS\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 2,\n      \"first_name\": \"NICK\",\n      \"last_name\": \"WAHLBERG\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 3,\n      \"first_name\": \"ED\",\n      \"last_name\": \"CHASE\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 4,\n      \"first_name\": \"JENNIFER\",\n      \"last_name\": \"DAVIS\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 5,\n      \"first_name\": \"JOHNNY\",\n      \"last_name\": \"LOLLOBRIGIDA\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 6,\n      \"first_name\": \"BETTE\",\n      \"last_name\": \"NICHOLSON\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 7,\n      \"first_name\": \"GRACE\",\n      \"last_name\": \"MOSTEL\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 8,\n      \"first_name\": \"MATTHEW\",\n      \"last_name\": \"JOHANSSON\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 9,\n      \"first_name\": \"JOE\",\n      \"last_name\": \"SWANK\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    },\n    {\n      \"actor_id\": 10,\n      \"first_name\": \"CHRISTIAN\",\n      \"last_name\": \"GABLE\",\n      \"last_update\": \"2006-02-14T23:04:33.000Z\"\n    }\n  ]",
+                            "fx": "[\n  {\n    \"id\": 1,\n    \"name\": \"Wireless Bluetooth Headphones\",\n    \"description\": \"Over-ear noise-cancelling headphones with 30 hours battery life.\",\n    \"price\": 4999,\n    \"currency\": \"INR\",\n    \"category\": \"Electronics\",\n    \"rating\": 4.5,\n    \"stock\": 120,\n    \"imageUrl\": \"https://picsum.photos/seed/headphones/400/400\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Smart Fitness Watch\",\n    \"description\": \"Track heart rate, sleep, steps, and workouts.\",\n    \"price\": 6999,\n    \"currency\": \"INR\",\n    \"category\": \"Wearables\",\n    \"rating\": 4.3,\n    \"stock\": 80,\n    \"imageUrl\": \"https://picsum.photos/seed/watch/400/400\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Mechanical Keyboard\",\n    \"description\": \"RGB backlit mechanical keyboard with blue switches.\",\n    \"price\": 5499,\n    \"currency\": \"INR\",\n    \"category\": \"Computer Accessories\",\n    \"rating\": 4.6,\n    \"stock\": 45,\n    \"imageUrl\": \"https://picsum.photos/seed/keyboard/400/400\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Wireless Mouse\",\n    \"description\": \"Ergonomic wireless mouse with adjustable DPI.\",\n    \"price\": 1499,\n    \"currency\": \"INR\",\n    \"category\": \"Computer Accessories\",\n    \"rating\": 4.2,\n    \"stock\": 200,\n    \"imageUrl\": \"https://picsum.photos/seed/mouse/400/400\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Laptop Backpack\",\n    \"description\": \"Water-resistant backpack with 15.6-inch laptop compartment.\",\n    \"price\": 2499,\n    \"currency\": \"INR\",\n    \"category\": \"Bags\",\n    \"rating\": 4.4,\n    \"stock\": 150,\n    \"imageUrl\": \"https://picsum.photos/seed/backpack/400/400\"\n  },\n  {\n    \"id\": 6,\n    \"name\": \"USB-C Hub\",\n    \"description\": \"6-in-1 USB-C hub with HDMI and USB 3.0 ports.\",\n    \"price\": 3299,\n    \"currency\": \"INR\",\n    \"category\": \"Electronics\",\n    \"rating\": 4.1,\n    \"stock\": 70,\n    \"imageUrl\": \"https://picsum.photos/seed/usbhub/400/400\"\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Portable SSD 1TB\",\n    \"description\": \"High-speed portable SSD with USB-C support.\",\n    \"price\": 8999,\n    \"currency\": \"INR\",\n    \"category\": \"Storage\",\n    \"rating\": 4.7,\n    \"stock\": 40,\n    \"imageUrl\": \"https://picsum.photos/seed/ssd/400/400\"\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Smart LED Bulb\",\n    \"description\": \"WiFi-enabled RGB smart bulb with voice control.\",\n    \"price\": 899,\n    \"currency\": \"INR\",\n    \"category\": \"Home Automation\",\n    \"rating\": 4.0,\n    \"stock\": 300,\n    \"imageUrl\": \"https://picsum.photos/seed/bulb/400/400\"\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Noise Cancelling Earbuds\",\n    \"description\": \"True wireless earbuds with active noise cancellation.\",\n    \"price\": 5999,\n    \"currency\": \"INR\",\n    \"category\": \"Audio\",\n    \"rating\": 4.4,\n    \"stock\": 95,\n    \"imageUrl\": \"https://picsum.photos/seed/earbuds/400/400\"\n  },\n  {\n    \"id\": 10,\n    \"name\": \"1080p Web Camera\",\n    \"description\": \"Full HD webcam with built-in microphone.\",\n    \"price\": 2799,\n    \"currency\": \"INR\",\n    \"category\": \"Computer Accessories\",\n    \"rating\": 4.2,\n    \"stock\": 60,\n    \"imageUrl\": \"https://picsum.photos/seed/webcam/400/400\"\n  },\n  {\n    \"id\": 11,\n    \"name\": \"Office Chair\",\n    \"description\": \"Ergonomic office chair with lumbar support.\",\n    \"price\": 12999,\n    \"currency\": \"INR\",\n    \"category\": \"Furniture\",\n    \"rating\": 4.3,\n    \"stock\": 25,\n    \"imageUrl\": \"https://picsum.photos/seed/chair/400/400\"\n  },\n  {\n    \"id\": 12,\n    \"name\": \"Standing Desk\",\n    \"description\": \"Height adjustable standing desk for home office.\",\n    \"price\": 21999,\n    \"currency\": \"INR\",\n    \"category\": \"Furniture\",\n    \"rating\": 4.6,\n    \"stock\": 15,\n    \"imageUrl\": \"https://picsum.photos/seed/desk/400/400\"\n  },\n  {\n    \"id\": 13,\n    \"name\": \"Smartphone Tripod\",\n    \"description\": \"Flexible tripod for smartphones and cameras.\",\n    \"price\": 999,\n    \"currency\": \"INR\",\n    \"category\": \"Photography\",\n    \"rating\": 4.1,\n    \"stock\": 180,\n    \"imageUrl\": \"https://picsum.photos/seed/tripod/400/400\"\n  },\n  {\n    \"id\": 14,\n    \"name\": \"Power Bank 20000mAh\",\n    \"description\": \"Fast charging power bank with dual output.\",\n    \"price\": 2499,\n    \"currency\": \"INR\",\n    \"category\": \"Electronics\",\n    \"rating\": 4.5,\n    \"stock\": 110,\n    \"imageUrl\": \"https://picsum.photos/seed/powerbank/400/400\"\n  },\n  {\n    \"id\": 15,\n    \"name\": \"Bluetooth Speaker\",\n    \"description\": \"Portable waterproof Bluetooth speaker.\",\n    \"price\": 3999,\n    \"currency\": \"INR\",\n    \"category\": \"Audio\",\n    \"rating\": 4.4,\n    \"stock\": 90,\n    \"imageUrl\": \"https://picsum.photos/seed/speaker/400/400\"\n  },\n  {\n    \"id\": 16,\n    \"name\": \"Graphic Drawing Tablet\",\n    \"description\": \"Digital drawing tablet for designers and artists.\",\n    \"price\": 6499,\n    \"currency\": \"INR\",\n    \"category\": \"Design Tools\",\n    \"rating\": 4.6,\n    \"stock\": 35,\n    \"imageUrl\": \"https://picsum.photos/seed/tablet/400/400\"\n  },\n  {\n    \"id\": 17,\n    \"name\": \"Wireless Charger\",\n    \"description\": \"Fast wireless charging pad for smartphones.\",\n    \"price\": 1799,\n    \"currency\": \"INR\",\n    \"category\": \"Accessories\",\n    \"rating\": 4.0,\n    \"stock\": 140,\n    \"imageUrl\": \"https://picsum.photos/seed/charger/400/400\"\n  },\n  {\n    \"id\": 18,\n    \"name\": \"Gaming Controller\",\n    \"description\": \"Wireless gaming controller for PC and consoles.\",\n    \"price\": 3599,\n    \"currency\": \"INR\",\n    \"category\": \"Gaming\",\n    \"rating\": 4.3,\n    \"stock\": 65,\n    \"imageUrl\": \"https://picsum.photos/seed/controller/400/400\"\n  },\n  {\n    \"id\": 19,\n    \"name\": \"LED Desk Lamp\",\n    \"description\": \"Adjustable LED desk lamp with touch control.\",\n    \"price\": 1999,\n    \"currency\": \"INR\",\n    \"category\": \"Lighting\",\n    \"rating\": 4.2,\n    \"stock\": 100,\n    \"imageUrl\": \"https://picsum.photos/seed/desk-lamp/400/400\"\n  },\n  {\n    \"id\": 20,\n    \"name\": \"External Hard Drive 2TB\",\n    \"description\": \"Portable external hard drive with USB 3.0.\",\n    \"price\": 6999,\n    \"currency\": \"INR\",\n    \"category\": \"Storage\",\n    \"rating\": 4.5,\n    \"stock\": 50,\n    \"imageUrl\": \"https://picsum.photos/seed/harddrive/400/400\"\n  }\n]\n",
                             "deps": [],
                             "isFx": true
                         }
                     },
                     "output": [
                         {
-                            "actor_id": 1,
-                            "first_name": "PENELOPE",
-                            "last_name": "GUINESS",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 1,
+                            "name": "Wireless Bluetooth Headphones",
+                            "description": "Over-ear noise-cancelling headphones with 30 hours battery life.",
+                            "price": 4999,
+                            "currency": "INR",
+                            "category": "Electronics",
+                            "rating": 4.5,
+                            "stock": 120,
+                            "imageUrl": "https://picsum.photos/seed/headphones/400/400"
                         },
                         {
-                            "actor_id": 2,
-                            "first_name": "NICK",
-                            "last_name": "WAHLBERG",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 2,
+                            "name": "Smart Fitness Watch",
+                            "description": "Track heart rate, sleep, steps, and workouts.",
+                            "price": 6999,
+                            "currency": "INR",
+                            "category": "Wearables",
+                            "rating": 4.3,
+                            "stock": 80,
+                            "imageUrl": "https://picsum.photos/seed/watch/400/400"
                         },
                         {
-                            "actor_id": 3,
-                            "first_name": "ED",
-                            "last_name": "CHASE",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 3,
+                            "name": "Mechanical Keyboard",
+                            "description": "RGB backlit mechanical keyboard with blue switches.",
+                            "price": 5499,
+                            "currency": "INR",
+                            "category": "Computer Accessories",
+                            "rating": 4.6,
+                            "stock": 45,
+                            "imageUrl": "https://picsum.photos/seed/keyboard/400/400"
                         },
                         {
-                            "actor_id": 4,
-                            "first_name": "JENNIFER",
-                            "last_name": "DAVIS",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 4,
+                            "name": "Wireless Mouse",
+                            "description": "Ergonomic wireless mouse with adjustable DPI.",
+                            "price": 1499,
+                            "currency": "INR",
+                            "category": "Computer Accessories",
+                            "rating": 4.2,
+                            "stock": 200,
+                            "imageUrl": "https://picsum.photos/seed/mouse/400/400"
                         },
                         {
-                            "actor_id": 5,
-                            "first_name": "JOHNNY",
-                            "last_name": "LOLLOBRIGIDA",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 5,
+                            "name": "Laptop Backpack",
+                            "description": "Water-resistant backpack with 15.6-inch laptop compartment.",
+                            "price": 2499,
+                            "currency": "INR",
+                            "category": "Bags",
+                            "rating": 4.4,
+                            "stock": 150,
+                            "imageUrl": "https://picsum.photos/seed/backpack/400/400"
                         },
                         {
-                            "actor_id": 6,
-                            "first_name": "BETTE",
-                            "last_name": "NICHOLSON",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 6,
+                            "name": "USB-C Hub",
+                            "description": "6-in-1 USB-C hub with HDMI and USB 3.0 ports.",
+                            "price": 3299,
+                            "currency": "INR",
+                            "category": "Electronics",
+                            "rating": 4.1,
+                            "stock": 70,
+                            "imageUrl": "https://picsum.photos/seed/usbhub/400/400"
                         },
                         {
-                            "actor_id": 7,
-                            "first_name": "GRACE",
-                            "last_name": "MOSTEL",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 7,
+                            "name": "Portable SSD 1TB",
+                            "description": "High-speed portable SSD with USB-C support.",
+                            "price": 8999,
+                            "currency": "INR",
+                            "category": "Storage",
+                            "rating": 4.7,
+                            "stock": 40,
+                            "imageUrl": "https://picsum.photos/seed/ssd/400/400"
                         },
                         {
-                            "actor_id": 8,
-                            "first_name": "MATTHEW",
-                            "last_name": "JOHANSSON",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 8,
+                            "name": "Smart LED Bulb",
+                            "description": "WiFi-enabled RGB smart bulb with voice control.",
+                            "price": 899,
+                            "currency": "INR",
+                            "category": "Home Automation",
+                            "rating": 4,
+                            "stock": 300,
+                            "imageUrl": "https://picsum.photos/seed/bulb/400/400"
                         },
                         {
-                            "actor_id": 9,
-                            "first_name": "JOE",
-                            "last_name": "SWANK",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 9,
+                            "name": "Noise Cancelling Earbuds",
+                            "description": "True wireless earbuds with active noise cancellation.",
+                            "price": 5999,
+                            "currency": "INR",
+                            "category": "Audio",
+                            "rating": 4.4,
+                            "stock": 95,
+                            "imageUrl": "https://picsum.photos/seed/earbuds/400/400"
                         },
                         {
-                            "actor_id": 10,
-                            "first_name": "CHRISTIAN",
-                            "last_name": "GABLE",
-                            "last_update": "2006-02-14T23:04:33.000Z"
+                            "id": 10,
+                            "name": "1080p Web Camera",
+                            "description": "Full HD webcam with built-in microphone.",
+                            "price": 2799,
+                            "currency": "INR",
+                            "category": "Computer Accessories",
+                            "rating": 4.2,
+                            "stock": 60,
+                            "imageUrl": "https://picsum.photos/seed/webcam/400/400"
+                        },
+                        {
+                            "id": 11,
+                            "name": "Office Chair",
+                            "description": "Ergonomic office chair with lumbar support.",
+                            "price": 12999,
+                            "currency": "INR",
+                            "category": "Furniture",
+                            "rating": 4.3,
+                            "stock": 25,
+                            "imageUrl": "https://picsum.photos/seed/chair/400/400"
+                        },
+                        {
+                            "id": 12,
+                            "name": "Standing Desk",
+                            "description": "Height adjustable standing desk for home office.",
+                            "price": 21999,
+                            "currency": "INR",
+                            "category": "Furniture",
+                            "rating": 4.6,
+                            "stock": 15,
+                            "imageUrl": "https://picsum.photos/seed/desk/400/400"
+                        },
+                        {
+                            "id": 13,
+                            "name": "Smartphone Tripod",
+                            "description": "Flexible tripod for smartphones and cameras.",
+                            "price": 999,
+                            "currency": "INR",
+                            "category": "Photography",
+                            "rating": 4.1,
+                            "stock": 180,
+                            "imageUrl": "https://picsum.photos/seed/tripod/400/400"
+                        },
+                        {
+                            "id": 14,
+                            "name": "Power Bank 20000mAh",
+                            "description": "Fast charging power bank with dual output.",
+                            "price": 2499,
+                            "currency": "INR",
+                            "category": "Electronics",
+                            "rating": 4.5,
+                            "stock": 110,
+                            "imageUrl": "https://picsum.photos/seed/powerbank/400/400"
+                        },
+                        {
+                            "id": 15,
+                            "name": "Bluetooth Speaker",
+                            "description": "Portable waterproof Bluetooth speaker.",
+                            "price": 3999,
+                            "currency": "INR",
+                            "category": "Audio",
+                            "rating": 4.4,
+                            "stock": 90,
+                            "imageUrl": "https://picsum.photos/seed/speaker/400/400"
+                        },
+                        {
+                            "id": 16,
+                            "name": "Graphic Drawing Tablet",
+                            "description": "Digital drawing tablet for designers and artists.",
+                            "price": 6499,
+                            "currency": "INR",
+                            "category": "Design Tools",
+                            "rating": 4.6,
+                            "stock": 35,
+                            "imageUrl": "https://picsum.photos/seed/tablet/400/400"
+                        },
+                        {
+                            "id": 17,
+                            "name": "Wireless Charger",
+                            "description": "Fast wireless charging pad for smartphones.",
+                            "price": 1799,
+                            "currency": "INR",
+                            "category": "Accessories",
+                            "rating": 4,
+                            "stock": 140,
+                            "imageUrl": "https://picsum.photos/seed/charger/400/400"
+                        },
+                        {
+                            "id": 18,
+                            "name": "Gaming Controller",
+                            "description": "Wireless gaming controller for PC and consoles.",
+                            "price": 3599,
+                            "currency": "INR",
+                            "category": "Gaming",
+                            "rating": 4.3,
+                            "stock": 65,
+                            "imageUrl": "https://picsum.photos/seed/controller/400/400"
+                        },
+                        {
+                            "id": 19,
+                            "name": "LED Desk Lamp",
+                            "description": "Adjustable LED desk lamp with touch control.",
+                            "price": 1999,
+                            "currency": "INR",
+                            "category": "Lighting",
+                            "rating": 4.2,
+                            "stock": 100,
+                            "imageUrl": "https://picsum.photos/seed/desk-lamp/400/400"
+                        },
+                        {
+                            "id": 20,
+                            "name": "External Hard Drive 2TB",
+                            "description": "Portable external hard drive with USB 3.0.",
+                            "price": 6999,
+                            "currency": "INR",
+                            "category": "Storage",
+                            "rating": 4.5,
+                            "stock": 50,
+                            "imageUrl": "https://picsum.photos/seed/harddrive/400/400"
                         }
                     ]
                 },
@@ -1753,8 +2258,8 @@
                     },
                     "_name": "button6",
                     "position": {
-                        "x": 66.66666666666669,
-                        "y": 320.00001525878906
+                        "x": 83.33333333333331,
+                        "y": 1069.9999694824219
                     },
                     "grid": {
                         "desktop": {
@@ -1766,14 +2271,73 @@
                         "mobile": {
                             "width": 15,
                             "height": 4,
-                            "x": 4,
-                            "y": 32
+                            "x": 5,
+                            "y": 107
                         }
                     },
                     "meta": {
                         "text": {
                             "fx": "{{\"Back\"}}",
                             "deps": [],
+                            "isFx": true
+                        }
+                    },
+                    "output": ""
+                },
+                {
+                    "type": "Image",
+                    "id": "cmj4t0hiq04ob356r828taxht",
+                    "properties": {
+                        "test_properties": "hello",
+                        "_name": "image2",
+                        "url": "https://picsum.photos/seed/tablet/400/400",
+                        "style": "",
+                        "border": "1px solid #e1e1e1",
+                        "borderRadius": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "margin": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "padding": [
+                            "0px",
+                            "0px",
+                            "0px",
+                            "0px"
+                        ],
+                        "editedOnDRS": true
+                    },
+                    "_name": "image2",
+                    "position": {
+                        "x": 0,
+                        "y": 689.9999694824219
+                    },
+                    "grid": {
+                        "desktop": {
+                            "width": 7,
+                            "height": 30,
+                            "x": 7,
+                            "y": 67
+                        },
+                        "mobile": {
+                            "width": 24,
+                            "height": 30,
+                            "x": 0,
+                            "y": 69
+                        }
+                    },
+                    "meta": {
+                        "url": {
+                            "fx": "{{table.selected_row.imageUrl}}",
+                            "deps": [
+                                "table.selected_row.imageUrl"
+                            ],
                             "isFx": true
                         }
                     },
