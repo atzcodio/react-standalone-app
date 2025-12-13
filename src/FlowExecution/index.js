@@ -96,7 +96,6 @@ const AlertTask = async (apiData) => {
 
 
 const JSTask = async (apiData) => {
-  var OUTPUTSTORE = {};
   console.log("JSTask executing with async support")
   const { params, code } = apiData;
 
@@ -139,11 +138,24 @@ const JSTask = async (apiData) => {
   @param {Boolean} opts.allowGalary - Whether to allow gallery access
 */
 
+
 const CameraTask = async (opts) => {
   const { allowGalary } = opts;
   let response = await MBridge.camera.takePhoto();
-  console.log("Camera response:", response);
-  return { "OUTPUT": response };
+  let url = "";
+  if (!response) {
+    response = {
+      "webPath": "https://localhost/_capacitor_file_/data/user/0/com.example.app/cache/57.1765432559466.jpeg",
+      "format": "jpeg"
+    }
+    url = "https://localhost/_capacitor_file_/data/user/0/com.example.app/cache/57.1765432559466.jpeg";
+  }
+  else {
+    url = response.webPath;
+  }
+
+  console.log("Camera response:", url);
+  return { "OUTPUT": url };
 }
 
 

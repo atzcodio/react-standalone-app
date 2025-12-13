@@ -23,7 +23,7 @@ const defaultGrid = {
 
 
 const PreviewScreenPanel = ({ screen, sidebar, screenWidth }) => {
-  const { interfaceView, screens } = useComponentContext();
+  const { interfaceView, screens, updateProperties, onFxChange } = useComponentContext();
   //   const currentScreen = screens[selectedScreenIndex];
   const GRIDCOUNT = 24;
   const ref = React.useRef < HTMLDivElement > (null);
@@ -142,9 +142,8 @@ const PreviewScreenPanel = ({ screen, sidebar, screenWidth }) => {
                 height: ((currentGridSP?.height || 10) * 10) + 'px',
               }}
             >
-              <RenderComponent component={component} _mode="preview" _parentScreen={screen} />
+              <RenderComponent component={component} _mode="preview" _parentScreen={screen} updateProperties={updateProperties} onFxChange={onFxChange} />
             </div>
-
           )
         })}
         {/* <button style={{ padding: "20px",backgroundColor:"red", "marginTop": "40px" }} onClick={takePhoto}>Take Photo</button> */}

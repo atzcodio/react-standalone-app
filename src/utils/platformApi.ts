@@ -4,6 +4,12 @@ import { BaseComponent, getDefaultProps } from '../baseComponent';
 import executeFlow from '../FlowExecution';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { THEME } from '../props';
+import * as AntdComponents from 'antd';
+import * as AntdIcons from '@ant-design/icons';
+import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
+import { FixedSizeList } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
 
 // Platform API that will be injected into components
 export const platformApi = {
@@ -21,6 +27,13 @@ export const platformApi = {
     UI: {},
     THEME: THEME,
     executeFlow: executeFlow,
+    // Runtime dependencies for components
+    antd: AntdComponents,
+    icons: AntdIcons,
+    AiIcons: AiIcons,
+    FaIcons: FaIcons,
+    TableList: FixedSizeList,
+    AutoSizer: AutoSizer,
     // Provide a function to get hooks instead of the hooks themselves
     getPlatformHooks: () => {
         //Import hooks dynamically to avoid circular dependency issues
@@ -45,7 +58,8 @@ export const platformApi = {
             useComponentContext,
             useNavigate,
             useLocation,
-            useExecuteFlow
+            useExecuteFlow,
+            evaluateFormula: (context: any) => context.evaluateFormula
         };
     }
     // Add other platform utilities as needed

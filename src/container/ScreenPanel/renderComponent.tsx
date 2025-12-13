@@ -33,7 +33,8 @@ const RenderComponent = ({ component, _mode, _parentScreen, updateProperties, on
 
 
 // Safe wrapper that catches component render errors
-const SafeRenderComponent = ({ component, _mode, _parentScreen }: Props) => {
+const SafeRenderComponent = ({ component, _mode, _parentScreen, updateProperties, onFxChange }: Props) => {
+  console.log("updateProperties", updateProperties, "onFxChange", onFxChange)
   const handleComponentError = (error: Error, errorInfo: any) => {
     console.error(`Error in component "${component._name}" (${component.type}):`, error);
 
@@ -76,7 +77,8 @@ const SafeRenderComponent = ({ component, _mode, _parentScreen }: Props) => {
         component={component}
         _mode={_mode}
         _parentScreen={_parentScreen}
-        updateProperties={() => { }} // This prop is not used since we get it from context
+        updateProperties={updateProperties}
+        onFxChange={onFxChange}
       />
     </ErrorBoundary>
   );

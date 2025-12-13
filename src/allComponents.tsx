@@ -7,6 +7,7 @@ import { ComponentRegistry } from "./utils/componentRegistry";
 import * as ButtonModule from "./components/Button/src/index";
 import * as ProductInfoModule from "./components/ProductInfo/src/index";
 import * as ImageModule from "./components/Image/src/index";
+import * as TableModule from "./components/Table/src/index";
 
 
 /* -----------------------------------------------------------------
@@ -29,6 +30,7 @@ if (process.env.NODE_ENV !== "production") {
   LowcodePlatform.registerComponent("Button", ButtonModule);
   LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
   LowcodePlatform.registerComponent("Image", ImageModule);
+  LowcodePlatform.registerComponent("Table", TableModule);
 }
 
 /* -----------------------------------------------------------------

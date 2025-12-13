@@ -22,7 +22,7 @@ declare interface Component {
   id: string;
   properties: Properties;
   position?: { x: number; y: number }; // Position of the component
-  size?: { width: number | string; height: number|string }; // Size of the component
+  size?: { width: number | string; height: number | string }; // Size of the component
   editedOnDRS?: boolean; // Whether the component is edited on DRS or not
   meta?: formulaMeta; // Formula metadata for component properties
 }
@@ -34,7 +34,6 @@ declare interface PropertyElementProps {
   name: string;
   placeholder?: string;
 }
-
 
 /* ALL ELEMENTS FOR PROPERTY RENDERING */
 
@@ -67,12 +66,12 @@ declare interface PropertyElementProps {
 //   PADDING: {
 //     type: 'derived'; // Indicating this is a derived type
 //     structure: {
-//       value: { 
-//         type: typeof Generic.NUMBER; 
+//       value: {
+//         type: typeof Generic.NUMBER;
 //         value: number; // Default value for padding
 //       };
-//       unit: { 
-//         type: typeof Generic.DROPDOWN; 
+//       unit: {
+//         type: typeof Generic.DROPDOWN;
 //         value: string; // Default unit
 //       };
 //     };
@@ -81,12 +80,12 @@ declare interface PropertyElementProps {
 //   MARGIN: {
 //     type: 'derived'; // Indicating this is a derived type
 //     structure: {
-//       value: { 
-//         type: typeof Generic.NUMBER; 
+//       value: {
+//         type: typeof Generic.NUMBER;
 //         value: number; // Default value for margin
 //       };
-//       unit: { 
-//         type: typeof Generic.DROPDOWN; 
+//       unit: {
+//         type: typeof Generic.DROPDOWN;
 //         value: string; // Default unit
 //       };
 //     };

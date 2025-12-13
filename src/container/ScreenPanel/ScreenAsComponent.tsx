@@ -19,7 +19,7 @@ import PreviewHeader from '../../Preview/PreviewHeader';
 
 import { IAppData } from '../../types';
 
-const getAppData = (props: any): IAppData  => {
+const getAppData = (props: any): IAppData => {
   if (props && props.appData) return props.appData;
   if ((window as any).appData) return (window as any).appData;
   return {};
@@ -31,7 +31,7 @@ const queriesData = getAppData({}).queries || [];
 // Types for the component's props
 
 const ScreenAsComponent: React.FC<ScreenPanelProps> & { PropsList?: string[], EditProperties?: {}, defaultProps?: {}, } = React.memo((props) => {
-  const { screens, initScreens, queries, interfaceView, setInterfaceView, setQueries, selectedScreenIndex, selectedComponent, updateProperties, setSelectedComponent, updateComponent, addComponent, getFromLocalStorage, getQueriesFromLocalStorage, propertySidebar, leftSidebar } = useComponentContext();
+  const { screens, initScreens, queries, interfaceView, setInterfaceView, setQueries, selectedScreenIndex, selectedComponent, updateProperties, onFxChange, setSelectedComponent, updateComponent, addComponent, getFromLocalStorage, getQueriesFromLocalStorage, propertySidebar, leftSidebar } = useComponentContext();
   const { isOver, setNodeRef } = useDroppable({ id: 'drop-container' });
   const [dragCntHeight, setDragCntHeight] = useState(600);
 
@@ -499,6 +499,8 @@ const ScreenAsComponent: React.FC<ScreenPanelProps> & { PropsList?: string[], Ed
             const isBeingEditedByOthers = false;
             const activeUserColor = null;
 
+            console.log("updateProperties in screenAsComponent", updateProperties, "onFxChange", onFxChange)
+
             return (
               <>
                 <Rnd
@@ -515,164 +517,6 @@ const ScreenAsComponent: React.FC<ScreenPanelProps> & { PropsList?: string[], Ed
                   resizeGrid={[gridWSize, 10]}
                   dragGrid={[gridWSize, 10]}
                   bounds="parent"
-                  onDragStart={handleDragStart}
-                  onDragStop={(e, data) => {
-                    setIsMovement(false);
-                    console.log("🔄 ScreenAsComponent onDragStop:", {
-                      position: { x: data.x, y: data.y },
-                      delta: { x: data.deltaX, y: data.deltaY },
-                      componentId: component.id
-                    });
-                    setDragCntHeight(data.y + 50);
-
-                    // 🔧 TEMPORARY: Remove threshold check to test saving
-                    // const hasMovement = Math.abs(data.deltaX) >= 3 || Math.abs(data.deltaY) >= 3;
-
-                    // if (!hasMovement) {
-                    //   console.log("🚫 ScreenAsComponent onDragStop: No significant movement detected - skipping position update");
-                    //   return;
-                    // }
-
-                    console.log("✅ ScreenAsComponent onDragStop: Processing position update (threshold disabled for testing)...");
-
-                    let gridWidthSize = (wid / GRIDCOUNT);
-                    let gridWidth = Math.round(data.node.clientWidth / gridWidthSize);
-                    let gridHeight = Math.round(data.node.clientHeight / 10);
-
-                    let gridX = Math.round(data.x / gridWidthSize);
-                    let gridY = Math.round(data.y / 10);
-                    delete component.parentId;
-
-                    let editedOnDRS = component.properties.editedOnDRS;
-
-                    let gridDesktop = component.grid.desktop;
-                    let gridMobile = component.grid.mobile;
-                    if (interfaceView == "mobile") {
-                      editedOnDRS = true;
-                      gridMobile = {
-                        width: gridWidth,
-                        height: gridHeight,
-                        x: gridX,
-                        y: gridY,
-                      };
-
-                    }
-                    else {
-                      gridDesktop = {
-
-                        width: gridWidth,
-                        height: gridHeight,
-                        x: gridX,
-                        y: gridY,
-                      }
-                      if (!component.properties.editedOnDRS) {
-                        gridMobile = {
-                          width: gridWidth,
-                          height: gridHeight,
-                          x: gridX,
-                          y: gridY,
-                        };
-                      }
-                    }
-
-                    const updatedComponent = {
-                      ...component,
-                      properties: {
-                        ...component.properties,
-                        editedOnDRS: editedOnDRS
-                      },
-                      grid: {
-                        desktop: {
-                          ...component.grid.desktop,
-                          ...gridDesktop,
-                        },
-                        mobile: { // Retain the existing mobile grid
-                          ...component.grid.mobile,
-                          ...gridMobile,
-                        },
-                      },
-                      position: { x: data.x, y: data.y }
-                    };
-
-                    console.log("💾 ScreenAsComponent: Saving component position:", {
-                      id: updatedComponent.id,
-                      oldPosition: component.position,
-                      newPosition: updatedComponent.position,
-                      gridData: {
-                        desktop: gridDesktop,
-                        mobile: gridMobile
-                      }
-                    });
-
-                    updateComponent(updatedComponent);
-                    { console.log("component", getDefaultConfiguration(component.type)) }
-                    handleDragEnd();
-                  }}
-                  onResizeStart={() => {
-                    setIsMovement(true);
-                  }}
-                  onResizeStop={(e, direction, ref, delta, position) => {
-                    console.log("in resize stop");
-                    setIsMovement(false);
-                    let gridWidthSize = (wid / GRIDCOUNT);
-                    let gridWidth = Math.round(ref.clientWidth / gridWidthSize);
-                    let gridHeight = Math.round(ref.offsetHeight / 10);
-
-                    let gridX = Math.round(position.x / gridWidthSize);
-                    let gridY = Math.round(position.y / 10);
-                    let editedOnDRS = component.properties.editedOnDRS;
-
-                    let gridDesktop = component.grid.desktop;
-                    let gridMobile = component.grid.mobile;
-                    if (interfaceView == "mobile") {
-                      editedOnDRS = true;
-                      gridMobile = {
-                        width: gridWidth,
-                        height: gridHeight,
-                        x: gridX,
-                        y: gridY,
-                      };
-
-                    }
-                    else {
-                      gridDesktop = {
-                        width: gridWidth,
-                        height: gridHeight,
-                        x: gridX,
-                        y: gridY,
-                      }
-                      if (!component.properties.editedOnDRS) {
-                        gridMobile = {
-                          width: gridWidth,
-                          height: gridHeight,
-                          x: gridX,
-                          y: gridY,
-                        };
-                      }
-                    }
-
-                    const updatedComponent = {
-                      ...component,
-                      properties: {
-                        ...component.properties,
-                        editedOnDRS: editedOnDRS
-                      },
-                      grid: {
-                        desktop: {
-                          ...component.grid.desktop,
-                          ...gridDesktop
-                        },
-                        mobile: { // Retain the existing mobile grid
-                          ...component.grid.mobile,
-                          ...gridMobile
-                        },
-                      },
-                      position,
-                    };
-                    console.log("Resize - calling updateComponent with:", updatedComponent.id);
-                    updateComponent(updatedComponent);
-                  }}
-                  enableResizing={{ ...resizableConfig }}
                 >
                   <div
                     className={`relative border rounded-sm ${selectedComponent?.id === component.id
@@ -716,7 +560,7 @@ const ScreenAsComponent: React.FC<ScreenPanelProps> & { PropsList?: string[], Ed
                         title={`Being edited by ${activeUsers[0].userId}`}
                       />
                     )}
-                    <SafeRenderComponent component={component} updateProperties={updateProperties} />
+                    <SafeRenderComponent component={component} updateProperties={updateProperties} onFxChange={onFxChange} />
                   </div>
                 </Rnd >
               </>
