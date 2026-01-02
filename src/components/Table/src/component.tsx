@@ -121,7 +121,7 @@ export const getEditProperties = (ElementTypes: any, THEME: any) => ([
                 name: "columns",
                 type: ElementTypes.REPEATBLOCK({
                     columnName: ElementTypes.TEXT(""),
-                    columnType: ElementTypes.SELECT(["Text", "Number", "Boolean", "Url", "Email", "Json", "MultiSelect", "SingleSelect"], "Text"),
+                    columnType: ElementTypes.SELECT(["Text", "Number", "Boolean", "Url", "Email", "Json", "MultiSelect", "SingleSelect", "Image"], "Text"),
                 }, [], {
                     add: false,
                     remove: false,
@@ -1320,6 +1320,7 @@ export function createComponent(api: any) {
             if (typeof value === "boolean") return "Boolean";
             if (typeof value === "string") {
                 if (value.includes("@") && value.includes(".")) return "Email"; // Basic email check
+                if ((value.startsWith("http://") || value.startsWith("https://")) && (value.endsWith(".jpg") || value.endsWith(".jpeg") || value.endsWith(".png") || value.endsWith(".gif"))) return "Image";
                 if (value.startsWith("http://") || value.startsWith("https://")) return "Url"; // URL check
 
                 // Check if the string is a valid Date
@@ -1479,7 +1480,8 @@ export function createComponent(api: any) {
 
                 case "Url":
                     return <a href={value} target="_blank" rel="noopener noreferrer" style={{ color: "#2563EB" }}>{value}</a>;
-
+                case "Image":
+                    return <img src={value} alt="Image" style={{ width: "60px", height: "60px", borderRadius: "8px" }} />;
                 case "Number":
                 case "Boolean":
                     return <span style={{ color: "#2563EB" }}>{value}</span>;
@@ -1868,11 +1870,15 @@ export function createComponent(api: any) {
                     }
 
                     // Generate column properties maintaining the order
-                    const ColumnProperty = orderedColumns.map((columnName, index) => ({
-                        columnName,
-                        columnType: detectDataType(data[0][columnName]) || "Text",
-                    }));
-
+                   const ColumnProperty = orderedColumns.map((columnName, index) => {
+                        // Try to find existing config for this column
+                        let userCol = Array.isArray(columns) ? columns.find((c: any) => c.columnName === columnName) : undefined;
+                        return {
+                            columnName,
+                            columnType: userCol && userCol.columnType ? userCol.columnType : detectDataType(data[0][columnName]) || "Text",
+                        };
+                    });
+                    
                     updateProperties(id, "columns", [...ColumnProperty]);
                 }
 

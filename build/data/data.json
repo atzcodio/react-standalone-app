@@ -152,8 +152,8 @@
                         }
                     },
                     "position": {
-                        "x": 66.66664632161459,
-                        "y": 2379.9998168945312
+                        "x": 83.33331298828125,
+                        "y": 2490.0000610351562
                     },
                     "grid": {
                         "desktop": {
@@ -165,8 +165,8 @@
                         "mobile": {
                             "width": 7,
                             "height": 4,
-                            "x": 4,
-                            "y": 238
+                            "x": 5,
+                            "y": 249
                         }
                     },
                     "output": ""
@@ -315,8 +315,8 @@
                         }
                     },
                     "position": {
-                        "x": 183.33331298828125,
-                        "y": 2379.9999389648438
+                        "x": 200,
+                        "y": 2490.0000610351562
                     },
                     "grid": {
                         "desktop": {
@@ -328,8 +328,8 @@
                         "mobile": {
                             "width": 6,
                             "height": 4,
-                            "x": 11,
-                            "y": 238
+                            "x": 12,
+                            "y": 249
                         }
                     },
                     "output": ""
@@ -447,7 +447,7 @@
                     "_name": "image",
                     "position": {
                         "x": 16.66668701171875,
-                        "y": 1139.9999694824219
+                        "y": 1140.0000610351562
                     },
                     "grid": {
                         "desktop": {
@@ -710,8 +710,8 @@
                     },
                     "_name": "button4",
                     "position": {
-                        "x": 66.66668701171875,
-                        "y": 2429.9999389648438
+                        "x": 83.33331298828125,
+                        "y": 2529.9999389648438
                     },
                     "grid": {
                         "desktop": {
@@ -723,8 +723,8 @@
                         "mobile": {
                             "width": 13,
                             "height": 4,
-                            "x": 4,
-                            "y": 243
+                            "x": 5,
+                            "y": 253
                         }
                     },
                     "meta": {
@@ -777,7 +777,7 @@
                     "_name": "productinfo3",
                     "position": {
                         "x": 0,
-                        "y": 1449.9999694824219
+                        "y": 1450
                     },
                     "grid": {
                         "desktop": {
@@ -865,7 +865,10 @@
                 }
             ],
             "chosen": false,
-            "selected": false
+            "selected": false,
+            "properties": {
+                "backgroundColor": "#fff1f0"
+            }
         },
         {
             "id": "screen",
@@ -887,7 +890,7 @@
                         "backgroundColor": "#ffffff",
                         "textColor": "#333333",
                         "primaryColor": "#007bff",
-                        "shadowColor": "rgba(0,0,0,0.1)",
+                        "shadowColor": "#b37feb",
                         "padding": [
                             "20px",
                             "20px",
@@ -912,7 +915,7 @@
                     "_name": "productinfo",
                     "position": {
                         "x": 0,
-                        "y": 0
+                        "y": 19.999998211860657
                     },
                     "grid": {
                         "desktop": {
@@ -925,7 +928,7 @@
                             "width": 24,
                             "height": 59,
                             "x": 0,
-                            "y": 0
+                            "y": 2
                         }
                     },
                     "meta": {
@@ -1004,8 +1007,8 @@
                         }
                     },
                     "position": {
-                        "x": 16.66664632161458,
-                        "y": 609.9999847412109
+                        "x": 16.66668701171875,
+                        "y": 649.9999847412109
                     },
                     "grid": {
                         "desktop": {
@@ -1018,7 +1021,7 @@
                             "width": 11,
                             "height": 4,
                             "x": 1,
-                            "y": 61
+                            "y": 65
                         }
                     },
                     "output": ""
@@ -1164,7 +1167,7 @@
                     },
                     "position": {
                         "x": 216.66668701171875,
-                        "y": 609.9999486207962
+                        "y": 649.9999847412109
                     },
                     "grid": {
                         "desktop": {
@@ -1177,7 +1180,7 @@
                             "width": 10,
                             "height": 4,
                             "x": 13,
-                            "y": 61
+                            "y": 65
                         }
                     },
                     "output": ""
@@ -1188,12 +1191,17 @@
                     "properties": {
                         "test_properties": "hello",
                         "text": "Next Page",
-                        "background_color": "#1890ff",
-                        "color": "#fff",
-                        "fontSize": "14px",
-                        "fontWeight": "400",
+                        "background_color": "#EA2157",
+                        "color": "#FCE4EC",
+                        "fontSize": "10px",
+                        "fontWeight": "500",
                         "fontFamily": "inherit",
-                        "padding": "8px 16px",
+                        "padding": [
+                            "8px",
+                            "8px",
+                            "8px",
+                            "8px"
+                        ],
                         "margin": [
                             "0px",
                             "0px",
@@ -1206,10 +1214,10 @@
                             "4px",
                             "4px"
                         ],
-                        "border": "none",
+                        "border": "1px solid #EA2157",
                         "text_align": "center",
                         "loading": false,
-                        "theme": "basic",
+                        "theme": "tropical",
                         "_name": "button5",
                         "editedOnDRS": true,
                         "event": {
@@ -1319,7 +1327,7 @@
                     "_name": "button5",
                     "position": {
                         "x": 16.66668701171875,
-                        "y": 659.9999486207962
+                        "y": 699.9999847412109
                     },
                     "grid": {
                         "desktop": {
@@ -1332,7 +1340,7 @@
                             "width": 11,
                             "height": 4,
                             "x": 1,
-                            "y": 66
+                            "y": 70
                         }
                     },
                     "meta": {
@@ -1586,10 +1594,6 @@
                         "primary_key": "",
                         "columns": [
                             {
-                                "columnName": "id",
-                                "columnType": "Number"
-                            },
-                            {
                                 "columnName": "name",
                                 "columnType": "Text"
                             },
@@ -1599,6 +1603,10 @@
                             },
                             {
                                 "columnName": "price",
+                                "columnType": "Number"
+                            },
+                            {
+                                "columnName": "id",
                                 "columnType": "Number"
                             },
                             {
@@ -1866,16 +1874,16 @@
                             }
                         ],
                         "selected_row": {
-                            "id": 16,
-                            "name": "Graphic Drawing Tablet",
-                            "description": "Digital drawing tablet for designers and artists.",
-                            "price": 6499,
+                            "id": 12,
+                            "name": "Standing Desk",
+                            "description": "Height adjustable standing desk for home office.",
+                            "price": 21999,
                             "currency": "INR",
-                            "category": "Design Tools",
+                            "category": "Furniture",
                             "rating": 4.6,
-                            "stock": 35,
-                            "imageUrl": "https://picsum.photos/seed/tablet/400/400",
-                            "key": 16
+                            "stock": 15,
+                            "imageUrl": "https://picsum.photos/seed/desk/400/400",
+                            "key": 12
                         }
                     },
                     "_name": "table",
@@ -2258,8 +2266,8 @@
                     },
                     "_name": "button6",
                     "position": {
-                        "x": 83.33333333333331,
-                        "y": 1069.9999694824219
+                        "x": 66.66664632161459,
+                        "y": 1250
                     },
                     "grid": {
                         "desktop": {
@@ -2271,8 +2279,8 @@
                         "mobile": {
                             "width": 15,
                             "height": 4,
-                            "x": 5,
-                            "y": 107
+                            "x": 4,
+                            "y": 125
                         }
                     },
                     "meta": {
@@ -2290,7 +2298,7 @@
                     "properties": {
                         "test_properties": "hello",
                         "_name": "image2",
-                        "url": "https://picsum.photos/seed/tablet/400/400",
+                        "url": "https://picsum.photos/seed/desk/400/400",
                         "style": "",
                         "border": "1px solid #e1e1e1",
                         "borderRadius": [
@@ -2342,6 +2350,89 @@
                         }
                     },
                     "output": ""
+                },
+                {
+                    "type": "Checkbox",
+                    "id": "cmj5fesm902un356r1qvh0wee",
+                    "properties": {
+                        "test_properties": "hello",
+                        "label": "Something else",
+                        "value": [
+                            {
+                                "label": "second",
+                                "value": "second"
+                            },
+                            {
+                                "label": "third",
+                                "value": "third"
+                            },
+                            {
+                                "label": "first",
+                                "value": "first"
+                            }
+                        ],
+                        "text_alignement": "center",
+                        "label_color": "#f5222d",
+                        "placeholder": "Select an option",
+                        "fxValue": "third",
+                        "fxOptions": "[\"first\",\"second\",\"third\"]",
+                        "_name": "checkbox",
+                        "editedOnDRS": true,
+                        "options": [
+                            "first",
+                            "second"
+                        ],
+                        "color": "#f5222d",
+                        "disabled": false,
+                        "labelPosition": "right",
+                        "size": "medium",
+                        "text_align": "right"
+                    },
+                    "_name": "checkbox",
+                    "position": {
+                        "x": 16.66668701171875,
+                        "y": 1010.0000305175781
+                    },
+                    "grid": {
+                        "desktop": {
+                            "width": 4,
+                            "height": 4,
+                            "x": 4,
+                            "y": 101
+                        },
+                        "mobile": {
+                            "width": 22,
+                            "height": 15,
+                            "x": 1,
+                            "y": 101
+                        }
+                    },
+                    "output": [
+                        {
+                            "label": "second",
+                            "value": "second"
+                        },
+                        {
+                            "label": "third",
+                            "value": "third"
+                        },
+                        {
+                            "label": "first",
+                            "value": "first"
+                        }
+                    ],
+                    "meta": {
+                        "options": {
+                            "fx": "[\"first\",\"second\"]",
+                            "deps": [],
+                            "isFx": true
+                        },
+                        "value": {
+                            "fx": "value",
+                            "deps": [],
+                            "isFx": true
+                        }
+                    }
                 }
             ],
             "chosen": false

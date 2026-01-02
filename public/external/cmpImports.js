@@ -1,9 +1,17 @@
-import * as ProductCmp from "./../static/js/components/productinfo.es.js";
-import * as ButtonCmp from "./../static/js/components/button.es.js";
-import * as ImageCmp from "./../static/js/components/image.es.js";
-import * as TableCmp from "./../static/js/components/table.es.js";
-window.LowcodePlatform.registerComponent("ProductInfo", ProductCmp);
-window.LowcodePlatform.registerComponent("Button", ButtonCmp);
-window.LowcodePlatform.registerComponent("Image", ImageCmp);
-window.LowcodePlatform.registerComponent("Table", TableCmp);
+import cmpList from "./cmpList.js";
+async function loadComponents() {
+  // Base URL relative to this file (cmpImports.js)
+  const base = new URL("../static/js/components/", import.meta.url);
+  for (const { name, file } of cmpList) {
+    try {
+      const module = await import(new URL(file, base));
+      window.LowcodePlatform.registerComponent(name, module);
+      console.log(`Loaded component: ${name}`);
+    } catch (err) {
+      console.error(`Failed to load ${name} from ${file}`, err);
+    }
+  }
+}
 
+// Start loading
+loadComponents();

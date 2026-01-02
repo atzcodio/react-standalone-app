@@ -1,102 +1,102 @@
-const k = {};
-function ze(e) {
-  Object.assign(k, e);
+const O = {};
+function mt(e) {
+  Object.assign(O, e);
 }
-let be = null;
-function ut(e) {
-  return be || (be = (async () => {
-    const r = (e == null ? void 0 : e()) ?? null, T = typeof window < "u" && !r;
-    if (r != null && r.React)
-      Object.assign(k, {
-        React: r.React,
-        useState: r.React.useState,
-        useEffect: r.React.useEffect,
-        useMemo: r.React.useMemo,
-        useRef: r.React.useRef,
-        useCallback: r.React.useCallback
+let he = null;
+function pt(e) {
+  return he || (he = (async () => {
+    const n = (e == null ? void 0 : e()) ?? null, D = typeof window < "u" && !n;
+    if (n != null && n.React)
+      Object.assign(O, {
+        React: n.React,
+        useState: n.React.useState,
+        useEffect: n.React.useEffect,
+        useMemo: n.React.useMemo,
+        useRef: n.React.useRef,
+        useCallback: n.React.useCallback
       });
-    else if (!T) {
-      const x = await import("react");
-      Object.assign(k, {
-        React: x.default || x,
-        useState: x.useState,
-        useEffect: x.useEffect,
-        useMemo: x.useMemo,
-        useRef: x.useRef,
-        useCallback: x.useCallback
-      });
-    }
-    if (r != null && r.antd)
-      Object.assign(k, {
-        Drawer: r.antd.Drawer,
-        Popover: r.antd.Popover
-      });
-    else if (!T) {
-      const { Drawer: x, Popover: G } = await import("antd");
-      Object.assign(k, { Drawer: x, Popover: G });
-    }
-    if (r != null && r.icons)
-      Object.assign(k, {
-        ArrowUpOutlined: r.icons.ArrowUpOutlined,
-        ArrowDownOutlined: r.icons.ArrowDownOutlined,
-        PlusOutlined: r.icons.PlusOutlined
-      });
-    else if (!T && !k.ArrowUpOutlined) {
-      const x = await import("@ant-design/icons");
-      Object.assign(k, {
-        ArrowUpOutlined: x.ArrowUpOutlined,
-        ArrowDownOutlined: x.ArrowDownOutlined,
-        PlusOutlined: x.PlusOutlined
+    else if (!D) {
+      const h = await import("react");
+      Object.assign(O, {
+        React: h.default || h,
+        useState: h.useState,
+        useEffect: h.useEffect,
+        useMemo: h.useMemo,
+        useRef: h.useRef,
+        useCallback: h.useCallback
       });
     }
-    if (r != null && r.AiIcons)
-      Object.assign(k, {
-        AiOutlineCaretDown: r.AiIcons.AiOutlineCaretDown,
-        AiOutlineCaretUp: r.AiIcons.AiOutlineCaretUp,
-        AiOutlineCompress: r.AiIcons.AiOutlineCompress
+    if (n != null && n.antd)
+      Object.assign(O, {
+        Drawer: n.antd.Drawer,
+        Popover: n.antd.Popover
       });
-    else if (!T && !k.AiOutlineCaretDown) {
-      const x = await import("react-icons/ai");
-      Object.assign(k, {
-        AiOutlineCaretDown: x.AiOutlineCaretDown,
-        AiOutlineCaretUp: x.AiOutlineCaretUp,
-        AiOutlineCompress: x.AiOutlineCompress
+    else if (!D) {
+      const { Drawer: h, Popover: I } = await import("antd");
+      Object.assign(O, { Drawer: h, Popover: I });
+    }
+    if (n != null && n.icons)
+      Object.assign(O, {
+        ArrowUpOutlined: n.icons.ArrowUpOutlined,
+        ArrowDownOutlined: n.icons.ArrowDownOutlined,
+        PlusOutlined: n.icons.PlusOutlined
+      });
+    else if (!D && !O.ArrowUpOutlined) {
+      const h = await import("@ant-design/icons");
+      Object.assign(O, {
+        ArrowUpOutlined: h.ArrowUpOutlined,
+        ArrowDownOutlined: h.ArrowDownOutlined,
+        PlusOutlined: h.PlusOutlined
       });
     }
-    if (r != null && r.FaIcons)
-      Object.assign(k, {
-        FaFilter: r.FaIcons.FaFilter
+    if (n != null && n.AiIcons)
+      Object.assign(O, {
+        AiOutlineCaretDown: n.AiIcons.AiOutlineCaretDown,
+        AiOutlineCaretUp: n.AiIcons.AiOutlineCaretUp,
+        AiOutlineCompress: n.AiIcons.AiOutlineCompress
       });
-    else if (!T && !k.FaFilter) {
-      const x = await import("react-icons/fa");
-      Object.assign(k, {
-        FaFilter: x.FaFilter
-      });
-    }
-    if (r != null && r.TableList)
-      Object.assign(k, {
-        TableList: r.TableList
-      });
-    else if (!T && !k.TableList) {
-      const { FixedSizeList: x } = await import("react-window");
-      Object.assign(k, {
-        TableList: x
+    else if (!D && !O.AiOutlineCaretDown) {
+      const h = await import("react-icons/ai");
+      Object.assign(O, {
+        AiOutlineCaretDown: h.AiOutlineCaretDown,
+        AiOutlineCaretUp: h.AiOutlineCaretUp,
+        AiOutlineCompress: h.AiOutlineCompress
       });
     }
-    if (r != null && r.AutoSizer)
-      Object.assign(k, {
-        AutoSizer: r.AutoSizer
+    if (n != null && n.FaIcons)
+      Object.assign(O, {
+        FaFilter: n.FaIcons.FaFilter
       });
-    else if (!T && !k.AutoSizer) {
-      const x = await import("react-virtualized-auto-sizer");
-      Object.assign(k, {
-        AutoSizer: x.default || x
+    else if (!D && !O.FaFilter) {
+      const h = await import("react-icons/fa");
+      Object.assign(O, {
+        FaFilter: h.FaFilter
       });
     }
-    return k;
-  })(), be);
+    if (n != null && n.TableList)
+      Object.assign(O, {
+        TableList: n.TableList
+      });
+    else if (!D && !O.TableList) {
+      const { FixedSizeList: h } = await import("react-window");
+      Object.assign(O, {
+        TableList: h
+      });
+    }
+    if (n != null && n.AutoSizer)
+      Object.assign(O, {
+        AutoSizer: n.AutoSizer
+      });
+    else if (!D && !O.AutoSizer) {
+      const h = await import("react-virtualized-auto-sizer");
+      Object.assign(O, {
+        AutoSizer: h.default || h
+      });
+    }
+    return O;
+  })(), he);
 }
-const Pe = (e) => ({
+const je = (e) => ({
   ...e,
   grid: {
     desktop: {
@@ -116,7 +116,7 @@ const Pe = (e) => ({
     width: !0,
     height: !0
   }
-}), _e = (e, r) => [
+}), ze = (e, n) => [
   {
     type: e.GROUP("basic"),
     width: 24,
@@ -182,7 +182,7 @@ const Pe = (e) => ({
         name: "columns",
         type: e.REPEATBLOCK({
           columnName: e.TEXT(""),
-          columnType: e.SELECT(["Text", "Number", "Boolean", "Url", "Email", "Json", "MultiSelect", "SingleSelect"], "Text")
+          columnType: e.SELECT(["Text", "Number", "Boolean", "Url", "Email", "Json", "MultiSelect", "SingleSelect", "Image"], "Text")
         }, [], {
           add: !1,
           remove: !1,
@@ -261,7 +261,7 @@ const Pe = (e) => ({
         type: e.TEXT("1px solid #e1e1e1"),
         showLabel: !0,
         width: 24,
-        themePropertyName: r.backgroundColor,
+        themePropertyName: n.backgroundColor,
         showFx: !0
       },
       {
@@ -280,120 +280,120 @@ const Pe = (e) => ({
       }
     ]
   }
-], dt = (e) => ({
+], st = (e) => ({
   border: e.borderColor
 });
-function mt(e, r, T, x) {
-  const G = _e(e, r);
+function ct(e, n, D, h) {
+  const I = ze(e, n);
   return {
     name: "Table",
-    EditProperties: G,
-    Configuration: Pe(T),
-    ThemeMapping: dt(r),
-    defaultProps: x(G)
+    EditProperties: I,
+    Configuration: je(D),
+    ThemeMapping: st(n),
+    defaultProps: h(I)
   };
 }
-const pt = (e) => {
-  const { React: r } = e;
-  if (!r) return { FilterComponent: () => null, FilterGroup: () => null, RowComponent: () => null };
-  const T = r.useState, x = r.useRef, G = r.useEffect, ee = () => k, Se = ({
+const it = (e) => {
+  const { React: n } = e;
+  if (!n) return { FilterComponent: () => null, FilterGroup: () => null, RowComponent: () => null };
+  const D = n.useState, h = n.useRef, I = n.useEffect, te = () => O, Ne = ({
     columns: f,
-    tableData: m,
-    originalData: B,
+    tableData: u,
+    originalData: L,
     setTableData: A
   }) => {
-    const { Drawer: F, Popover: X, PlusOutlined: te, AiOutlineCaretDown: se, AiOutlineCaretUp: re, AiOutlineCompress: J, FaFilter: le, TableList: L, AutoSizer: ne } = ee(), [P, z] = T(m);
-    let j = f[0].columnType;
-    const [s, o] = T([
+    const { Drawer: v, Popover: Y, PlusOutlined: re, AiOutlineCaretDown: se, AiOutlineCaretUp: le, AiOutlineCompress: G, FaFilter: ne, TableList: F, AutoSizer: ae } = te(), [z, $] = D(u);
+    let B = f[0].columnType;
+    const [s, o] = D([
       {
         id: "group1",
-        filters: [{ column: j, operator: "", value: "" }],
+        filters: [{ column: B, operator: "", value: "" }],
         logicalOperator: "And",
         subGroups: []
       }
-    ]), [a, p] = T([
+    ]), [l, m] = D([
       {
         id: "group1",
-        filters: [{ column: j, operator: "", value: "" }],
+        filters: [{ column: B, operator: "", value: "" }],
         logicalOperator: "And",
         subGroups: []
       }
-    ]), u = (v, c) => !c || c.length === 0 ? v : c.reduce((l, $) => O(l, $), v), O = (v, c) => {
-      let l = [...v];
-      return c.filters.length > 0 && (c.logicalOperator === "And" ? l = l.filter(
-        ($) => c.filters.every((g) => C($, g))
-      ) : c.logicalOperator === "Or" && (l = l.filter(
-        ($) => c.filters.some((g) => C($, g))
-      ))), c.subGroups && c.subGroups.length > 0 && (c.logicalOperator === "And" ? l = c.subGroups.reduce(
-        ($, g) => O($, g),
-        l
-      ) : c.logicalOperator === "Or" && (l = c.subGroups.map(
-        (g) => O(v, g)
-      ).flat())), l;
-    }, C = (v, c) => {
-      let l = v[c.column];
+    ]), p = (k, c) => !c || c.length === 0 ? k : c.reduce((r, N) => E(r, N), k), E = (k, c) => {
+      let r = [...k];
+      return c.filters.length > 0 && (c.logicalOperator === "And" ? r = r.filter(
+        (N) => c.filters.every((j) => y(N, j))
+      ) : c.logicalOperator === "Or" && (r = r.filter(
+        (N) => c.filters.some((j) => y(N, j))
+      ))), c.subGroups && c.subGroups.length > 0 && (c.logicalOperator === "And" ? r = c.subGroups.reduce(
+        (N, j) => E(N, j),
+        r
+      ) : c.logicalOperator === "Or" && (r = c.subGroups.map(
+        (j) => E(k, j)
+      ).flat())), r;
+    }, y = (k, c) => {
+      let r = k[c.column];
       if (!c.operator || !c.column) return !0;
-      const { column: $, operator: g, value: E } = c;
-      switch (g) {
+      const { column: N, operator: j, value: C } = c;
+      switch (j) {
         case "includes":
-          return String(l).includes(String(E));
+          return String(r).includes(String(C));
         case "notIncludes":
-          return !String(l).includes(String(E));
+          return !String(r).includes(String(C));
         case "is":
-          return String(l) === String(E);
+          return String(r) === String(C);
         case "isNot":
-          return String(l) !== String(E);
+          return String(r) !== String(C);
         case "isEmpty":
-          return l == null || l === "";
+          return r == null || r === "";
         case "isNotEmpty":
-          return l != null && l !== "";
+          return r != null && r !== "";
         case "equalTo":
-          return Number(l) === Number(E);
+          return Number(r) === Number(C);
         case "notEqualTo":
-          return Number(l) !== Number(E);
+          return Number(r) !== Number(C);
         case "lessThan":
-          return Number(l) < Number(E);
+          return Number(r) < Number(C);
         case "greaterThan":
-          return Number(l) > Number(E);
+          return Number(r) > Number(C);
         case "lessThanEqual":
-          return Number(l) <= Number(E);
+          return Number(r) <= Number(C);
         case "greaterThanEqual":
-          return Number(l) >= Number(E);
+          return Number(r) >= Number(C);
         case "between":
-          let xe = E.split(",")[0], ce = E.split(",")[1];
-          return Number(l) >= Number(xe) && Number(l) <= Number(ce);
+          let ce = C.split(",")[0], ie = C.split(",")[1];
+          return Number(r) >= Number(ce) && Number(r) <= Number(ie);
         case "true":
-          return l === !0;
+          return r === !0;
         case "false":
-          return l === !1;
+          return r === !1;
         case "is":
-          return new Date(l).getTime() === new Date(E).getTime();
+          return new Date(r).getTime() === new Date(C).getTime();
         case "isNot":
-          return new Date(l).getTime() !== new Date(E).getTime();
+          return new Date(r).getTime() !== new Date(C).getTime();
         case "isBefore":
-          return new Date(l).getTime() < new Date(E).getTime();
+          return new Date(r).getTime() < new Date(C).getTime();
         case "isAfter":
-          return new Date(l).getTime() > new Date(E).getTime();
+          return new Date(r).getTime() > new Date(C).getTime();
         case "isEmpty":
-          return l == null;
+          return r == null;
         case "isNotEmpty":
-          return l != null;
+          return r != null;
         default:
           return !1;
       }
-    }, U = () => {
+    }, M = () => {
       console.log("group filter", s);
-      let v = u(B, s);
-      A(v);
-    }, N = () => {
+      let k = p(L, s);
+      A(k);
+    }, H = () => {
       o([
         {
           id: "group1",
-          filters: [{ column: j, operator: "", value: "" }],
+          filters: [{ column: B, operator: "", value: "" }],
           logicalOperator: "And",
           subGroups: []
         }
-      ]), A(B);
+      ]), A(L);
     };
     return /* @__PURE__ */ e.React.createElement(
       "div",
@@ -402,26 +402,26 @@ const pt = (e) => {
         style: { width: "650px" }
       },
       /* @__PURE__ */ e.React.createElement(
-        V,
+        X,
         {
           filterGroups: s,
           setFilterGroups: o,
-          firstColumn: j,
+          firstColumn: B,
           columns: f,
-          originalFilterGroup: a
+          originalFilterGroup: l
         }
       ),
       /* @__PURE__ */ e.React.createElement("div", { className: "flex justify-end mt-4 gap-2" }, /* @__PURE__ */ e.React.createElement(
         "button",
         {
-          onClick: U,
+          onClick: M,
           className: "px-4 py-1 bg-blue-500 text-sm text-white rounded-md hover:bg-blue-600 transition"
         },
         "Apply Filter"
       ), /* @__PURE__ */ e.React.createElement(
         "button",
         {
-          onClick: N,
+          onClick: H,
           className: "px-4 py-1 bg-blue-500 text-sm text-white rounded-md hover:bg-red-400 transition"
         },
         "Reset Filter"
@@ -459,70 +459,70 @@ const pt = (e) => {
       { label: "is empty", name: "isEmpty" },
       { label: "is not empty", name: "isNotEmpty" }
     ]
-  }, V = function({ filterGroups: f, setFilterGroups: m, firstColumn: B, columns: A, originalFilterGroup: F, parentGroupId: X, parentLogicalOperator: te }) {
-    const { Popover: se, PlusOutlined: re } = ee(), J = (s, o, a, p, u) => {
-      var U, N, v, c;
-      const O = [...F], C = L(O, s);
-      if (C) {
-        if (u) {
-          const l = ((U = C.filters[o].value) == null ? void 0 : U.split(",")) || ["", ""];
-          a === "from" ? l[0] = p : a === "to" && (l[1] = p, console.log("between in handle", l)), C.filters[o].value = l.join(",");
+  }, X = function({ filterGroups: f, setFilterGroups: u, firstColumn: L, columns: A, originalFilterGroup: v, parentGroupId: Y, parentLogicalOperator: re }) {
+    const { Popover: se, PlusOutlined: le } = te(), G = (s, o, l, m, p) => {
+      var M, H, k, c;
+      const E = [...v], y = F(E, s);
+      if (y) {
+        if (p) {
+          const r = ((M = y.filters[o].value) == null ? void 0 : M.split(",")) || ["", ""];
+          l === "from" ? r[0] = m : l === "to" && (r[1] = m, console.log("between in handle", r)), y.filters[o].value = r.join(",");
         } else
-          C.filters[o][a] = p;
-        if (a === "column") {
-          let l = ((N = A[p]) == null ? void 0 : N.columnType) || "string";
-          (l === "Url" || l === "Email" || l === "Url" || l === "Json") && (l = "Text"), C.filters[o].operator = ((c = (v = oe[l]) == null ? void 0 : v[0]) == null ? void 0 : c.name) || "", C.filters[o].value = "";
+          y.filters[o][l] = m;
+        if (l === "column") {
+          let r = ((H = A[m]) == null ? void 0 : H.columnType) || "string";
+          (r === "Url" || r === "Email" || r === "Url" || r === "Json") && (r = "Text"), y.filters[o].operator = ((c = (k = oe[r]) == null ? void 0 : k[0]) == null ? void 0 : c.name) || "", y.filters[o].value = "";
         }
-        m(O);
+        u(E);
       }
-    }, le = (s, o) => {
-      const a = [...F], p = L(a, s);
-      p && (p.logicalOperator = o, m(a));
-    }, L = (s, o) => {
-      for (const a of s) {
-        if (a.id === o) return a;
-        if (a.subGroups) {
-          const p = L(a.subGroups, o);
-          if (p) return p;
+    }, ne = (s, o) => {
+      const l = [...v], m = F(l, s);
+      m && (m.logicalOperator = o, u(l));
+    }, F = (s, o) => {
+      for (const l of s) {
+        if (l.id === o) return l;
+        if (l.subGroups) {
+          const m = F(l.subGroups, o);
+          if (m) return m;
         }
       }
       return null;
-    }, ne = (s) => {
-      var p;
-      const a = { id: `group${Date.now()}`, filters: [{ column: B, operator: "", value: "" }], logicalOperator: "And", subGroups: [] };
+    }, ae = (s) => {
+      var m;
+      const l = { id: `group${Date.now()}`, filters: [{ column: L, operator: "", value: "" }], logicalOperator: "And", subGroups: [] };
       if (s) {
-        const u = [...F], O = L(u, s);
-        O && ((p = O.subGroups) == null || p.push(a)), m(u);
+        const p = [...v], E = F(p, s);
+        E && ((m = E.subGroups) == null || m.push(l)), u(p);
       } else
-        console.log("filterGroups not parentGroup", [...f, a]), m([...f, a]);
+        console.log("filterGroups not parentGroup", [...f, l]), u([...f, l]);
       console.log("filterGroups updated", f);
-    }, P = (s) => {
-      var o;
-      if (X) {
-        let a = [...F];
-        const p = L(a, X);
-        p && (p.subGroups = (o = p.subGroups) == null ? void 0 : o.filter((u) => u.id !== s)), m(a);
-      } else
-        m(f.filter((a) => a.id !== s));
     }, z = (s) => {
-      var u;
-      const o = { column: "", operator: "", value: "" }, a = [...F], p = L(a, s);
-      p && ((u = p == null ? void 0 : p.filters) == null || u.push(o)), m(a);
-    }, j = (s, o) => {
-      let a = [...F], p = L(a, s);
-      p && p.filters.splice(o, 1), m(a);
+      var o;
+      if (Y) {
+        let l = [...v];
+        const m = F(l, Y);
+        m && (m.subGroups = (o = m.subGroups) == null ? void 0 : o.filter((p) => p.id !== s)), u(l);
+      } else
+        u(f.filter((l) => l.id !== s));
+    }, $ = (s) => {
+      var p;
+      const o = { column: "", operator: "", value: "" }, l = [...v], m = F(l, s);
+      m && ((p = m == null ? void 0 : m.filters) == null || p.push(o)), u(l);
+    }, B = (s, o) => {
+      let l = [...v], m = F(l, s);
+      m && m.filters.splice(o, 1), u(l);
     };
     return /* @__PURE__ */ e.React.createElement("div", null, f.map((s) => /* @__PURE__ */ e.React.createElement("div", { key: s.id, className: " mb-4 p-4" }, /* @__PURE__ */ e.React.createElement("div", { className: "flex justify-between mb-2" }, /* @__PURE__ */ e.React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ e.React.createElement("div", { className: "flex items-center gap-0 mt-2 border rounded-sm" }, /* @__PURE__ */ e.React.createElement(
       "button",
       {
-        onClick: () => le(s.id, s.logicalOperator === "And" ? "Or" : "And"),
+        onClick: () => ne(s.id, s.logicalOperator === "And" ? "Or" : "And"),
         className: `px-2 text-xs  py-1 ${s.logicalOperator === "And" ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600"}`
       },
       "AND"
     ), /* @__PURE__ */ e.React.createElement(
       "button",
       {
-        onClick: () => le(s.id, s.logicalOperator === "Or" ? "And" : "Or"),
+        onClick: () => ne(s.id, s.logicalOperator === "Or" ? "And" : "Or"),
         className: `px-2 text-xs py-1 ${s.logicalOperator === "Or" ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600"}`
       },
       "OR"
@@ -534,22 +534,22 @@ const pt = (e) => {
           "button",
           {
             className: "text-left px-4 py-2 hover:bg-gray-100 w-full",
-            onClick: () => z(s.id)
+            onClick: () => $(s.id)
           },
           "Add Filter"
         ), /* @__PURE__ */ e.React.createElement(
           "button",
           {
             className: "text-left px-4 py-2 hover:bg-gray-100 w-full",
-            onClick: () => ne(s.id)
+            onClick: () => ae(s.id)
           },
           "Add Filter Group"
         ))
       },
-      /* @__PURE__ */ e.React.createElement("span", { className: "m-4 ml-0 cursor-pointer " }, /* @__PURE__ */ e.React.createElement(re, { className: "mt-2 ml-1 text-gray-400", style: { fontSize: "25px" } }))
-    )), /* @__PURE__ */ e.React.createElement("button", { onClick: () => P(s.id), className: "text-gray-600 font-semibold" }, "✕")), s.filters.map((o, a) => {
-      var p, u, O, C, U, N, v;
-      return /* @__PURE__ */ e.React.createElement("div", { key: a, className: "flex items-center gap-2 mb-2", style: { marginLeft: `${a === 0 ? `${s.logicalOperator === "And" ? "33px" : "23px"}` : 0}` } }, a > 0 && /* @__PURE__ */ e.React.createElement("div", null, /* @__PURE__ */ e.React.createElement("h1", null, s.logicalOperator)), /* @__PURE__ */ e.React.createElement("div", { className: "flex-1 ", style: { maxWidth: "30%" } }, /* @__PURE__ */ e.React.createElement(
+      /* @__PURE__ */ e.React.createElement("span", { className: "m-4 ml-0 cursor-pointer " }, /* @__PURE__ */ e.React.createElement(le, { className: "mt-2 ml-1 text-gray-400", style: { fontSize: "25px" } }))
+    )), /* @__PURE__ */ e.React.createElement("button", { onClick: () => z(s.id), className: "text-gray-600 font-semibold" }, "✕")), s.filters.map((o, l) => {
+      var m, p, E, y, M, H, k;
+      return /* @__PURE__ */ e.React.createElement("div", { key: l, className: "flex items-center gap-2 mb-2", style: { marginLeft: `${l === 0 ? `${s.logicalOperator === "And" ? "33px" : "23px"}` : 0}` } }, l > 0 && /* @__PURE__ */ e.React.createElement("div", null, /* @__PURE__ */ e.React.createElement("h1", null, s.logicalOperator)), /* @__PURE__ */ e.React.createElement("div", { className: "flex-1 ", style: { maxWidth: "30%" } }, /* @__PURE__ */ e.React.createElement(
         "select",
         {
           style: {
@@ -569,7 +569,7 @@ const pt = (e) => {
             cursor: "pointer"
           },
           value: o.column,
-          onChange: (c) => J(s.id, a, "column", c.target.value),
+          onChange: (c) => G(s.id, l, "column", c.target.value),
           className: "border rounded px-3 py-1 w-full text-gray-600"
         },
         /* @__PURE__ */ e.React.createElement("option", { value: "" }, "Select Column"),
@@ -594,11 +594,11 @@ const pt = (e) => {
             cursor: "pointer"
           },
           value: o.operator,
-          onChange: (c) => J(s.id, a, "operator", c.target.value),
+          onChange: (c) => G(s.id, l, "operator", c.target.value),
           className: "border rounded px-3 py-1 w-full text-gray-600"
         },
-        (u = oe[(p = A.find((c) => c.columnName === o.column)) == null ? void 0 : p.columnType]) == null ? void 0 : u.map((c) => /* @__PURE__ */ e.React.createElement("option", { key: c.name, value: c.name }, c.label))
-      )), /* @__PURE__ */ e.React.createElement("div", { className: "flex-1 shrink-1", style: { maxWidth: "32%" } }, o.column && ((O = A.find((c) => c.columnName === o.column)) == null ? void 0 : O.columnType) !== "Boolean" && (o.operator === "between" ? /* @__PURE__ */ e.React.createElement("div", { className: "flex gap-2 " }, /* @__PURE__ */ e.React.createElement(
+        (p = oe[(m = A.find((c) => c.columnName === o.column)) == null ? void 0 : m.columnType]) == null ? void 0 : p.map((c) => /* @__PURE__ */ e.React.createElement("option", { key: c.name, value: c.name }, c.label))
+      )), /* @__PURE__ */ e.React.createElement("div", { className: "flex-1 shrink-1", style: { maxWidth: "32%" } }, o.column && ((E = A.find((c) => c.columnName === o.column)) == null ? void 0 : E.columnType) !== "Boolean" && (o.operator === "between" ? /* @__PURE__ */ e.React.createElement("div", { className: "flex gap-2 " }, /* @__PURE__ */ e.React.createElement(
         "input",
         {
           style: {
@@ -612,8 +612,8 @@ const pt = (e) => {
           },
           type: "number",
           placeholder: "from",
-          value: ((C = o.value) == null ? void 0 : C.split(",")[0]) || "",
-          onChange: (c) => J(s.id, a, "from", c.target.value, !0)
+          value: ((y = o.value) == null ? void 0 : y.split(",")[0]) || "",
+          onChange: (c) => G(s.id, l, "from", c.target.value, !0)
         }
       ), /* @__PURE__ */ e.React.createElement(
         "input",
@@ -629,8 +629,8 @@ const pt = (e) => {
           },
           type: "number",
           placeholder: "to",
-          value: ((U = o.value) == null ? void 0 : U.split(",")[1]) || "",
-          onChange: (c) => J(s.id, a, "to", c.target.value, !0),
+          value: ((M = o.value) == null ? void 0 : M.split(",")[1]) || "",
+          onChange: (c) => G(s.id, l, "to", c.target.value, !0),
           className: "border rounded px-3 py-1 w-1/2 text-gray-600"
         }
       )) : /* @__PURE__ */ e.React.createElement(
@@ -649,12 +649,12 @@ const pt = (e) => {
             borderRadius: "4px",
             cursor: "pointer"
           },
-          type: ((N = A[o.column]) == null ? void 0 : N.columnType) === "Date" ? "date" : "text",
+          type: ((H = A[o.column]) == null ? void 0 : H.columnType) === "Date" ? "date" : "text",
           value: o.value || "",
-          onChange: (c) => J(s.id, a, "value", c.target.value),
-          placeholder: ((v = A[o.column]) == null ? void 0 : v.columnType) === "Date" ? "MMM D, YYYY" : "Filter Value"
+          onChange: (c) => G(s.id, l, "value", c.target.value),
+          placeholder: ((k = A[o.column]) == null ? void 0 : k.columnType) === "Date" ? "MMM D, YYYY" : "Filter Value"
         }
-      ))), /* @__PURE__ */ e.React.createElement("button", { onClick: () => j(s.id, a), className: "text-gray-600 ml-auto ", style: { fontSize: "medium" } }, "✕"));
+      ))), /* @__PURE__ */ e.React.createElement("button", { onClick: () => B(s.id, l), className: "text-gray-600 ml-auto ", style: { fontSize: "medium" } }, "✕"));
     }), (s == null ? void 0 : s.subGroups.length) > 0 && /* @__PURE__ */ e.React.createElement(
       "div",
       {
@@ -675,13 +675,13 @@ const pt = (e) => {
             style: { maxHeight: "200px", paddingBottom: "10px", width: "534px" }
           },
           /* @__PURE__ */ e.React.createElement(
-            V,
+            X,
             {
               filterGroups: s.subGroups,
-              setFilterGroups: m,
-              firstColumn: B,
+              setFilterGroups: u,
+              firstColumn: L,
               columns: A,
-              originalFilterGroup: F,
+              originalFilterGroup: v,
               parentGroupId: s.id,
               parentLogicalOperator: s.logicalOperator
             }
@@ -689,36 +689,36 @@ const pt = (e) => {
         )
       )
     ))));
-  }, he = r.memo(({
+  }, xe = n.memo(({
     row: f,
-    index: m,
-    isSelected: B,
+    index: u,
+    isSelected: L,
     columns: A,
-    columnsState: F,
-    selectionType: X,
-    handleRowClick: te,
+    columnsState: v,
+    selectionType: Y,
+    handleRowClick: re,
     checkboxBorderColor: se,
-    checkboxAccentCol: re,
-    selectionBg: J,
-    renderCell: le,
-    showDrawer: L,
-    style: ne
+    checkboxAccentCol: le,
+    selectionBg: G,
+    renderCell: ne,
+    showDrawer: F,
+    style: ae
   }) => {
-    const { AiOutlineCompress: P, Popover: z } = ee();
-    let j = x(!1);
+    const { AiOutlineCompress: z, Popover: $ } = te();
+    let B = h(!1);
     const s = (o) => /* @__PURE__ */ e.React.createElement("div", { style: { maxWidth: "300px", maxHeight: "200px", overflow: "auto" } }, /* @__PURE__ */ e.React.createElement("pre", null, o), " ");
-    return G(() => {
-      j.current || (j.current = !0);
+    return I(() => {
+      B.current || (B.current = !0);
     }, [A]), /* @__PURE__ */ e.React.createElement(
       "tr",
       {
-        key: f.key || m,
+        key: f.key || u,
         onClick: (o) => {
-          o.target.type !== "checkbox" && te(f, m);
+          o.target.type !== "checkbox" && re(f, u);
         },
         style: {
-          ...ne,
-          backgroundColor: B ? J : "transparent",
+          ...ae,
+          backgroundColor: L ? G : "transparent",
           cursor: "pointer",
           borderBottom: "1px solid #E1E1E1",
           maxHeight: "50px",
@@ -728,13 +728,13 @@ const pt = (e) => {
           alignItems: "center"
         }
       },
-      X === "multiple" && /* @__PURE__ */ e.React.createElement("td", { style: { padding: "15px", alignItems: "center" } }, /* @__PURE__ */ e.React.createElement("div", null, /* @__PURE__ */ e.React.createElement(
+      Y === "multiple" && /* @__PURE__ */ e.React.createElement("td", { style: { padding: "15px", alignItems: "center" } }, /* @__PURE__ */ e.React.createElement("div", null, /* @__PURE__ */ e.React.createElement(
         "input",
         {
           type: "checkbox",
-          checked: B,
+          checked: L,
           onChange: (o) => {
-            o.stopPropagation(), te(f, m);
+            o.stopPropagation(), re(f, u);
           },
           style: {
             appearance: "none",
@@ -742,7 +742,7 @@ const pt = (e) => {
             height: "18px",
             borderRadius: "6px",
             border: `1px solid ${se}`,
-            backgroundColor: B ? re : "transparent",
+            backgroundColor: L ? le : "transparent",
             transition: "all 0.2s ease-in-out",
             display: "flex",
             alignItems: "center",
@@ -755,27 +755,27 @@ const pt = (e) => {
         "a",
         {
           onClick: (o) => {
-            o.stopPropagation(), L(f);
+            o.stopPropagation(), F(f);
           },
           className: "text-black no-underline transition duration-200 ease-in-out hover:text-blue-600"
         },
-        /* @__PURE__ */ e.React.createElement(P, { style: { fontSize: "20px" } })
+        /* @__PURE__ */ e.React.createElement(z, { style: { fontSize: "20px" } })
       ))),
-      F.map((o) => {
-        const a = A.find((O) => O.columnName === o.accessor);
-        if (!a)
+      v.map((o) => {
+        const l = A.find((E) => E.columnName === o.accessor);
+        if (!l)
           return console.warn(`Column not found for columnName: ${o.accessor}`), null;
-        const p = `${f.key}-${o.accessor}`;
-        let u = le(f[o.accessor], a.columnType, p);
-        return /* @__PURE__ */ e.React.createElement("td", { key: p, className: "w-full", style: { padding: "5px 15px", minWidth: "160px", maxWidth: "160px", maxHeight: "50px", alignItems: "center", position: "relative" } }, a.columnType === "MultiSelect" && Array.isArray(u) ? /* @__PURE__ */ e.React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: "5px", alignItems: "center", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" } }, u == null ? void 0 : u.slice(0, 2).map((O, C) => /* @__PURE__ */ e.React.createElement("span", { key: C, style: {
+        const m = `${f.key}-${o.accessor}`;
+        let p = ne(f[o.accessor], l.columnType, m);
+        return /* @__PURE__ */ e.React.createElement("td", { key: m, className: "w-full", style: { padding: "5px 15px", minWidth: "160px", maxWidth: "160px", maxHeight: "50px", alignItems: "center", position: "relative" } }, l.columnType === "MultiSelect" && Array.isArray(p) ? /* @__PURE__ */ e.React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: "5px", alignItems: "center", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" } }, p == null ? void 0 : p.slice(0, 2).map((E, y) => /* @__PURE__ */ e.React.createElement("span", { key: y, style: {
           backgroundColor: "#E6F7FF",
           padding: "5px 10px",
           borderRadius: "4px",
           fontSize: "12px",
           color: "#333",
           border: "1px solid rgba(0,0,0,0.1)"
-        } }, (O == null ? void 0 : O.title) ?? "N/A")), (u == null ? void 0 : u.length) > 2 && /* @__PURE__ */ e.React.createElement(
-          z,
+        } }, (E == null ? void 0 : E.title) ?? "N/A")), (p == null ? void 0 : p.length) > 2 && /* @__PURE__ */ e.React.createElement(
+          $,
           {
             content: /* @__PURE__ */ e.React.createElement("div", { style: {
               display: "flex",
@@ -783,14 +783,14 @@ const pt = (e) => {
               gap: "4px",
               maxWidth: "200px",
               padding: "8px"
-            } }, u == null ? void 0 : u.slice(2).map((O, C) => /* @__PURE__ */ e.React.createElement("span", { key: C, style: {
+            } }, p == null ? void 0 : p.slice(2).map((E, y) => /* @__PURE__ */ e.React.createElement("span", { key: y, style: {
               backgroundColor: "#FFF7E6",
               padding: "4px 8px",
               borderRadius: "6px",
               fontSize: "12px",
               color: "#333",
               border: "1px solid rgba(0,0,0,0.1)"
-            } }, (O == null ? void 0 : O.title) ?? "N/A"))),
+            } }, (E == null ? void 0 : E.title) ?? "N/A"))),
             trigger: "hover",
             placement: "right"
           },
@@ -799,209 +799,206 @@ const pt = (e) => {
             color: "#888",
             fontSize: "12px",
             paddingLeft: "5px"
-          } }, "+", u.length - 2, " more")
-        )) : a.columnType === "Json" || a.columnType === "Text" ? /* @__PURE__ */ e.React.createElement(
-          z,
+          } }, "+", p.length - 2, " more")
+        )) : l.columnType === "Json" || l.columnType === "Text" ? /* @__PURE__ */ e.React.createElement(
+          $,
           {
-            content: () => s(u),
+            content: () => s(p),
             trigger: "hover",
             placement: "right"
           },
-          /* @__PURE__ */ e.React.createElement("span", { style: { cursor: "pointer", color: "#898585" } }, String(u).length > 15 ? String(u).substring(0, 15) + "..." : String(u))
-        ) : u);
+          /* @__PURE__ */ e.React.createElement("span", { style: { cursor: "pointer", color: "#898585" } }, String(p).length > 15 ? String(p).substring(0, 15) + "..." : String(p))
+        ) : p);
       })
     );
-  }, (f, m) => !(f.isSelected !== m.isSelected || f.selectionType !== m.selectionType || f.checkboxAccentCol !== m.checkboxAccentCol || f.checkboxBorderColor !== m.checkboxBorderColor || f.selectionBg !== m.selectionBg || JSON.stringify(f.row) !== JSON.stringify(m.row) || JSON.stringify(f.columns) !== JSON.stringify(m.columns) || JSON.stringify(f.columnsState) !== JSON.stringify(m.columnsState) || JSON.stringify(f.style) !== JSON.stringify(m.style)));
-  return { FilterComponent: Se, FilterGroup: V, RowComponent: he };
+  }, (f, u) => !(f.isSelected !== u.isSelected || f.selectionType !== u.selectionType || f.checkboxAccentCol !== u.checkboxAccentCol || f.checkboxBorderColor !== u.checkboxBorderColor || f.selectionBg !== u.selectionBg || JSON.stringify(f.row) !== JSON.stringify(u.row) || JSON.stringify(f.columns) !== JSON.stringify(u.columns) || JSON.stringify(f.columnsState) !== JSON.stringify(u.columnsState) || JSON.stringify(f.style) !== JSON.stringify(u.style)));
+  return { FilterComponent: Ne, FilterGroup: X, RowComponent: xe };
 };
-function bt(e) {
-  const { ElementTypes: r, THEME: T, BaseComponent: x, BaseConfiguration: G, getDefaultProps: ee, useComponentContext: Se } = e;
-  ze && ze(e);
-  const oe = e.getPlatformHooks(), V = {
+function gt(e) {
+  const { ElementTypes: n, THEME: D, BaseComponent: h, BaseConfiguration: I, getDefaultProps: te, useComponentContext: Ne } = e, oe = e.getPlatformHooks(), X = {
     ...oe,
     // platform injected deps
-    ...k
-  }, { React: he } = V, {
+    ...O
+  }, { React: xe } = X, {
     useEffect: f,
-    useState: m,
-    useMemo: B,
+    useState: u,
+    useMemo: L,
     useRef: A,
-    useCallback: F
-  } = he, X = () => ({ ...oe, ...k }), { FilterComponent: te, FilterGroup: se, RowComponent: re } = pt(V), { useExecuteFlow: J, evaluateFormula: le } = V, L = mt(r, T, G, ee), ne = L.defaultProps, P = (o) => {
-    const [a, p] = m(!1);
-    f(() => {
-      ut(() => e).then(() => p(!0));
-    }, []);
-    const { id: u, grid: O, properties: C, meta: U, updateProperties: N, onFxChange: v, ...c } = o;
-    let { selectionBg: l, checkboxBorderColor: $, data: g = [], margin: E, border: xe, header_bg: ce, header_font_color: ye, checkbox_accent_col: we, onRowSelect: H, selected_row: q, selection_type: _, columns: y, primary_key: Re, border_radius: me, defaultSelected: Y, defaultSelectedFilter: Z } = { ...ne, ...C };
-    const [S, pe] = m(null), [K, Ee] = m([]), { Drawer: We, Popover: ge, ArrowUpOutlined: Ge, ArrowDownOutlined: Je, AiOutlineCaretDown: Ue, AiOutlineCaretUp: Ie, FaFilter: Ae, TableList: Me, AutoSizer: He } = X() || {}, [qe, Te] = m(!1), [ve, De] = m(null), [w, Oe] = m([]), [gt, ft] = m(null), [Fe, Ke] = m(!0);
-    let [I, Le] = m([{ accessor: "", header: "" }]);
-    B(() => y, [y]);
-    const ke = A(!1), [M, Be] = m(!1), Ce = F((t) => {
-      var h;
+    useCallback: v
+  } = xe, Y = () => ({ ...oe, ...O }), { FilterComponent: re, FilterGroup: se, RowComponent: le } = it(X), { useExecuteFlow: G, evaluateFormula: ne } = X, F = ct(n, D, I, te), ae = F.defaultProps, z = (o) => {
+    const { id: l, grid: m, properties: p, meta: E, updateProperties: y, onFxChange: M, ...H } = o;
+    let { selectionBg: k, checkboxBorderColor: c, data: r = [], margin: N, border: j, header_bg: C, header_font_color: ce, checkbox_accent_col: ie, onRowSelect: q, selected_row: K, selection_type: W, columns: x, primary_key: ye, border_radius: pe, defaultSelected: Z, defaultSelectedFilter: Q } = { ...ae, ...p };
+    const [S, ge] = u(null), [V, we] = u([]), { Drawer: We, Popover: fe, ArrowUpOutlined: Pe, ArrowDownOutlined: _e, AiOutlineCaretDown: Ie, AiOutlineCaretUp: Ge, FaFilter: Se, TableList: Je, AutoSizer: Ue } = Y() || {}, [Me, Ae] = u(!1), [Te, De] = u(null), [w, Re] = u([]), [dt, ut] = u(null), [ve, He] = u(!0);
+    let [J, Fe] = u([{ accessor: "", header: "" }]);
+    L(() => x, [x]);
+    const Ee = A(!1), [U, Le] = u(!1), Oe = v((t) => {
+      var b;
       if (console.log("🔍 [Table] applyDefaultSelection called:", {
-        defaultSelected: Y,
+        defaultSelected: Z,
         tableDataLength: t.length,
         currentSelectedRow: !!S,
-        defaultSelectionApplied: M,
-        tableDataFirstKey: (h = t[0]) == null ? void 0 : h.key
-      }), !Y || Y === "none" || t.length === 0) {
+        defaultSelectionApplied: U,
+        tableDataFirstKey: (b = t[0]) == null ? void 0 : b.key
+      }), !Z || Z === "none" || t.length === 0) {
         console.log("🔍 [Table] Skipping default selection: no selection type or no data");
         return;
       }
-      if (M || S) {
+      if (U || S) {
         console.log("🔍 [Table] Skipping default selection: already applied or row selected");
         return;
       }
-      let n = null;
-      switch (Y) {
+      let a = null;
+      switch (Z) {
         case "first":
-          n = t[0], console.log("🎯 [Table] Selecting first row:", n == null ? void 0 : n.key);
+          a = t[0], console.log("🎯 [Table] Selecting first row:", a == null ? void 0 : a.key);
           break;
         case "last":
-          n = t[t.length - 1], console.log("🎯 [Table] Selecting last row:", n == null ? void 0 : n.key);
+          a = t[t.length - 1], console.log("🎯 [Table] Selecting last row:", a == null ? void 0 : a.key);
           break;
         case "filter":
-          Z && typeof Z == "object" ? (n = t.find((b) => Object.entries(Z).every(([R, d]) => b[R] === void 0 ? !1 : typeof d == "string" && typeof b[R] == "string" ? b[R].toLowerCase().includes(d.toLowerCase()) : b[R] === d)) || null, console.log("🎯 [Table] Filter result:", n == null ? void 0 : n.key, "with filter:", Z)) : console.log("🔍 [Table] No valid filter provided for filter selection");
+          Q && typeof Q == "object" ? (a = t.find((g) => Object.entries(Q).every(([R, d]) => g[R] === void 0 ? !1 : typeof d == "string" && typeof g[R] == "string" ? g[R].toLowerCase().includes(d.toLowerCase()) : g[R] === d)) || null, console.log("🎯 [Table] Filter result:", a == null ? void 0 : a.key, "with filter:", Q)) : console.log("🔍 [Table] No valid filter provided for filter selection");
           break;
       }
-      n ? (console.log("🎯 [Table] Applying default selection:", n), console.log("🎯 [Table] Before setting - selectedRow:", S, "selected_row prop:", q), pe(n), Be(!0), H == null || H(n), N(u, "selected_row", n), console.log("🎯 [Table] After setting - targetRow:", n)) : console.log("🔍 [Table] No target row found for default selection");
-    }, [Y, Z, H, N, u, M]), [ie, $e] = m([]);
+      a ? (console.log("🎯 [Table] Applying default selection:", a), console.log("🎯 [Table] Before setting - selectedRow:", S, "selected_row prop:", K), ge(a), Le(!0), q == null || q(a), y(l, "selected_row", a), console.log("🎯 [Table] After setting - targetRow:", a)) : console.log("🔍 [Table] No target row found for default selection");
+    }, [Z, Q, q, y, l, U]), [de, Be] = u([]);
     f(() => {
-      console.log("🔄 [Table] Default selection properties changed, resetting flag"), Be(!1);
-    }, [Y, Z]), f(() => {
-      w.length > 0 && !M && !S && (console.log("🔄 [Table] Properties changed, applying default selection"), setTimeout(() => Ce(w), 100));
-    }, [Y, Z, w, M, Ce, S]), f(() => {
+      console.log("🔄 [Table] Default selection properties changed, resetting flag"), Le(!1);
+    }, [Z, Q]), f(() => {
+      w.length > 0 && !U && !S && (console.log("🔄 [Table] Properties changed, applying default selection"), setTimeout(() => Oe(w), 100));
+    }, [Z, Q, w, U, Oe, S]), f(() => {
       if (console.log("🔄 [Table] Columns configuration changed:", {
-        columnsLength: y == null ? void 0 : y.length,
+        columnsLength: x == null ? void 0 : x.length,
         tableDataLength: w.length,
-        columnNames: y == null ? void 0 : y.map((t) => t.columnName),
-        currentColumnsState: I.map((t) => t.accessor)
-      }), y && Array.isArray(y) && y.length > 0 && w.length > 0) {
-        const t = y.map((i) => i.columnName), n = Object.keys(w[0] || {}).filter((i) => i !== "key" && i !== Re);
-        console.log("🔍 [Table] Available data columns:", n), console.log("🔍 [Table] Ordered column names from config:", t);
-        const h = t.filter((i) => n.includes(i)), b = n.filter((i) => !t.includes(i)), R = [...h, ...b];
+        columnNames: x == null ? void 0 : x.map((t) => t.columnName),
+        currentColumnsState: J.map((t) => t.accessor)
+      }), x && Array.isArray(x) && x.length > 0 && w.length > 0) {
+        const t = x.map((i) => i.columnName), a = Object.keys(w[0] || {}).filter((i) => i !== "key" && i !== ye);
+        console.log("🔍 [Table] Available data columns:", a), console.log("🔍 [Table] Ordered column names from config:", t);
+        const b = t.filter((i) => a.includes(i)), g = a.filter((i) => !t.includes(i)), R = [...b, ...g];
         console.log("🔍 [Table] Final column order:", R);
-        const d = R.map((i, W) => ({
+        const d = R.map((i, P) => ({
           header: i,
           accessor: i,
           type: w[0]
         }));
-        Le(d), console.log("🔄 [Table] Columns FORCE reordered:", {
+        Fe(d), console.log("🔄 [Table] Columns FORCE reordered:", {
           configOrder: t,
           finalOrder: d.map((i) => i.header),
           timestamp: Date.now()
         });
       }
-    }, [y, w, Re]), f(() => {
-      console.log("🔄 [Table] Selected row prop sync - selected_row:", q, "selectedRow:", S, "defaultSelectionApplied:", M), !M && q && JSON.stringify(q) !== JSON.stringify(S) ? (console.log("🔄 [Table] Syncing selected_row prop to internal state:", q), pe(q)) : !q && S && !M ? (console.log("🔄 [Table] Clearing selected row"), pe(null)) : console.log("🔄 [Table] No sync needed - conditions not met");
-    }, [q, S, M]);
-    const Ve = (t) => {
-      De(t), Te(!0);
-    }, Xe = () => {
-      Te(!1), De(null);
+    }, [x, w, ye]), f(() => {
+      console.log("🔄 [Table] Selected row prop sync - selected_row:", K, "selectedRow:", S, "defaultSelectionApplied:", U), !U && K && JSON.stringify(K) !== JSON.stringify(S) ? (console.log("🔄 [Table] Syncing selected_row prop to internal state:", K), ge(K)) : !K && S && !U ? (console.log("🔄 [Table] Clearing selected row"), ge(null)) : console.log("🔄 [Table] No sync needed - conditions not met");
+    }, [K, S, U]);
+    const qe = (t) => {
+      De(t), Ae(!0);
+    }, Ke = () => {
+      Ae(!1), De(null);
     };
-    g = g || [];
-    const Ye = (t) => {
+    r = r || [];
+    const Ve = (t) => {
       if (typeof t == "number") return "Number";
       if (typeof t == "boolean") return "Boolean";
       if (typeof t == "string") {
         if (t.includes("@") && t.includes(".")) return "Email";
+        if ((t.startsWith("http://") || t.startsWith("https://")) && (t.endsWith(".jpg") || t.endsWith(".jpeg") || t.endsWith(".png") || t.endsWith(".gif"))) return "Image";
         if (t.startsWith("http://") || t.startsWith("https://")) return "Url";
-        const n = Date.parse(t);
-        if (!isNaN(n)) return "Date";
+        const a = Date.parse(t);
+        if (!isNaN(a)) return "Date";
         try {
-          const h = JSON.parse(t);
-          if (Array.isArray(h)) return "MultiSelect";
-          if (typeof h == "object" && h !== null) return "Json";
+          const b = JSON.parse(t);
+          if (Array.isArray(b)) return "MultiSelect";
+          if (typeof b == "object" && b !== null) return "Json";
         } catch {
           return "Text";
         }
       }
       return Array.isArray(t) ? "MultiSelect" : typeof t == "object" && t !== null ? "Json" : "Text";
-    }, [ue, Ze] = m({
+    }, [ue, Xe] = u({
       key: null,
       direction: null
-    }), Qe = (t, n) => {
-      Ze({ key: t, direction: n });
-      const h = [...w].sort((b, R) => {
-        const d = b[t] ?? "", i = R[t] ?? "";
-        return typeof d == "number" && typeof i == "number" ? n === "asc" ? d - i : i - d : n === "asc" ? String(d).localeCompare(String(i)) : String(i).localeCompare(String(d));
+    }), Ye = (t, a) => {
+      Xe({ key: t, direction: a });
+      const b = [...w].sort((g, R) => {
+        const d = g[t] ?? "", i = R[t] ?? "";
+        return typeof d == "number" && typeof i == "number" ? a === "asc" ? d - i : i - d : a === "asc" ? String(d).localeCompare(String(i)) : String(i).localeCompare(String(d));
       });
-      Oe(h), $e(h);
-    }, et = (t, n, h) => /* @__PURE__ */ e.React.createElement("div", { className: "rounded-sm w-full h-full flex flex-col gap-2 " }, /* @__PURE__ */ e.React.createElement(
+      Re(b), Be(b);
+    }, Ze = (t, a, b) => /* @__PURE__ */ e.React.createElement("div", { className: "rounded-sm w-full h-full flex flex-col gap-2 " }, /* @__PURE__ */ e.React.createElement(
       "button",
       {
-        onClick: () => h(t.accessor, "asc"),
+        onClick: () => b(t.accessor, "asc"),
         className: `group w-full flex items-start flex-start p-[5px] rounded-md transition font-sans font-semibold tracking-wide 
-                    ${n.key === t.accessor && n.direction === "asc" ? "bg-gray-200 text-black" : ""} 
+                    ${a.key === t.accessor && a.direction === "asc" ? "bg-gray-200 text-black" : ""} 
                     group-bg-gray-200 hover:text-black`
       },
-      /* @__PURE__ */ e.React.createElement(Ge, { className: `text-[17px] pr-2 transition  ${n.key === t.accessor && n.direction === "asc" ? "text-black" : "text-gray-400"} group-hover:text-black` }),
+      /* @__PURE__ */ e.React.createElement(Pe, { className: `text-[17px] pr-2 transition  ${a.key === t.accessor && a.direction === "asc" ? "text-black" : "text-gray-400"} group-hover:text-black` }),
       /* @__PURE__ */ e.React.createElement("span", { className: "text-gray-600 group-hover:text-black" }, "Sort Ascending")
     ), /* @__PURE__ */ e.React.createElement(
       "button",
       {
-        onClick: () => h(t.accessor, "desc"),
+        onClick: () => b(t.accessor, "desc"),
         className: `group w-full flex items-start  p-[5px] flex-start rounded-md transition font-sans font-semibold tracking-wide
-                        ${n.key === t.accessor && n.direction === "desc" ? "bg-gray-200 text-black" : ""} 
+                        ${a.key === t.accessor && a.direction === "desc" ? "bg-gray-200 text-black" : ""} 
                         group-bg-gray-200 hover:text-black`
       },
       /* @__PURE__ */ e.React.createElement(
-        Je,
+        _e,
         {
           className: `text-[17px] transition pr-2
-                            ${n.key === t.accessor && n.direction === "desc" ? "text-black" : "text-gray-400"} 
+                            ${a.key === t.accessor && a.direction === "desc" ? "text-black" : "text-gray-400"} 
                             group-hover:text-black`
         }
       ),
       /* @__PURE__ */ e.React.createElement("span", { className: "text-gray-600 group-hover:text-black" }, "Sort Descending")
-    )), tt = B(() => a ? (console.log("render 123= header"), /* @__PURE__ */ e.React.createElement("tr", { style: { backgroundColor: ce, color: ye } }, _ === "multiple" && /* @__PURE__ */ e.React.createElement("th", { style: { padding: "15px" } }, _ === "multiple" ? /* @__PURE__ */ e.React.createElement(
+    )), Qe = L(() => (console.log("render 123= header"), /* @__PURE__ */ e.React.createElement("tr", { style: { backgroundColor: C, color: ce } }, W === "multiple" && /* @__PURE__ */ e.React.createElement("th", { style: { padding: "15px" } }, W === "multiple" ? /* @__PURE__ */ e.React.createElement(
       "input",
       {
         type: "checkbox",
-        checked: K.length === w.length && w.length > 0,
+        checked: V.length === w.length && w.length > 0,
         onChange: (t) => {
-          t.stopPropagation(), t.target.checked ? Ee([...w]) : Ee([]);
+          t.stopPropagation(), t.target.checked ? we([...w]) : we([]);
         },
         style: {
           appearance: "none",
           width: "18px",
           height: "18px",
           borderRadius: "6px",
-          border: `1px solid ${$}`,
+          border: `1px solid ${c}`,
           // border: `2px solid ${checkbox_accent_col}`,
-          backgroundColor: K.length === w.length && w.length > 0 ? we : "transparent",
+          backgroundColor: V.length === w.length && w.length > 0 ? ie : "transparent",
           // Gray when checked
           transition: "all 0.2s ease-in-out",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          visibility: K.length > 0 ? "visible" : "hidden"
+          visibility: V.length > 0 ? "visible" : "hidden"
         }
       }
-    ) : null), /* @__PURE__ */ e.React.createElement("th", { style: { padding: "5px 15px", minWidth: "110px", maxWidth: "110px", textAlign: "start" } }, /* @__PURE__ */ e.React.createElement("span", { className: "font-sans font-semibold tracking-wide", style: { cursor: "pointer", fontSize: "medium", color: "#555870" } })), I.map((t) => /* @__PURE__ */ e.React.createElement("th", { key: t.accessor, style: { padding: "8px 15px", paddingLeft: "5px", minWidth: "160px", maxWidth: "160px", textAlign: "start" } }, /* @__PURE__ */ e.React.createElement("div", { className: "flex items-center justify-start h-7" }, /* @__PURE__ */ e.React.createElement("div", { className: "group hover:bg-gray-200 group-hover:text-black transition font-sans font-semibold tracking-wide rounded-md cursor-pointer flex items-center gap-2  px-2 h-full ", style: { fontSize: "medium", color: "#555870" } }, t.header, /* @__PURE__ */ e.React.createElement(
-      ge,
+    ) : null), /* @__PURE__ */ e.React.createElement("th", { style: { padding: "5px 15px", minWidth: "110px", maxWidth: "110px", textAlign: "start" } }, /* @__PURE__ */ e.React.createElement("span", { className: "font-sans font-semibold tracking-wide", style: { cursor: "pointer", fontSize: "medium", color: "#555870" } })), J.map((t) => /* @__PURE__ */ e.React.createElement("th", { key: t.accessor, style: { padding: "8px 15px", paddingLeft: "5px", minWidth: "160px", maxWidth: "160px", textAlign: "start" } }, /* @__PURE__ */ e.React.createElement("div", { className: "flex items-center justify-start h-7" }, /* @__PURE__ */ e.React.createElement("div", { className: "group hover:bg-gray-200 group-hover:text-black transition font-sans font-semibold tracking-wide rounded-md cursor-pointer flex items-center gap-2  px-2 h-full ", style: { fontSize: "medium", color: "#555870" } }, t.header, /* @__PURE__ */ e.React.createElement(
+      fe,
       {
-        content: et(t, ue, Qe),
+        content: Ze(t, ue, Ye),
         trigger: "click",
         placement: "bottom"
       },
-      /* @__PURE__ */ e.React.createElement("div", { className: "flex flex-col items-center h-5" }, /* @__PURE__ */ e.React.createElement(Ie, { className: `text-[13px] ${ue.key === t.accessor && ue.direction === "asc" ? "text-black" : "text-gray-400"} group-hover:text-black` }), /* @__PURE__ */ e.React.createElement(Ue, { className: `text-[13px] ${ue.key === t.accessor && ue.direction === "desc" ? "text-black" : "text-gray-400"} group-hover:text-black` }))
-    ))))))) : null, [w, K, _, a]), rt = F((t, n) => {
-      const h = (b) => b ? new Date(b).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" }) : "";
-      switch (n) {
+      /* @__PURE__ */ e.React.createElement("div", { className: "flex flex-col items-center h-5" }, /* @__PURE__ */ e.React.createElement(Ge, { className: `text-[13px] ${ue.key === t.accessor && ue.direction === "asc" ? "text-black" : "text-gray-400"} group-hover:text-black` }), /* @__PURE__ */ e.React.createElement(Ie, { className: `text-[13px] ${ue.key === t.accessor && ue.direction === "desc" ? "text-black" : "text-gray-400"} group-hover:text-black` }))
+    ))))))), [w, V, W]), et = v((t, a) => {
+      const b = (g) => g ? new Date(g).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" }) : "";
+      switch (a) {
         case "Email":
           return /* @__PURE__ */ e.React.createElement("a", { href: `mailto:${t}`, style: { color: "#2563EB" } }, t);
         case "Url":
           return /* @__PURE__ */ e.React.createElement("a", { href: t, target: "_blank", rel: "noopener noreferrer", style: { color: "#2563EB" } }, t);
+        case "Image":
+          return /* @__PURE__ */ e.React.createElement("img", { src: t, alt: "Image", style: { width: "60px", height: "60px", borderRadius: "8px" } });
         case "Number":
         case "Boolean":
           return /* @__PURE__ */ e.React.createElement("span", { style: { color: "#2563EB" } }, t);
         case "Date":
         case "DOB":
-          return h(t);
+          return b(t);
         case "Json":
           try {
             const d = typeof t == "string" ? JSON.parse(t) : t;
@@ -1012,12 +1009,12 @@ function bt(e) {
         case "Text":
           return t;
         case "MultiSelect":
-          const b = ["#FFEFD5", "#FFDAB9", "#E6E6FA", "#D3F8E2", "#F5E6CC", "#D0E2FF", "#FFDFD3"], R = Array.isArray(t) ? t.map((d) => typeof d == "object" ? JSON.stringify(d) ?? "N/A" : d).filter((d) => typeof d == "string" && d.trim() !== "") : [];
+          const g = ["#FFEFD5", "#FFDAB9", "#E6E6FA", "#D3F8E2", "#F5E6CC", "#D0E2FF", "#FFDFD3"], R = Array.isArray(t) ? t.map((d) => typeof d == "object" ? JSON.stringify(d) ?? "N/A" : d).filter((d) => typeof d == "string" && d.trim() !== "") : [];
           return R.length > 0 ? /* @__PURE__ */ e.React.createElement("div", { style: { display: "flex", flexWrap: "nowrap", gap: "5px", alignItems: "center" } }, R.slice(0, 2).map((d, i) => /* @__PURE__ */ e.React.createElement(
-            ge,
+            fe,
             {
               content: /* @__PURE__ */ e.React.createElement("div", { key: i, style: {
-                backgroundColor: b[i % b.length],
+                backgroundColor: g[i % g.length],
                 padding: "2px 6px",
                 borderRadius: "5px",
                 fontSize: "12px",
@@ -1029,7 +1026,7 @@ function bt(e) {
               placement: "top"
             },
             /* @__PURE__ */ e.React.createElement("div", { key: i, style: {
-              backgroundColor: b[i % b.length],
+              backgroundColor: g[i % g.length],
               padding: "2px 6px",
               borderRadius: "5px",
               fontSize: "10px",
@@ -1038,7 +1035,7 @@ function bt(e) {
               display: "inline-block"
             } }, d.substring(0, 10) + "..")
           )), R.length > 1 && /* @__PURE__ */ e.React.createElement(
-            ge,
+            fe,
             {
               content: /* @__PURE__ */ e.React.createElement("div", { style: {
                 display: "grid",
@@ -1048,7 +1045,7 @@ function bt(e) {
                 background: "white",
                 borderRadius: "8px"
               } }, R.slice(2).map((d, i) => /* @__PURE__ */ e.React.createElement("div", { key: i, style: {
-                backgroundColor: b[(i + 2) % b.length],
+                backgroundColor: g[(i + 2) % g.length],
                 // Keep color pattern
                 padding: "3px 5px",
                 borderRadius: "6px",
@@ -1071,133 +1068,136 @@ function bt(e) {
         default:
           return t;
       }
-    }, []), je = F((t, n) => rt(t, n), [y]), lt = F((t, n) => {
-      console.log("Row clicked:", t, "Current selectedRow:", S), _ === "single" ? (!S || S.key !== t.key) && (console.log("Updating selected row to:", t), pe(t), H == null || H(t), N(u, "selected_row", t)) : _ === "multiple" && Ee((h) => {
-        const b = t.key;
-        if (new Set(h.map((d) => d.key)).has(b)) {
-          const d = h.filter((i) => i.key !== b);
-          return N(u, "selected_rows", d), d;
+    }, []), $e = v((t, a) => et(t, a), [x]), tt = v((t, a) => {
+      console.log("Row clicked:", t, "Current selectedRow:", S), W === "single" ? (!S || S.key !== t.key) && (console.log("Updating selected row to:", t), ge(t), q == null || q(t), y(l, "selected_row", t)) : W === "multiple" && we((b) => {
+        const g = t.key;
+        if (new Set(b.map((d) => d.key)).has(g)) {
+          const d = b.filter((i) => i.key !== g);
+          return y(l, "selected_rows", d), d;
         } else {
-          const d = [...h, t];
-          return N(u, "selected_rows", d), d;
+          const d = [...b, t];
+          return y(l, "selected_rows", d), d;
         }
       });
-    }, [_, u, H, N, S]), nt = ({ index: t, style: n }) => {
-      const h = w[t], b = _ === "single" ? (S == null ? void 0 : S.key) === h.key : K.some((R) => R.key === h.key);
+    }, [W, l, q, y, S]), rt = ({ index: t, style: a }) => {
+      const b = w[t], g = W === "single" ? (S == null ? void 0 : S.key) === b.key : V.some((R) => R.key === b.key);
       return (
         // <div style={{ ...style, display: 'table-row' }} key={`${row.key || index}-${JSON.stringify(columns)}`}>
         /* @__PURE__ */ e.React.createElement(
-          re,
+          le,
           {
-            row: h,
+            row: b,
             index: t,
-            isSelected: b,
-            columns: y,
-            columnsState: I,
-            selectionType: _,
-            handleRowClick: lt,
-            checkboxBorderColor: $,
-            checkboxAccentCol: we,
-            selectionBg: l,
-            renderCell: je,
-            showDrawer: Ve,
-            style: n
+            isSelected: g,
+            columns: x,
+            columnsState: J,
+            selectionType: W,
+            handleRowClick: tt,
+            checkboxBorderColor: c,
+            checkboxAccentCol: ie,
+            selectionBg: k,
+            renderCell: $e,
+            showDrawer: qe,
+            style: a
           }
         )
       );
-    }, at = B(() => a ? !Array.isArray(w) || w.length === 0 ? /* @__PURE__ */ e.React.createElement("tr", { style: { maxHeight: "50px" } }, /* @__PURE__ */ e.React.createElement("td", { colSpan: I.length + (_ ? 1 : 0) }, "No data found")) : (console.log("render 123= renderBody"), /* @__PURE__ */ e.React.createElement(He, null, ({ height: t, width: n }) => /* @__PURE__ */ e.React.createElement(
-      Me,
+    }, lt = L(() => !Array.isArray(w) || w.length === 0 ? /* @__PURE__ */ e.React.createElement("tr", { style: { maxHeight: "50px" } }, /* @__PURE__ */ e.React.createElement("td", { colSpan: J.length + (W ? 1 : 0) }, "No data found")) : (console.log("render 123= renderBody"), /* @__PURE__ */ e.React.createElement(Ue, null, ({ height: t, width: a }) => /* @__PURE__ */ e.React.createElement(
+      Je,
       {
-        width: n,
+        width: a,
         height: t,
         itemCount: w.length,
         itemSize: 50
       },
-      ({ index: h, style: b }) => /* @__PURE__ */ e.React.createElement(nt, { index: h, style: b })
-    ))) : null, [w, S, K, _, y, $, we, l, a]), ot = {
-      id: u,
-      properties: C,
-      meta: U,
-      EditProperties: z,
-      updateProperties: N,
-      grid: O,
-      Configuration: j
+      ({ index: b, style: g }) => /* @__PURE__ */ e.React.createElement(rt, { index: b, style: g })
+    ))), [w, S, V, W, x, c, ie, k]), nt = {
+      id: l,
+      properties: p,
+      meta: E,
+      EditProperties: $,
+      updateProperties: y,
+      grid: m,
+      Configuration: B
     };
     f(() => {
-      var h;
+      var b;
       if (console.log("🔍 [Table] useEffect triggered with data:", {
-        hasData: !!g,
-        dataLength: (g == null ? void 0 : g.length) || "N/A",
-        dataKeys: g && g.length > 0 ? Object.keys(g[0]) : "N/A",
-        tableHasRunOnce: ke.current,
-        dataStringified: ((h = JSON.stringify(g)) == null ? void 0 : h.substring(0, 100)) + "..."
-      }), ke.current && JSON.stringify(g) === JSON.stringify(ie)) {
+        hasData: !!r,
+        dataLength: (r == null ? void 0 : r.length) || "N/A",
+        dataKeys: r && r.length > 0 ? Object.keys(r[0]) : "N/A",
+        tableHasRunOnce: Ee.current,
+        dataStringified: ((b = JSON.stringify(r)) == null ? void 0 : b.substring(0, 100)) + "..."
+      }), Ee.current && JSON.stringify(r) === JSON.stringify(de)) {
         console.log("🔍 [Table] Skipping update - data unchanged");
         return;
       }
-      ke.current = !0;
+      Ee.current = !0;
       const t = performance.now();
-      async function n() {
+      async function a() {
         console.log("render 123 table");
-        const b = g.length > 0 ? Object.keys(g[0]) : [], R = b.find((i) => i.toLowerCase().includes("id")) || b.find((i) => i.toLowerCase().includes("_id")) || b[0];
-        if (console.log("Primary Key Determined:", R), z[2].elements[0] = {
+        const g = r.length > 0 ? Object.keys(r[0]) : [], R = g.find((i) => i.toLowerCase().includes("id")) || g.find((i) => i.toLowerCase().includes("_id")) || g[0];
+        if (console.log("Primary Key Determined:", R), $[2].elements[0] = {
           label: "primary_key",
           name: "primary_key",
-          type: r.SELECT(b, R),
+          type: n.SELECT(g, R),
           width: 24
-        }, g && Object.keys(g).length > 0) {
-          const i = Object.values(g).map((W) => ({
-            ...W,
-            key: W[R]
+        }, r && Object.keys(r).length > 0) {
+          const i = Object.values(r).map((P) => ({
+            ...P,
+            key: P[R]
             // Set its value as the key
           }));
-          performance.now(), Oe(() => i), $e(() => i), setTimeout(() => {
-            S ? console.log("🔍 [Table] Skipping default selection - row already selected") : Ce(i);
-          }, 100), N(u, "value", g), N(u, "data", g);
+          performance.now(), Re(() => i), Be(() => i), setTimeout(() => {
+            S ? console.log("🔍 [Table] Skipping default selection - row already selected") : Oe(i);
+          }, 100), y(l, "value", r), y(l, "data", r);
         }
-        if (Ke(!1), console.log("evaluatedvalue===", g), g.length > 0) {
-          const i = Object.keys(g[0]).filter((D) => D !== "key" && D !== Re);
-          console.log("📊 [Table] Data useEffect - Available data columns:", i), console.log("📊 [Table] Data useEffect - Current columns config:", y == null ? void 0 : y.map((D) => D.columnName)), console.log("📊 [Table] Data useEffect - Current columnsState:", I.map((D) => D.accessor));
-          let W = i;
-          if (y && Array.isArray(y) && y.length > 0) {
-            const D = y.map((ae) => ae.columnName).filter((ae) => i.includes(ae)), Q = i.filter(
-              (ae) => !y.some((it) => it.columnName === ae)
+        if (He(!1), console.log("evaluatedvalue===", r), r.length > 0) {
+          const i = Object.keys(r[0]).filter((T) => T !== "key" && T !== ye);
+          console.log("📊 [Table] Data useEffect - Available data columns:", i), console.log("📊 [Table] Data useEffect - Current columns config:", x == null ? void 0 : x.map((T) => T.columnName)), console.log("📊 [Table] Data useEffect - Current columnsState:", J.map((T) => T.accessor));
+          let P = i;
+          if (x && Array.isArray(x) && x.length > 0) {
+            const T = x.map((_) => _.columnName).filter((_) => i.includes(_)), ee = i.filter(
+              (_) => !x.some((ke) => ke.columnName === _)
             );
-            W = [...D, ...Q], console.log("📊 [Table] Data useEffect - Ordered columns from config:", W);
+            P = [...T, ...ee], console.log("📊 [Table] Data useEffect - Ordered columns from config:", P);
           }
-          const de = I.map((D) => D.accessor).filter(Boolean), Ne = W, fe = I.length === 0 || I[0].accessor === "";
+          const me = J.map((T) => T.accessor).filter(Boolean), Ce = P, be = J.length === 0 || J[0].accessor === "";
           if (console.log("📊 [Table] Data useEffect - Update decision:", {
-            currentColumnOrder: de,
-            expectedOrder: Ne,
-            isUninitialized: fe,
-            willUpdate: fe,
-            skipReason: fe ? "none" : "columns already initialized"
-          }), fe) {
-            const D = W.map((Q, ae) => ({
-              header: Q,
-              accessor: Q,
-              type: g[0]
+            currentColumnOrder: me,
+            expectedOrder: Ce,
+            isUninitialized: be,
+            willUpdate: be,
+            skipReason: be ? "none" : "columns already initialized"
+          }), be) {
+            const T = P.map((ee, _) => ({
+              header: ee,
+              accessor: ee,
+              type: r[0]
             }));
-            Le(() => D), console.log("🔄 [Table] Columns INITIALIZED from data:", D.map((Q) => Q.header));
+            Fe(() => T), console.log("🔄 [Table] Columns INITIALIZED from data:", T.map((ee) => ee.header));
           }
-          const ct = W.map((D, Q) => ({
-            columnName: D,
-            columnType: Ye(g[0][D]) || "Text"
-          }));
-          N(u, "columns", [...ct]);
+          const ot = P.map((T, ee) => {
+            let _ = Array.isArray(x) ? x.find((ke) => ke.columnName === T) : void 0;
+            return {
+              columnName: T,
+              columnType: _ && _.columnType ? _.columnType : Ve(r[0][T]) || "Text"
+            };
+          });
+          y(l, "columns", [...ot]);
         }
         const d = performance.now();
         console.log(`Total useEffect execution time: ${(d - t).toFixed(2)} ms`);
       }
-      console.log("table rerender"), n();
-    }, [g]), f(() => {
+      console.log("table rerender"), a();
+    }, [r]), f(() => {
       console.log("render 123 columns");
-    }, [y]);
-    let st = w && ie && Array.isArray(w) && Array.isArray(ie) && w.length !== ie.length;
-    return a ? /* @__PURE__ */ e.React.createElement(
-      x,
+    }, [x]);
+    let at = w && de && Array.isArray(w) && Array.isArray(de) && w.length !== de.length;
+    return /* @__PURE__ */ e.React.createElement(
+      h,
       {
-        ...ot,
+        ...nt,
         style: {
           display: "flex",
           flexDirection: "column",
@@ -1213,9 +1213,9 @@ function bt(e) {
             overflowY: "auto",
             overflowX: "auto",
             maxHeight: "100%",
-            margin: `${E[0]} ${E[1]} 0 ${E[3]}`,
+            margin: `${N[0]} ${N[1]} 0 ${N[3]}`,
             // marginBottom: selectedRows.length > 0 ? 0 : margin[2],
-            borderRadius: `${me[0]} ${me[1]} 0 0`
+            borderRadius: `${pe[0]} ${pe[1]} 0 0`
             // paddingBottom: '40px', // Add padding equal to the height of the bottom div
           }
         },
@@ -1229,7 +1229,7 @@ function bt(e) {
               maxHeight: "100%"
             }
           },
-          Fe ? /* @__PURE__ */ e.React.createElement("div", { className: "flex items-center justify-center h-full w-full" }, /* @__PURE__ */ e.React.createElement("img", { style: { height: "15%", width: "15%" }, src: "/images/loading.gif", alt: "loading..." })) : /* @__PURE__ */ e.React.createElement(e.React.Fragment, null, /* @__PURE__ */ e.React.createElement("thead", null, tt), /* @__PURE__ */ e.React.createElement("tbody", null, at))
+          ve ? /* @__PURE__ */ e.React.createElement("div", { className: "flex items-center justify-center h-full w-full" }, /* @__PURE__ */ e.React.createElement("img", { style: { height: "15%", width: "15%" }, src: "/images/loading.gif", alt: "loading..." })) : /* @__PURE__ */ e.React.createElement(e.React.Fragment, null, /* @__PURE__ */ e.React.createElement("thead", null, Qe), /* @__PURE__ */ e.React.createElement("tbody", null, lt))
         )
       ),
       /* @__PURE__ */ e.React.createElement(
@@ -1238,46 +1238,46 @@ function bt(e) {
           className: "relative flex items-center  bg-gray-100  rounded-b-lg",
           style: {
             flex: "0 0 auto",
-            margin: `0 ${E[1]} ${E[2]} ${E[3]}`,
-            borderRadius: `0 0 ${me[2]} ${me[3]}`,
-            width: `calc(100% - (${E[1]} + ${E[3]}))`,
+            margin: `0 ${N[1]} ${N[2]} ${N[3]}`,
+            borderRadius: `0 0 ${pe[2]} ${pe[3]}`,
+            width: `calc(100% - (${N[1]} + ${N[3]}))`,
             padding: "10px"
           }
         },
-        /* @__PURE__ */ e.React.createElement("span", { className: "absolute left-1/2 transform -translate-x-1/2 text-gray-600" }, K.length > 0 ? `${K.length} out of ${w.length} selected` : `${w.length} Results`),
-        !Fe && /* @__PURE__ */ e.React.createElement(
-          ge,
+        /* @__PURE__ */ e.React.createElement("span", { className: "absolute left-1/2 transform -translate-x-1/2 text-gray-600" }, V.length > 0 ? `${V.length} out of ${w.length} selected` : `${w.length} Results`),
+        !ve && /* @__PURE__ */ e.React.createElement(
+          fe,
           {
             trigger: "click",
             placement: "bottom",
-            content: /* @__PURE__ */ e.React.createElement(te, { columns: y, tableData: w, originalData: ie, setTableData: Oe })
+            content: /* @__PURE__ */ e.React.createElement(re, { columns: x, tableData: w, originalData: de, setTableData: Re })
           },
-          st ? /* @__PURE__ */ e.React.createElement(Ae, { className: "ml-auto text-blue-400 text-sm cursor-pointer hover:text-blue-800" }) : /* @__PURE__ */ e.React.createElement(Ae, { className: "ml-auto text-gray-400 text-sm cursor-pointer hover:text-gray-800" })
+          at ? /* @__PURE__ */ e.React.createElement(Se, { className: "ml-auto text-blue-400 text-sm cursor-pointer hover:text-blue-800" }) : /* @__PURE__ */ e.React.createElement(Se, { className: "ml-auto text-gray-400 text-sm cursor-pointer hover:text-gray-800" })
         )
       ),
-      /* @__PURE__ */ e.React.createElement(We, { title: "User Profile", width: 840, placement: "right", onClose: Xe, open: qe }, ve ? /* @__PURE__ */ e.React.createElement("div", { style: { padding: "8px" } }, I.map(({ header: t, accessor: n }, h) => {
-        let b = ve[n];
+      /* @__PURE__ */ e.React.createElement(We, { title: "User Profile", width: 840, placement: "right", onClose: Ke, open: Me }, Te ? /* @__PURE__ */ e.React.createElement("div", { style: { padding: "8px" } }, J.map(({ header: t, accessor: a }, b) => {
+        let g = Te[a];
         const R = (d) => {
           if (typeof d == "object" && d !== null)
-            return Object.entries(d).map(([de, Ne]) => `${de}: ${R(Ne)}`).join(", ");
-          let i = y.find((de) => de.columnName === n);
-          return i || console.warn(`Column not found for columnName: ${n}`), `${h}${i.accessor}`, je(d, i.columnType);
+            return Object.entries(d).map(([me, Ce]) => `${me}: ${R(Ce)}`).join(", ");
+          let i = x.find((me) => me.columnName === a);
+          return i || console.warn(`Column not found for columnName: ${a}`), `${b}${i.accessor}`, $e(d, i.columnType);
         };
-        return /* @__PURE__ */ e.React.createElement("div", { key: n, style: { marginBottom: "0px", padding: "5px" } }, n === "image" ? /* @__PURE__ */ e.React.createElement("div", null, /* @__PURE__ */ e.React.createElement("strong", null, t), /* @__PURE__ */ e.React.createElement("br", null), /* @__PURE__ */ e.React.createElement(
+        return /* @__PURE__ */ e.React.createElement("div", { key: a, style: { marginBottom: "0px", padding: "5px" } }, a === "image" ? /* @__PURE__ */ e.React.createElement("div", null, /* @__PURE__ */ e.React.createElement("strong", null, t), /* @__PURE__ */ e.React.createElement("br", null), /* @__PURE__ */ e.React.createElement(
           "img",
           {
-            src: b,
+            src: g,
             alt: "Profile",
             style: { width: "100px", borderRadius: "8px", marginTop: "5px", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }
           }
-        )) : /* @__PURE__ */ e.React.createElement("p", { style: { margin: "0" } }, /* @__PURE__ */ e.React.createElement("strong", { style: { display: "block", marginBottom: "5px" } }, t), /* @__PURE__ */ e.React.createElement("p", { style: { color: "#898585" } }, R(b))), /* @__PURE__ */ e.React.createElement("hr", { style: { border: "1px solid #f7f7f7", margin: "8px 0" } }));
+        )) : /* @__PURE__ */ e.React.createElement("p", { style: { margin: "0" } }, /* @__PURE__ */ e.React.createElement("strong", { style: { display: "block", marginBottom: "5px" } }, t), /* @__PURE__ */ e.React.createElement("p", { style: { color: "#898585" } }, R(g))), /* @__PURE__ */ e.React.createElement("hr", { style: { border: "1px solid #f7f7f7", margin: "8px 0" } }));
       })) : /* @__PURE__ */ e.React.createElement("p", { style: { padding: "16px" } }, "No profile data")),
       /* @__PURE__ */ e.React.createElement("style", null, `
 
 
                 .tableWrap {
                     height: 100%;
-                    border: ${xe};
+                    border: ${j};
                     overflow: auto;
                 }
                 
@@ -1287,8 +1287,8 @@ function bt(e) {
                 }
         
                 thead tr {
-                    background-color: ${ce};
-                    color: ${ye};
+                    background-color: ${C};
+                    color: ${ce};
                     
                 }
                 
@@ -1319,26 +1319,28 @@ function bt(e) {
                 th {
                     padding: 16px;
                     border-bottom: 1px solid #e8e8e8;
-                    background: ${ce};
-                    color: ${ye};
+                    background: ${C};
+                    color: ${ce};
                     box-shadow: 0px 0px 0 2px #e8e8e8;
                 }
             `)
-    ) : null;
-  }, z = _e(r, T), j = Pe(G);
-  return P.EditProperties = z, P.PropsList = Object.keys(z), P.properties = ee(z), P.Configuration = j, {
+    );
+  }, $ = ze(n, D), B = je(I);
+  return z.EditProperties = $, z.PropsList = Object.keys($), z.properties = te($), z.Configuration = B, {
     component: (o) => /* @__PURE__ */ e.React.createElement(
-      P,
+      z,
       {
         ...o,
-        EditProperties: L.EditProperties,
-        Configuration: L.Configuration
+        EditProperties: F.EditProperties,
+        Configuration: F.Configuration
       }
     ),
-    manifest: L
+    manifest: F
   };
 }
 export {
-  bt as createComponent,
-  k as runtimeDeps
+  gt as createComponent,
+  pt as loadRuntimeDeps,
+  mt as registerRuntimeDeps,
+  O as runtimeDeps
 };

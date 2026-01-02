@@ -8,6 +8,8 @@ import * as AntdComponents from 'antd';
 import * as AntdIcons from '@ant-design/icons';
 import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
+import * as SimpleLineIcons from "react-icons/sl"
+import * as MuiMaterialIcons from '@mui/icons-material';
 import { FixedSizeList } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
@@ -32,6 +34,8 @@ export const platformApi = {
     icons: AntdIcons,
     AiIcons: AiIcons,
     FaIcons: FaIcons,
+    SimpleLineIcons: SimpleLineIcons,
+    MuiMaterialIcons: MuiMaterialIcons,
     TableList: FixedSizeList,
     AutoSizer: AutoSizer,
     // Provide a function to get hooks instead of the hooks themselves

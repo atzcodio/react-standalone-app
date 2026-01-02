@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-let dataUrl:string = '/data/data.json';
-if(process.env.NODE_ENV === 'production'){
-  dataUrl = './../data/data.json'
-}
+// let dataUrl:string = '/data/data.json';
+// if(process.env.NODE_ENV === 'production'){
+//   dataUrl = './../data/data.json'
+// }
+const dataUrl:string = new URL("./data/data.json", window.location.href).toString();
+
 fetch(dataUrl)
   .then(res => res.json())
   .then((appData) => {

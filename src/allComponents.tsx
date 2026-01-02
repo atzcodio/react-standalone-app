@@ -8,7 +8,9 @@ import * as ButtonModule from "./components/Button/src/index";
 import * as ProductInfoModule from "./components/ProductInfo/src/index";
 import * as ImageModule from "./components/Image/src/index";
 import * as TableModule from "./components/Table/src/index";
-
+import * as CheckboxModule from "./components/Checkbox/src/index";
+import * as DateRangePickerModule from "./components/DateRangePicker/src/index";
+import * as DatePickerModule from "./components/DatePicker/src/index";
 
 /* -----------------------------------------------------------------
    Global component registry used throughout the app.
@@ -31,6 +33,9 @@ if (process.env.NODE_ENV !== "production") {
   LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
   LowcodePlatform.registerComponent("Image", ImageModule);
   LowcodePlatform.registerComponent("Table", TableModule);
+  LowcodePlatform.registerComponent("Checkbox", CheckboxModule);
+  LowcodePlatform.registerComponent("DateRangePicker", DateRangePickerModule);
+  LowcodePlatform.registerComponent("DatePicker", DatePickerModule);
 }
 
 /* -----------------------------------------------------------------
