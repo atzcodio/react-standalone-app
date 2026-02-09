@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 // import ApiTask from './apiTask';
 // import toastTask from './toastTask';
-import MBridge from '../MBridge';
+import MBridge from '../MBridge/index.js';
 import globalContext from './../context/GlobalContext';
 
 

@@ -1,4 +1,4 @@
 
 export {
-    createComponent,
+    createComponent
 } from './component';

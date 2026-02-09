@@ -1,4 +1,4 @@
-// mbridge.js
+// Migrated to index.jsx
 let reqCounter = 0;
 const callbacks = {};
 

@@ -6,7 +6,7 @@ export default function lowcodeInject(options = {}) {
   return {
     name: 'vite-plugin-lowcode-inject',
     writeBundle() {
-      const htmlPath = path.resolve(process.cwd(), 'build/index.html');
+      const htmlPath = path.resolve(process.cwd(), 'dist/index.html');
       let html = readFileSync(htmlPath, 'utf-8');
 
       console.log("running lowcodeInject...", html);

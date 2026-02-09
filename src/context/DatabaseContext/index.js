@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+// Migrated to index.jsx
 import toast from 'react-hot-toast';
 
 const DatabaseContext = createContext();

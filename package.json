@@ -83,7 +83,6 @@
     "swiper": "^11.1.15",
     "typescript": "^4.8.3",
     "uuid": "^11.0.3",
-    "vite": "^6.4.1",
     "vite-plugin-static-copy": "^3.1.4",
     "web-vitals": "^2.1.4",
     "y-websocket": "^2.0.4",
@@ -92,13 +91,14 @@
   "proxy": "http://localhost:3200",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node copyComponent.js",
+    "build": "node --max-old-space-size=4096 ./node_modules/vite/bin/vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "copy:components": "node copyComponent.js",
     "build:react": "node scripts/build-react.mjs",
     "build:component": "node scripts/build-component.mjs",
-    "build:components": "node scripts/build-components.mjs"
+    "build:components": "node scripts/build-components.mjs",
+    "dev": "vite"
   },
   "eslintConfig": {
     "extends": [
@@ -134,6 +134,7 @@
     "mark.js": "^8.11.1",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
+    "vite": "^5.2.0",
     "vite-plugin-html": "^3.2.2"
   }
 }

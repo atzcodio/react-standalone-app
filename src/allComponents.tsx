@@ -29,17 +29,15 @@ export const ComponentMap: { [key: string]: React.ComponentType<any> } = All;
 
 
 // Import component modules (dev mode)
-if (process.env.NODE_ENV !== "production") {
   console.log("Registering components in dev mode", process.env.NODE_ENV);
-  LowcodePlatform.registerComponent("Button", ButtonModule);
-  LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
-  LowcodePlatform.registerComponent("Image", ImageModule);
-  LowcodePlatform.registerComponent("Table", TableModule);
-  LowcodePlatform.registerComponent("Checkbox", CheckboxModule);
-  LowcodePlatform.registerComponent("DateRangePicker", DateRangePickerModule);
-  LowcodePlatform.registerComponent("DatePicker", DatePickerModule);
-  LowcodePlatform.registerComponent("Switcher", SwitcherModule);
-}
+LowcodePlatform.registerComponent("Button", ButtonModule);
+LowcodePlatform.registerComponent("ProductInfo", ProductInfoModule);
+LowcodePlatform.registerComponent("Image", ImageModule);
+LowcodePlatform.registerComponent("Table", TableModule);
+LowcodePlatform.registerComponent("Checkbox", CheckboxModule);
+LowcodePlatform.registerComponent("DateRangePicker", DateRangePickerModule);
+LowcodePlatform.registerComponent("DatePicker", DatePickerModule);
+LowcodePlatform.registerComponent("Switcher", SwitcherModule);
 
 /* -----------------------------------------------------------------
    Helper functions that read metadata from the `All` map.

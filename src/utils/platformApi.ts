@@ -3,6 +3,7 @@ import { ElementTypes } from '../elements_types';
 import { BaseComponent, getDefaultProps } from '../baseComponent';
 import executeFlow from '../FlowExecution';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useComponentContext } from '../context/componentContext/hooks';
 import { THEME } from '../props';
 import * as AntdComponents from 'antd';
 import * as AntdIcons from '@ant-design/icons';
@@ -52,14 +53,9 @@ export const platformApi = {
     AutoSizer: AutoSizer,
     // Provide a function to get hooks instead of the hooks themselves
     getPlatformHooks: () => {
-        //Import hooks dynamically to avoid circular dependency issues
-        const { useComponentContext } = require('../context/componentContext/hooks');
-        const executeFlow = require('../FlowExecution').default;
-
         const useExecuteFlow = () => {
             const context = useComponentContext();
             const navigate = useNavigate();
-
             return (nodes: any[], nodeId?: string, extraOptions?: any) => {
                 const options = {
                     ...context,
@@ -69,7 +65,6 @@ export const platformApi = {
                 return executeFlow(nodes, nodeId, options);
             };
         };
-
         return {
             useComponentContext,
             useNavigate,

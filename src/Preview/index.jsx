@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useComponentContext } from "./../context/componentContext";
-import PreviewScreenPanel from "./PreviewScreenPanel";
+import PreviewScreenPanel from "./PreviewScreenPanel.jsx";
 import { Route, Routes, Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import PreviewPopup from "./PreviewPopup";
-import PreviewSidebar from "./PreviewSidebar";
-import PreviewHeader from "./PreviewHeader";
+import PreviewPopup from "./PreviewPopup.jsx";
+import PreviewSidebar from "./PreviewSidebar.jsx";
+import PreviewHeader from "./PreviewHeader.jsx";
 import { useTransition, animated } from 'react-spring';
 import useWindowDimensions from "../utils/windowDimention";
 
