@@ -95,7 +95,10 @@
     "build": "react-scripts build && node copyComponent.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy:components": "node copyComponent.js"
+    "copy:components": "node copyComponent.js",
+    "build:react": "node scripts/build-react.mjs",
+    "build:component": "node scripts/build-component.mjs",
+    "build:components": "node scripts/build-components.mjs"
   },
   "eslintConfig": {
     "extends": [

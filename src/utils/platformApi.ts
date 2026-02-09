@@ -10,8 +10,15 @@ import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
 import * as SimpleLineIcons from "react-icons/sl"
 import * as MuiMaterialIcons from '@mui/icons-material';
+import * as RiIcon from "react-icons/ri";
+import * as BsIcons from "react-icons/bs";
+import * as HiIcons from "react-icons/hi2";
+import * as PiIcons from "react-icons/pi"; 
+import * as LucideReact from 'lucide-react';
 import { FixedSizeList } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
+
+
 
 // Platform API that will be injected into components
 export const platformApi = {
@@ -36,6 +43,11 @@ export const platformApi = {
     FaIcons: FaIcons,
     SimpleLineIcons: SimpleLineIcons,
     MuiMaterialIcons: MuiMaterialIcons,
+    RiIcon: RiIcon,
+    BsIcons: BsIcons,
+    HiIcons: HiIcons,
+    PiIcons: PiIcons,
+    LucideReact: LucideReact,
     TableList: FixedSizeList,
     AutoSizer: AutoSizer,
     // Provide a function to get hooks instead of the hooks themselves
